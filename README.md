@@ -3,17 +3,17 @@ This project contains a bunch of sub modules which—themselves—contain mini p
 
 ### Rules
 
-- _C++11_ (and derived forms) and _Boost_ libraries are **forbidden**. The following functions are forbidden too: `*printf()`, `*alloc()` and `free()`.
+_C++11_ (and derived forms) and _Boost_ libraries are **forbidden**. The following functions are **forbidden** too: `*printf()`, `*alloc()` and `free()`.
 
-- The using namespace `<ns_name>` and friend keywords are **forbidden**
+The using namespace `<ns_name>` and friend keywords are **forbidden**
 
-- You **aren't allowed** to use the _STL_. That means: **no** _Containers (vector/list/map/and so forth)_ and **no** _Algorithms (anything that requires to include the `<algorithm>` header)_
+You **aren't allowed** to use the _STL_. That means: **no** _Containers (vector/list/map/and so forth)_ and **no** _Algorithms (anything that requires to include the `<algorithm>` header)_
 
-- Any function implementation put in a header file _(except for function templates)_ **means 0** to the exercise
+Any function implementation put in a header file _(except for function templates)_ **means 0** to the exercise
 
-- You are **allowed** to use the _STL_ in _Module 08_ only.
+You are **allowed** to use the _STL_ in _Module 08_ only.
 
-- From _Module 02_ to _Module 08_, your classes **must be** designed in the _Orthodox Canonical Form_, **except** when explicitely stated otherwise.
+From _Module 02_ to _Module 08_, your classes **must be** designed in the _Orthodox Canonical Form_, **except** when explicitely stated otherwise.
 
 ## What is ...
 
@@ -30,6 +30,8 @@ char* str = new char[30];   // Allocate 30 bytes to house a string.
 delete []str;               // Clear those 30 bytes and make str point nowhere.
 str = nullptr;              // set the pointer to null after deletion
 ```
+
+The `delete` keyword in C++ is used to free the memory allocated by the `new` keyword.
 
 ### `namespace` in C++
 A namespace is similar to a folder. It is a way to organize your code by grouping _related functions_ and _variables_ into a _single unit_ that can be accessed by other parts of your program or by other people who might need to use your code in the future, and you can also use it to avoid _name conflicts_ between similarly named variables or functions. 
@@ -70,7 +72,38 @@ myOtherObject.myOtherFunction();
 myObject.myVariable = 10;
 ```
 
-The diffrence between a a global variable and a namespace is that a global variable is accessible from anywhere in the program, and a namespace is only accessible from within the namespace. Another thing is that a namespace is a way to organize your code, and a global variable is a way to access your data from anywhere in the program.
+The difference between a a global variable and a namespace is that a global variable is accessible from anywhere in the program, and a namespace is only accessible from within the namespace. Another thing is that a namespace is a way to organize your code, and a global variable is a way to access your data from anywhere in the program.
+
+The difference between namespaces and classes is that a namespace is a way to organize your code, and a class is a way to create an object from a blueprint.
+
+
+
+
+# OOP
+
+In Object Oriented Programming, a constructor is a function that is called when an object is created, and a destructor is a function that is called when an object is destroyed, i.e. when the object is deleted with the `delete` keyword. For example, if you have a class called `MyClass`, you can create an object from it with the following code:
+
+```c++
+class MyClass {
+    public:
+        MyClass();
+        ~MyClass();
+};
+
+MyClass::MyClass() {
+    // Constructor code
+}
+
+MyClass::~MyClass() {
+    // Destructor code
+}
+
+MyClass myObject;
+```
+
+Both the constructor and the destructor don't have any return type, meaning that they don't return anything, that's why we don't need to specify the return type. But they do have parameters, which are the data members of the class that are being initialized or destroyed respectively (in the case of the constructor, the data members are being initialized, and in the case of the destructor, the data members are being destroyed)
+
+
 
 
 
