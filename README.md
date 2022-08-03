@@ -31,8 +31,36 @@ delete []str;               // Clear those 30 bytes and make str point nowhere.
 str = nullptr;              // set the pointer to null after deletion
 ```
 
-The `delete` keyword in C++ is used to free the memory allocated by the `new` keyword.
+The `delete` keyword in C++ is used to free the memory allocated by the `new` keyword. Note that it doesn't set the pointer to `NULL`, so you should always do it, kmowing that it's a good practice.
 
+### The difference between `new` and `malloc`
+
+1. **Calling Constructors:** `new` calls constructors, while `malloc()` does not. In fact primitive data types (`char`, `int`, `float`.. etc) can also be initialized with `new`. For example, below program prints `10`.
+
+```c++
+#include<iostream>
+
+int main()
+{
+    // Initialization with new
+    int *n = new int(10);
+    std::cout << *n;
+    std::getchar();
+    return 0;
+}
+```
+
+2. **_Operator_ vs _Function_:** `new` is an operator, while `malloc()` is a function.
+
+3. **Return Type**: `new` returns exact data type, while `malloc()` returns `void *`.
+
+4. **Failure Condition:** On failure, `malloc()` returns `NULL` where as `new` throws `bad_alloc` exception.
+
+5. **Memory:** In case of `new`, memory is allocated from free store where as in `malloc()` memory allocation is done from _Heap_.
+
+6. **Size:** Required size of memory is calculated by _compiler_ for `new`, where as we have to manually calculate size for `malloc()`.
+
+7. **Buffer Size:** `malloc()` allows to change the size of buffer using `realloc()` while `new` doesn’t
 ### `namespace` in C++
 A namespace is similar to a folder. It is a way to organize your code by grouping _related functions_ and _variables_ into a _single unit_ that can be accessed by other parts of your program or by other people who might need to use your code in the future, and you can also use it to avoid _name conflicts_ between similarly named variables or functions. 
 
@@ -61,6 +89,7 @@ ns_variable;
 but that means you can't use the `ns_name::ns_name_function()` syntax anymore. And that any other variables or functions with the same name as the ones in the namespace will be shadowed.
 
 ### The difference between a Class and an Object
+
 The difference between a Class and an Object is that a Class is a blueprint for an Object, and an Object is an instance of a Class. I.e. you can create as many Objects as you want from a Class, e.g. :
 
 ```c++
@@ -76,12 +105,9 @@ The difference between a a global variable and a namespace is that a global vari
 
 The difference between namespaces and classes is that a namespace is a way to organize your code, and a class is a way to create an object from a blueprint.
 
+### The _Constructor/Destructor_ in OOP
 
-
-
-# OOP
-
-In Object Oriented Programming, a constructor is a function that is called when an object is created, and a destructor is a function that is called when an object is destroyed, i.e. when the object is deleted with the `delete` keyword. For example, if you have a class called `MyClass`, you can create an object from it with the following code:
+In Object Oriented Programming, a _constructor_ is a function that is called when an object is created _(usually with the `new` keyword)_, and a _Destructor_ is a function that is called when an object is destroyed _(usually with the `delete` keyword)_. For example, if you have a class called `MyClass`, you can create an object from it with the following code:
 
 ```c++
 class MyClass {
@@ -101,13 +127,17 @@ MyClass::~MyClass() {
 MyClass myObject;
 ```
 
-Both the constructor and the destructor don't have any return type, meaning that they don't return anything, that's why we don't need to specify the return type. But they do have parameters, which are the data members of the class that are being initialized or destroyed respectively (in the case of the constructor, the data members are being initialized, and in the case of the destructor, the data members are being destroyed)
+Both the constructor and the destructor don't have any return type, meaning that they don't return anything, that's why we don't need to specify it. But they do have parameters, which are the data members of the class that are being initialized or destroyed respectively (in the case of the constructor, the data members are being initialized, and in the case of the destructor, the data members are being destroyed)
 
+### The difference between allocation in _stack_ vs _heap_
 
+```c++
+    myClass     class1;                     // Default constructor called, instance created on stack
+    myClass*    class2;                     // It's a pointer, no constructor called.
+    myClass*    class3 = new myClass;       // Default constructor called, instance created on heap/free_store
+```
 
-
-
-
+### Initialisation list
 
 
 ## Glossary
@@ -118,8 +148,10 @@ The difference between `.` and `::` in C++ is that `.` is used to access data me
 
 `::` _**(scope resolution operator):**_ is used to access a member of a _Class_ or a _Namespace_. Don't confuse it with the `.` operator, as this latter is used to access a member of an _Object_.
 
-`<<` _**(stream insertion operator)**_  is used to insert data into a stream. Meaning that you can use it to insert data into a stream, and it will be printed out.
+`<<` _**(stream insertion operator):**_  is used to insert data into a stream. Meaning that you can use it to insert data into a stream, and it will be printed out.
 
-`>>` _**(stream extraction operator)**_ is used to extract data from a stream. Meaning that you can use it to extract data from a stream, and it will be read in.
+`>>` _**(stream extraction operator):**_ is used to extract data from a stream. Meaning that you can use it to extract data from a stream, and it will be read in.
  
-**Stream** in _C++_ is a way to transfer data from the computer to the user, and vice versa.
+**Stream*:* in _C++_ is a way to transfer data from the computer to the user, and vice versa.
+
+**Free-Store:** 
