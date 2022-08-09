@@ -18,18 +18,18 @@
 class Contact
 {
 private:
-    std::string first_name;
-    std::string last_name;
-    std::string nickname;
-    std::string phone_number;
-    std::string darkest_secret;
+	std::string first_name;
+	std::string last_name;
+	std::string nickname;
+	std::string phone_number;
+	std::string darkest_secret;
 
 public:
-    Contact(void);
-    ~Contact(void);
-    std::string get_member(int index);
-    void        set_member(std::string str, int index);
-    void        clear_member(int index);
+	Contact(void);
+	~Contact(void);
+	std::string get_member(int index);
+	void set_member(std::string str, int index);
+	void clear_member(int index);
 };
 
 #endif

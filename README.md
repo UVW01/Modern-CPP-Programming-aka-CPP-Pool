@@ -140,6 +140,12 @@ Both the constructor and the destructor don't have any return type, meaning that
 ### Initialisation list
 
 
+### Exception handling in c++
+
+The try statement allows you to define a block of code to be tested for errors while it is being executed.
+The throw keyword throws an exception when a problem is detected, which lets us create a custom error.
+The catch statement allows you to define a block of code to be executed if an error occurs in the try block.
+
 ## Glossary
 
 **Static Member Function:** is a function that is defined inside a class, but it is not part of the object. It is a function that is called without an object.
@@ -155,3 +161,6 @@ The difference between `.` and `::` in C++ is that `.` is used to access data me
 **Stream*:* in _C++_ is a way to transfer data from the computer to the user, and vice versa.
 
 **Free-Store:** 
+
+
+**`std::ostrstream`:**
