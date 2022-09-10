@@ -14,23 +14,25 @@
 CC			:= c++
 CC_FLAGS	:= -Wall -Wextra -Werror -std=c++98
 
-NAME		:= megaphone
-MAIN		:= megaphone.cpp
+NAME		:= logs
+MAIN		:= tests.cpp
+DEPS		:= Account.cpp
+HEAD		:= Account.hpp
 
 # ---------------------------------------------------------------------------- #
 
-.PHONY: all clean fclean re
+.PHONY: all clean re
 
 all: ${NAME}
 
-${NAME}: ${MAIN}
-	@${CC} ${CC_FLAGS} ${MAIN} -o ${NAME}
-	@echo "${NAME}: compiled successfully"
+${NAME}: ${MAIN} ${HEAD}
+	@${CC} ${CC_FLAGS} ${MAIN} ${DEPS} -o ${NAME}
+	@echo "${NAME}: compiled successfully\n"
 
-clean: ${NAME}
+clean:
 	@rm -f ${NAME}
-	@echo "${NAME}: deleted successfully"
+	@echo "${NAME}: deleted successfully\n"
 
 fclean: clean
 
-re: fclean all
+re: clean all
