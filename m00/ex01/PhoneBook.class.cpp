@@ -13,9 +13,7 @@
 #include "PhoneBook.class.hpp"
 #include <string>
 
-/* -------------------------------------------------------------------------- *\
-							Constructor/Destructor
-\*-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -*/
+/* -------------------------------------------------------------------------- */
 
 PhoneBook::PhoneBook(void)
 {
@@ -23,17 +21,13 @@ PhoneBook::PhoneBook(void)
 	return;
 }
 
-/*-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -*/
-
 PhoneBook::~PhoneBook(void)
 {
 	std::cout << "Destructor called" << std::endl;
 	return;
 }
 
-/* -------------------------------------------------------------------------- *\
-								Other methods
-\*-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -*/
+/* -------------------------------------------------------------------------- */
 
 static std::string truncate(std::string str)
 {
@@ -103,5 +97,3 @@ int PhoneBook::add_contact(int contact_index)
 	}
 	return (0);
 }
-
-/*-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -*/

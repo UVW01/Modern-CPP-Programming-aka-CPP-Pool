@@ -24,7 +24,7 @@ Contact::Contact(void)
 
 Contact::~Contact(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Destroying Contact object" << std::endl;
 	return;
 }
 

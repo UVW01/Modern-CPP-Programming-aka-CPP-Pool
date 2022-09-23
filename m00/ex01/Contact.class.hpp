@@ -10,10 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_HPP
-#define CONTACT_CLASS_HPP
-
-#include <iostream>
+#ifndef CONTACT_CLASS_H_
+#define CONTACT_CLASS_H_
 
 class Contact
 {
