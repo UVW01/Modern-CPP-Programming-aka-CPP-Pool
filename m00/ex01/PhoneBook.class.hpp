@@ -10,11 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_CLASS_HPP
-#define PHONEBOOK_CLASS_HPP
+#ifndef PHONEBOOK_CLASS_HPP_
+#define PHONEBOOK_CLASS_HPP_
 
 #include "Contact.class.hpp"
-#include <iomanip>
 
 class PhoneBook
 {

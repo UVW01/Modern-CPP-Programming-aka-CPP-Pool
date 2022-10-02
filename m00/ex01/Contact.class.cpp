@@ -12,21 +12,23 @@
 
 #include "Contact.class.hpp"
 
+/* -------------------------------------------------------------------------- */
+
 Contact::Contact(void)
 {
-	this->first_name.clear();
-	this->last_name.clear();
-	this->nickname.clear();
-	this->phone_number.clear();
-	this->darkest_secret.clear();
+	std::cout << "Initializing empty contact ..." << std::endl;
 	return;
 }
 
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - */
+
 Contact::~Contact(void)
 {
-	std::cout << "Destroying Contact object" << std::endl;
+	std::cout << "... destroying contact" << std::endl;
 	return;
 }
+
+/* -------------------------------------------------------------------------- */
 
 void Contact::clear_member(int index)
 {
@@ -42,6 +44,8 @@ void Contact::clear_member(int index)
 		this->darkest_secret.clear();
 	return;
 }
+
+/* -------------------------------------------------------------------------- */
 
 void Contact::set_member(std::string str, int index)
 {
@@ -59,17 +63,21 @@ void Contact::set_member(std::string str, int index)
 	return;
 }
 
+/* -------------------------------------------------------------------------- */
+
 std::string Contact::get_member(int index)
 {
+	std::string	member;
+
 	if (index == 0)
-		return (this->first_name);
+		member = first_name;
 	else if (index == 1)
-		return (this->last_name);
+		member = last_name;
 	else if (index == 2)
-		return (this->nickname);
+		member = nickname;
 	else if (index == 3)
-		return (this->phone_number);
+		member = phone_number;
 	else if (index == 4)
-		return (this->darkest_secret);
-	return (std::string());
+		member = darkest_secret;
+	return (member);
 }

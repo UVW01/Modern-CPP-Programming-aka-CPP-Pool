@@ -11,19 +11,20 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.class.hpp"
-#include <string>
 
 /* -------------------------------------------------------------------------- */
 
 PhoneBook::PhoneBook(void)
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Initializing empty PhoneBook ..." << std::endl;
 	return;
 }
 
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - */
+
 PhoneBook::~PhoneBook(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "... destroying PhoneBook" << std::endl;
 	return;
 }
 
@@ -36,6 +37,8 @@ static std::string truncate(std::string str)
 	return (str);
 }
 
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - */
+
 static void display_info(Contact *contact)
 {
 	std::cout << std::endl;
@@ -43,18 +46,20 @@ static void display_info(Contact *contact)
 	std::cout << "----------|----------|----------|----------" << std::endl;
 	for (int i = 0; i < 8; i++)
 	{
-		std::cout << std::setw(10) << i << "|"
-			<< std::setw(10) << truncate((contact[i]).get_member(0)) << "|"
-			<< std::setw(10) << truncate((contact[i]).get_member(1)) << "|"
-			<< std::setw(10) << truncate((contact[i]).get_member(2))
+		std::cout << std::setw(10) << i << "|" \
+			<< std::setw(10) << truncate(contact[i].get_member(0)) << "|" \
+			<< std::setw(10) << truncate(contact[i].get_member(1)) << "|" \
+			<< std::setw(10) << truncate(contact[i].get_member(2)) \
 			<< std::endl;
 	}
 }
 
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - */
+
 int PhoneBook::search_contact(PhoneBook *phonebook) {
-	std::string		index_str;
 	int				index;
-	std::string		fields[5] = { "First Name\t: ", "Last Name\t: ",
+	std::string		index_str;
+	std::string		fields[5] = { "First Name\t: ", "Last Name\t: ", \
 		"Nickname\t: ", "Phone Number\t: ", "Darkest Secret\t: " };
 
 	display_info(phonebook->contacts);
@@ -62,7 +67,8 @@ int PhoneBook::search_contact(PhoneBook *phonebook) {
 	{
 		std::cout << "Please enter the desired contact's index: ";
 		std::getline(std::cin, index_str);
-		if (index_str.size() == 1 && std::isdigit(index_str[0]) && index_str[0] < '8')
+		if (index_str.size() == 1 && std::isdigit(index_str[0]) \
+			&& index_str[0] < '8')
 			break ;
 		std::cout << "Invalid input" << std::endl;
 	}		
@@ -75,13 +81,18 @@ int PhoneBook::search_contact(PhoneBook *phonebook) {
 	return (0);
 }
 
-/*-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -*/
+/* -------------------------------------------------------------------------- */
 
 int PhoneBook::add_contact(int contact_index)
 {
+	std::string	fields[5] = {
+		"First Name\t: ",
+		"Last Name\t: ",
+		"Nickname\t: ",
+		"Phone Number\t: ",
+		"Darkest Secret\t: "
+	};
 	std::string prompt;
-	std::string fields[5] = { "First Name\t: ", "Last Name\t: ",
-		"Nickname\t: ", "Phone Number\t: ", "Darkest Secret\t: " };
 
 	for (int i = 0; i < 5; i++)
 	{

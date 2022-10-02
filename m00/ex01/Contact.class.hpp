@@ -10,24 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_H_
-#define CONTACT_CLASS_H_
+#ifndef CONTACT_CLASS_HPP_
+# define CONTACT_CLASS_HPP_
+
+# include <iostream>
+# include <string>
+# include <iomanip>
 
 class Contact
 {
-private:
-	std::string first_name;
-	std::string last_name;
-	std::string nickname;
-	std::string phone_number;
-	std::string darkest_secret;
+	private:
+		std::string first_name;
+		std::string last_name;
+		std::string nickname;
+		std::string phone_number;
+		std::string darkest_secret;
 
-public:
-	Contact(void);
-	~Contact(void);
-	std::string get_member(int index);
-	void set_member(std::string str, int index);
-	void clear_member(int index);
+	public:
+		Contact(void);
+		~Contact(void);
+		std::string get_member(int index);
+		void 		set_member(std::string str, int index);
+		void 		clear_member(int index);
 };
 
 #endif
