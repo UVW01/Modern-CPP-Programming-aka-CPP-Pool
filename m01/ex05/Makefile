@@ -29,9 +29,9 @@ CC_FLAGS	:= -Wall -Wextra -Werror -std=c++98
 
 NAME		:= Harl
 MAIN		:= main.cpp
-SRCS		:= Harl.class.cpp 
+SRCS		:= Harl.cpp
 OBJS		:= ${SRCS:%.cpp=%.obj}
-HEAD		:= Harl.class.hpp
+HEAD		:= Harl.hpp
 
 # **************************************************************************** #
 # ****************************    FUNCTIONS    ******************************* #

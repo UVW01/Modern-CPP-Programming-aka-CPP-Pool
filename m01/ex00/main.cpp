@@ -24,6 +24,5 @@ int	main( void )
 	zombie_ptr->announce();
 	randomChump("Steve");
 	delete zombie_ptr;
-	system("leaks Brain");
 	return (0);
 }

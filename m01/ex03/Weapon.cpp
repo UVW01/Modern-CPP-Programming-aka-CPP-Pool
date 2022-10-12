@@ -18,7 +18,7 @@
 
 Weapon::Weapon( std::string in_type )
 {
-	this->setType( in_type );
+	this->type = in_type;
 	return ;
 }
 

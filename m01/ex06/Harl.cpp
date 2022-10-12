@@ -104,16 +104,11 @@ void	Harl::complain( std::string level )
 	}
 	switch ( f_index )
 	{
-		case 0:
-			(this->*f_ptr[0])();
-		case 1:
-			(this->*f_ptr[1])();
-		case 2:
-			(this->*f_ptr[2])();
-		case 3:
-			(this->*f_ptr[3])(); break ;
-		default:
-			nonsense();
+		case 0:		(this->*f_ptr[0])();
+		case 1:		(this->*f_ptr[1])();
+		case 2:		(this->*f_ptr[2])();
+		case 3:		(this->*f_ptr[3])(); break ;
+		default:	nonsense();
 	}
 	return ;
 }

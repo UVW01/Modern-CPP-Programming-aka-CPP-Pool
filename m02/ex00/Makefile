@@ -27,8 +27,11 @@ CYN			:= \e[36m
 CC			:= c++
 CC_FLAGS	:= -Wall -Wextra -Werror -std=c++98
 
-NAME		:= CustomSed
+NAME		:= Harl
 MAIN		:= main.cpp
+SRCS		:= Harl.class.cpp 
+OBJS		:= ${SRCS:%.cpp=%.obj}
+HEAD		:= Harl.class.hpp
 
 # **************************************************************************** #
 # ****************************    FUNCTIONS    ******************************* #
@@ -46,15 +49,20 @@ endef
 
 all: ${NAME}
 
-${NAME}: ${MAIN}
-	@${CC} ${CC_FLAGS} ${MAIN} -o ${NAME}
+${NAME}: ${OBJS} ${MAIN} ${HEAD}
+	@${CC} ${CC_FLAGS} ${MAIN} ${OBJS} -o ${NAME}
 	$(call print_status, ${NAME}, ${GRN}, "compiled")
 
+%.obj: %.cpp ${HEAD}
+	@${CC} ${CC_FLAGS}  -c $< -o $@
+	$(call print_status, $@, ${CYN}, "created")
+
 clean:
+	@rm -f ${OBJS}
+	$(call print_status, "*.obj", ${RED}, "deleted")
+
+fclean: clean
 	@rm -f ${NAME}
 	$(call print_status, ${NAME}, ${RED}, "deleted")
 
-fclean: clean
-
 re: fclean all
-

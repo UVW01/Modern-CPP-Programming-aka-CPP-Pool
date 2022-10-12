@@ -16,9 +16,8 @@
 /* **********************   Constructor/Destructor   ************************ */
 /* ************************************************************************** */
 
-HumanA::HumanA( std::string in_name, Weapon &in_weapon )
+HumanA::HumanA( std::string in_name, Weapon &in_weapon ): weapon(in_weapon)
 {
-	this->weapon = &in_weapon;
 	this->name = in_name;
 	return ;
 }
@@ -31,14 +30,14 @@ HumanA::~HumanA( void )
 }
 
 /* ************************************************************************** */
-/* ******************************   Methods   ******************************* */
+/* ******************************   METHODS   ******************************* */
 /* ************************************************************************** */
 
 void	HumanA::attack( void ) const
 {
 	std::cout << this->name;
 	std::cout << " attacks with their ";
-	std::cout << this->weapon->getType();
+	std::cout << this->weapon.getType();
 	std::cout << std::endl;
 	return ;
 }

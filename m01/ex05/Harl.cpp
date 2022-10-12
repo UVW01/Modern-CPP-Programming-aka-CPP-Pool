@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.class.hpp"
+#include "Harl.hpp"
 
 /* ************************************************************************** */
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
@@ -35,7 +35,8 @@ Harl::~Harl( void )
 void	Harl::debug( void )
 {
 	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple";
-	std::cout << "-pickle-specialketchup burger. I really do!" << std::endl;
+	std::cout << "-pickle-specialketchup burger." << std::endl;
+	std::cout << "I really do!" << std::endl << std::endl;
 	return ;
 }
 
@@ -43,9 +44,10 @@ void	Harl::debug( void )
 
 void	Harl::info( void )
 {
-	std::cout << "I cannot believe adding extra bacon costs more money. ";
+	std::cout << "I cannot believe adding extra bacon costs more money.";
+	std::cout << std::endl;
 	std::cout << "You didn’t put enough bacon in my burger! If you did, ";
-	std::cout << "I wouldn’t be asking for more!" << std::endl;
+	std::cout << "I wouldn’t be asking for more!" << std::endl << std::endl;
 	return ;
 }
 
@@ -53,9 +55,10 @@ void	Harl::info( void )
 
 void	Harl::warning( void )
 {
-	std::cout << "I think I deserve to have some extra bacon for free. ";
+	std::cout << "I think I deserve to have some extra bacon for free.";
+	std::cout << std::endl;
 	std::cout << "I’ve been coming for years whereas you started working ";
-	std::cout << "here since last month." << std::endl;
+	std::cout << "here since last month." << std::endl << std::endl;
 	return ;
 }
 
@@ -64,7 +67,7 @@ void	Harl::warning( void )
 void	Harl::error( void )
 {
 	std::cout << "This is unacceptable! I want to speak to the manager now.";
-	std::cout << std::endl;
+	std::cout << std::endl << std::endl;
 	return ;
 }
 
