@@ -33,7 +33,7 @@ class HumanB
     	HumanB( std::string in_name );
     	~HumanB( void );
 
-    	void	attack( void ) const;
+    	void	attack( void );
     	void	setWeapon( Weapon &weapon );
 };
 

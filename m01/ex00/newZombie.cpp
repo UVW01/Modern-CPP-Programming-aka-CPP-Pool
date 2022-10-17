@@ -20,6 +20,6 @@ Zombie*	newZombie( std::string name )
 {
 	Zombie *zombie_ptr;
 
-	zombie_ptr = new Zombie(name);
+	zombie_ptr = new (std::nothrow) Zombie(name);
 	return (zombie_ptr);
 }

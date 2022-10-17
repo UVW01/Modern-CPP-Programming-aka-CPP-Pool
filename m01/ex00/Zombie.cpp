@@ -16,10 +16,9 @@
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-Zombie::Zombie( std::string input_name )
+Zombie::Zombie( std::string input_name ): name(input_name)
 {
-	this->name = input_name;
-	std::cout << this->name << " has risen from the ground" << std::endl;
+	return ;
 }
 
 /* -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
@@ -27,6 +26,7 @@ Zombie::Zombie( std::string input_name )
 Zombie::~Zombie( void )
 {
 	std::cout << this->name << " has been exterminated" << std::endl;
+	return ;
 }
 
 /* ************************************************************************** */

@@ -21,8 +21,10 @@ int	main( void )
 	Zombie *zombie_ptr;
 
 	zombie_ptr = newZombie("Alex");
-	zombie_ptr->announce();
+	if (zombie_ptr)
+		zombie_ptr->announce();
 	randomChump("Steve");
-	delete zombie_ptr;
+	if (zombie_ptr)
+		delete zombie_ptr;
 	return (0);
 }

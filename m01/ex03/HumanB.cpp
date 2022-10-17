@@ -16,9 +16,8 @@
 /* **********************   Constructor/Destructor   ************************ */
 /* ************************************************************************** */
 
-HumanB::HumanB( std::string in_name )
+HumanB::HumanB( std::string in_name ): weapon(NULL), name(in_name)
 {
-	this->name = in_name;
 	return ;
 }
 
@@ -33,11 +32,12 @@ HumanB::~HumanB( void )
 /* ******************************   Methods   ******************************* */
 /* ************************************************************************** */
 
-void	HumanB::attack( void ) const
+void	HumanB::attack( void )
 {
 	std::cout << this->name;
 	std::cout << " attacks with their ";
-	std::cout << this->weapon->getType();
+	if (this->weapon)
+		std::cout << this->weapon->getType();
 	std::cout << std::endl;
 	return ;
 }

@@ -26,7 +26,6 @@ CYN			:= \e[36m
 
 CC			:= c++
 CC_FLAGS	:= -Wall -Wextra -Werror -std=c++98
-
 NAME		:= CustomSed
 MAIN		:= main.cpp
 

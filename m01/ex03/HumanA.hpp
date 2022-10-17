@@ -33,7 +33,7 @@ class HumanA
     	HumanA( std::string in_name, Weapon &in_weapon );
     	~HumanA( void );
 
-    	void	attack( void ) const;
+    	void	attack( void );
 };
 
 #endif

@@ -16,9 +16,8 @@
 /* **********************   Constructor/Destructor   ************************ */
 /* ************************************************************************** */
 
-Weapon::Weapon( std::string in_type )
+Weapon::Weapon( std::string in_type ): type(in_type)
 {
-	this->type = in_type;
 	return ;
 }
 

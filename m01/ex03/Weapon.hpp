@@ -30,15 +30,11 @@ class Weapon
 		std::string	type;
 		
 	public:
-    	Weapon( std::string in_type );
-    	~Weapon( void );
+		Weapon( std::string in_type );
+		~Weapon( void );
 
-    	const std::string&	getType( void ) const;
-    	void				setType( std::string new_type );
+		const std::string&	getType( void ) const;
+		void				setType( std::string new_type );
 };
-
-/* ************************************************************************** */
-/* ****************************   PROTOTYPES   ****************************** */
-/* ************************************************************************** */
 
 #endif

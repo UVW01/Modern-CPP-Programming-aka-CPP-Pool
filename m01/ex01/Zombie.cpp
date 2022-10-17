@@ -13,24 +13,23 @@
 #include "Zombie.hpp"
 
 /* ************************************************************************** */
-/* **********************   Constructor/Destructor   ************************ */
+/* **********************   CONSTRUCTOR/DESTRUCTOR   ************************ */
 /* ************************************************************************** */
 
-Zombie::Zombie( std::string input_name )
+Zombie::Zombie( std::string input_name ): name(input_name)
 {
-	this->name = input_name;
-	std::cerr << this->name << " has risen from the ground" << std::endl;
+	return ;
 }
 
 /* -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
 
 Zombie::~Zombie( void )
 {
-	std::cerr << this->name << " has been exterminated" << std::endl;
+	std::cout << this->name << " has been exterminated" << std::endl;
 }
 
 /* ************************************************************************** */
-/* ******************************   Methods   ******************************* */
+/* ******************************   METHODS   ******************************* */
 /* ************************************************************************** */
 
 void	Zombie::set_name( std::string input_name )

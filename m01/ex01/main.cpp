@@ -21,8 +21,8 @@ int	main( void )
 	Zombie *zombie_ptr;
 	int N = 7;
 
-	zombie_ptr = zombieHorde(N, "Motherfucker");
-	if (zombie_ptr == nullptr)
+	zombie_ptr = zombieHorde(N, "Steve");
+	if (!zombie_ptr)
 		return (1);
 	for ( int i = 0; i < N; i++ )
 		zombie_ptr[i].announce();
