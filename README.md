@@ -156,6 +156,112 @@ Both the constructor and the destructor don't have any return type, meaning  tha
 <!--*************************************************************************-->
 
 
+<!--*************************************************************************-->
+### The Orthodox Canonical Class Form _OCCF_
+<!--*************************************************************************-->
+
+```c++
+#ifndef FOO_H
+#define FOO_H
+
+class Foo {
+
+    public:
+        Foo();
+        Foo(const Foo& ref);
+        Foo& operator = (Foo& ref);
+        virtual ~Foo();
+
+        int getVal();
+        void setVal(int i);
+
+    private:
+        int* iptr;
+};
+
+#endif
+```
+
+- **The Default Constructor:** is one that can be called without parameters, thus giving the object default initialization values, which are defined in the default constructor's definition _(duh!?)_
+
+- **The Destructor's:** purpose is to properly tear down objects when they are no longer needed and release any resources reserved for the object’s use during its lifetime.
+
+- **Copy Constructor:**  . The copy constructor can be defined explicitly by the programmer. If the programmer does not define the copy constructor, the compiler does it for us.
+
+
+
+```c++
+
+#include "foo.h"
+
+Foo::Foo(int i)
+{
+    iptr = new int(i);
+}
+
+Foo::~Foo()
+{
+    delete iptr;
+}
+
+Foo::Foo(Foo& ref)
+{
+    iptr = new int(*(ref.iptr));
+}
+
+Foo& Foo::operator=(Foo& ref)
+{
+    *iptr = *(ref.iptr);
+    return *this;
+}
+
+int Foo::getVal()
+{
+    return *iptr;
+}
+
+void Foo::setVal(int i)
+{
+    *iptr = i;
+}
+
+```
+
+<!--*************************************************************************-->
+### Function chaining in C++
+<!--*************************************************************************-->
+C++ has a feature wich lets you code stuff like the following:
+
+```c++
+int main()
+{
+  Test obj1(5, 5);
+
+  // Chained function calls.  All calls modify the same object
+  // as the same object is returned by reference
+  obj1.setX(10).setY(20);
+
+  obj1.print();
+  return 0;
+}
+```
+this thing can be achieved by just returning a reference to the same object from the executed methods, just like the following:
+
+```c++
+using namespace std;
+
+class Test
+{
+    private:
+        int x;
+        int y;
+    public:
+        Test(int x = 0, int y = 0) { this->x = x; this->y = y; }
+        Test &setX(int a) { x = a; return *this; }          // Here
+        Test &setY(int b) { y = b; return *this; }          // Here
+        void print() { cout << "x = " << x << " y = " << y << endl; }
+};
+```
 
 <!--*************************************************************************-->
 ### Exception handling in c++
@@ -183,5 +289,13 @@ The difference between `.` and `::` in C++ is that `.` is used to access data me
 
 
 **`std::ostrstream`:**
+
+
+
+If “-fno-elide-constructors” option is used, first default constructor is called to create a temporary object, then copy constructor is called to copy the temporary object to ob.
+
+
+
+
 
 

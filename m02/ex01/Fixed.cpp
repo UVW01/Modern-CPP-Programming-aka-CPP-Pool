@@ -25,10 +25,26 @@ Fixed::Fixed( void ): fp_(0)
 
 /* -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
 
-Fixed::Fixed( const Fixed& ref )
+Fixed::Fixed( Fixed const& ref )
 {
 	std::cout << "Copy constructor called" << std::endl;
 	this->fp_ = ref.getRawBits();
+	return ;
+}
+
+/* -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
+
+Fixed::Fixed( int const value );
+{
+	setRawBits( value << this->fract_bits_no_ );
+	return ;
+}
+
+/* -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
+
+Fixed::Fixed( float const value );
+{
+	setRawBits( value << this->fract_bits_no_ );
 	return ;
 }
 
@@ -56,7 +72,7 @@ Fixed::~Fixed( void )
 int		Fixed::getRawBits( void ) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
-	return (fp_);
+	return (this->fp_);
 }
 
 /* -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
@@ -64,9 +80,22 @@ int		Fixed::getRawBits( void ) const
 void	Fixed::setRawBits( int const raw )
 {
 	std::cout << "setRawBits member function called" << std::endl;
-	fp_ = raw;
+	this->fp_ = raw;
 	return ;
 }
 
+/* -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
+
+float	toFloat( void ) const
+{
+
+}
+
+/* -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
+
+int		toInt( void ) const
+{
+
+}
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
- 

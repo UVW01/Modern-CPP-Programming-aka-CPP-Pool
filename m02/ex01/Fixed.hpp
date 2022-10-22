@@ -35,8 +35,13 @@ class Fixed
 		void operator=( Fixed const& );
 		~Fixed( void );
 
+		Fixed( int const value );
+		Fixed( float const value );
+
 		int		getRawBits( void ) const;
-		void	setRawBits( int const raw);
+		void	setRawBits( int const raw );
+		float	toFloat( void ) const;
+		int		toInt( void ) const;
 };
 
 /* ************************************************************************** */

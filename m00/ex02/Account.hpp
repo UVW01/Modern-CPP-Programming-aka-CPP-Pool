@@ -16,12 +16,11 @@
 //                               Account Class                                //
 // ************************************************************************** //
 
-class Account {
+typedef class Account {
 
 
 public:
 
-	typedef Account		t;
 
 	static int	getNbAccounts( void );
 	static int	getTotalAmount( void );
@@ -54,7 +53,7 @@ private:
 
 	Account( void );
 
-};
+} t;
 
 
 
