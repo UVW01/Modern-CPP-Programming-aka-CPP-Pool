@@ -33,7 +33,23 @@ class Fixed
 	public:
 		Fixed( void );
 		Fixed( Fixed const& );
+
 		void operator=( Fixed const& );
+		void operator>( Fixed const& );
+		void operator<( Fixed const& );
+		void operator>=( Fixed const& );
+		void operator<=( Fixed const& );
+		void operator==( Fixed const& );
+		void operator!=( Fixed const& );
+		void operator+( Fixed const& );
+		void operator-( Fixed const& );
+		void operator*( Fixed const& );
+		void operator/( Fixed const& );
+		void operator=( Fixed const& );
+		void operator=( Fixed const& );
+		void operator=( Fixed const& );
+		void operator=( Fixed const& );
+
 		Fixed( int const value );
 		Fixed( float const value );
 		~Fixed( void );

@@ -22,13 +22,12 @@ Fixed::Fixed( void ): fp_(0)
 	return ;
 }
 
-
 /* -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
 
-Fixed::Fixed( const Fixed& ref )
+Fixed::Fixed( Fixed const& ref )
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->fp_ = ref.getRawBits();
+	*this = ref;
 	return ;
 }
 
