@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,69 +11,46 @@
 /* ************************************************************************** */
 
 #pragma once
-#ifndef FIXED_HPP_
-# define FIXED_HPP_
+#ifndef POINT_HPP_
+# define POINT_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
+# include "Fixed.hpp"
 # include <iostream>
-# include <cmath>
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class Fixed
+class Point
 {
 	private:
-		int					fp_;
-		static const int	fract_bits_no_ = 8;
+		Fixed const x_;
+		Fixed const y_;
 
 	public:
-		Fixed( void );
-		~Fixed( void );
+		Point( void );
+		~Point( void );
 
-		Fixed( Fixed const& );
-		Fixed( int const value );
-		Fixed( float const value );
+		Point( float const , float const );
+		Point( Point const& );
+		void	operator = ( Point const& );
 
-		void	operator = ( Fixed const& );
+		Fixed&	getXPoint( void ) const;
+		Fixed&	getYPoint( void ) const;
 
-		bool	operator >  ( Fixed const& );
-		bool	operator <  ( Fixed const& );
-		bool	operator >= ( Fixed const& );
-		bool	operator <= ( Fixed const& );
-		bool	operator == ( Fixed const& );
-		bool	operator != ( Fixed const& );
-
-		Fixed	operator + ( Fixed const& );
-		Fixed	operator - ( Fixed const& );
-		Fixed	operator * ( Fixed const& );
-		Fixed	operator / ( Fixed const& );
-
-		Fixed&	operator ++ ( void );
-		Fixed&	operator -- ( void );
-		Fixed	operator ++ ( int );
-		Fixed	operator -- ( int );
-
-		int		getRawBits( void ) const;
-		void	setRawBits( int const raw );
-
-		float	toFloat( void ) const;
-		int		toInt( void ) const;
-
-		static Fixed&	min( Fixed&, Fixed& );
-		static Fixed&	max( Fixed&, Fixed& );
-		static Fixed&	min( Fixed const&, Fixed const& );
-		static Fixed&	max( Fixed const&, Fixed const& );
+		float	getFloatXPoint( void ) const;
+		float	getFloatYPoint( void ) const;
 };
 
 /* ************************************************************************** */
 /* ****************************   PROTOTYPES   ****************************** */
 /* ************************************************************************** */
 
-std::ostream&	operator << ( std::ostream& , Fixed const& );
+int		orient( Point const&, Point const&, Point const& );
+bool	bsp( Point const, Point const, Point const, Point const );
 
 #endif

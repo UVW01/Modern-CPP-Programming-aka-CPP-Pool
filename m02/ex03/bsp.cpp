@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   bsp.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,34 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#ifndef FIXED_HPP_
-# define FIXED_HPP_
+#include "Point.hpp"
 
 /* ************************************************************************** */
-/* ****************************   INCLUDES   ******************************** */
+/* *****************************  FUNCTIONS  ******************************** */
 /* ************************************************************************** */
 
-# include <iostream>
-
-/* ************************************************************************** */
-/* *****************************   CLASSES   ******************************** */
-/* ************************************************************************** */
-
-class Fixed
+bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
-	private:
-		int					fp_;
-		static const int	fract_bits_no_ = 8;
-
-	public:
-		Fixed( void );
-		Fixed( Fixed const& );
-		void operator=( Fixed const& );
-		~Fixed( void );
-
-		int		getRawBits( void ) const;
-		void	setRawBits( int const raw);
-};
-
-#endif
+	int	turns = orient(a, b, point) + orient(b, c, point) + orient(c, a, point);
+	if (abs(turns) == 3)
+		return (true);
+	return (false);
+}

@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef FIXED_HPP_
 # define FIXED_HPP_
 
@@ -51,47 +52,3 @@ class Fixed
 std::ostream& operator<<(std::ostream &out, Fixed const &c);
 
 #endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Default constructor called
-// Int constructor called
-// Float constructor called
-// Copy constructor called
-
-// Float constructor called
-// Copy assignment operator called
-// Destructor called
