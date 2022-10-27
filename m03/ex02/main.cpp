@@ -10,36 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 
 int	main( void )
 {
-	ClapTrap	first;
-	ClapTrap	second("Monster");
-	ClapTrap	third(second);
-	ClapTrap	forth;
-	forth = second;
+	// ScavTrap	first;
+	ScavTrap	second("Monster");
+	// ScavTrap	third(second);
+	// ScavTrap	forth;
+	// forth = second;
 
-	std::cout << "first" << std::endl;
-	std::cout << first.getName() << " " << first.getHitPoints() << " ";
-	std::cout << first.getAttackDamage() << " " << first.getEnergyPoints();
-	std::cout << std::endl;
+	// std::cout << "first" << std::endl;
+	// std::cout << first.getName() << " " << first.getHitPoints() << " ";
+	// std::cout << first.getAttackDamage() << " " << first.getEnergyPoints();
+	// std::cout << std::endl;
 
-	std::cout << "second" << std::endl;
+	std::cout << "Second:" << std::endl;
 	std::cout << second.getName() << " " << second.getHitPoints() << " ";
 	std::cout << second.getAttackDamage() << " " << second.getEnergyPoints();
 	std::cout << std::endl;
+	second.guardGate();
 
-	std::cout << "third" << std::endl;
-	std::cout << third.getName() << " " << third.getHitPoints() << " ";
-	std::cout << third.getAttackDamage() << " " << third.getEnergyPoints();
-	std::cout << std::endl;
+	// std::cout << "third" << std::endl;
+	// std::cout << third.getName() << " " << third.getHitPoints() << " ";
+	// std::cout << third.getAttackDamage() << " " << third.getEnergyPoints();
+	// std::cout << std::endl;
 
-	std::cout << "forth" << std::endl;
-	std::cout << forth.getName() << " " << forth.getHitPoints() << " ";
-	std::cout << forth.getAttackDamage() << " " << forth.getEnergyPoints();
-	std::cout << std::endl;
+	// std::cout << "forth" << std::endl;
+	// std::cout << forth.getName() << " " << forth.getHitPoints() << " ";
+	// std::cout << forth.getAttackDamage() << " " << forth.getEnergyPoints();
+	// std::cout << std::endl;
 
 	return (0);
 }

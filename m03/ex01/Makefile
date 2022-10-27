@@ -27,11 +27,11 @@ CYN			:= \e[36m
 CC			:= c++
 CC_FLAGS	:= -Wall -Wextra -Werror -std=c++98
 
-NAME		:= ClapTrap
+NAME		:= ScavTrap
 MAIN		:= main.cpp
-SRCS		:= ClapTrap.cpp
+SRCS		:= ClapTrap.cpp ScavTrap.cpp
 OBJS		:= ${SRCS:%.cpp=%.obj}
-HEAD		:= ClapTrap.hpp
+HEAD		:= ClapTrap.hpp ScavTrap.hpp
 
 # **************************************************************************** #
 # ****************************    FUNCTIONS    ******************************* #

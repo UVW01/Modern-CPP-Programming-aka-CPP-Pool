@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,43 +11,32 @@
 /* ************************************************************************** */
 
 #pragma once
-#ifndef CLAPTRAP_HPP_
-# define CLAPTRAP_HPP_
+#ifndef DIAMONDTRAP_HPP_
+# define DIAMONDTRAP_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-# include <string>
-# include <iostream>
+# include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class ClapTrap
+class DiamondTrap: public ClapTrap, public ScavTrap
 {
 	private:
-		std::string		name;
-		unsigned int	hitPoints;
-		unsigned int	energyPoints;
-		unsigned int	attackDamage;
-
+		std::string	name;
 	public:
-		ClapTrap( void );
-		ClapTrap( std::string );
-		ClapTrap( ClapTrap const& );
-		void operator = ( ClapTrap const& );
-		~ClapTrap( void );
+		DiamondTrap( void );
+		DiamondTrap( std::string );
+		DiamondTrap( DiamondTrap const& );
+		void operator = ( DiamondTrap const& );
+		~DiamondTrap( void );
 
-		std::string		getName( void ) const;
-		unsigned int	getHitPoints( void ) const;
-		unsigned int	getEnergyPoints( void ) const;
-		unsigned int	getAttackDamage( void ) const;
-
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		void	whoAmI( void );
 };
 
 #endif
