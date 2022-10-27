@@ -16,31 +16,31 @@
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-ScavTrap::ScavTrap( void )
+ScavTrap::ScavTrap( void ): ClapTrap()
 {
 	std::cout << "ScavTrap Default constructor called" << std::endl;
 	name = "UNKNOWN";
 	hitPoints = 100;
-	energyPoints = 50;
+	//energyPoints = 50;
 	attackDamage = 20;
 	return ;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-ScavTrap::ScavTrap( std::string input_name )
+ScavTrap::ScavTrap( std::string input_name ): ClapTrap( input_name )
 {
 	std::cout << "ScavTrap Initialization constructor called" << std::endl;
 	name = input_name;
 	hitPoints = 100;
-	energyPoints = 50;
+	//energyPoints = 50;
 	attackDamage = 20;
 	return ;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-ScavTrap::ScavTrap( ScavTrap const& obj )
+ScavTrap::ScavTrap( ScavTrap const& obj ): ClapTrap( obj )
 {
 	std::cout << "ScavTrap Copy constructor called" << std::endl;
 	*this = obj;

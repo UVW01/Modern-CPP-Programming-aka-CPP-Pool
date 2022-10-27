@@ -18,21 +18,24 @@
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-# include "ClapTrap.hpp"
+# include "FragTrap.hpp"
 # include "ScavTrap.hpp"
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class DiamondTrap: public ClapTrap, public ScavTrap
+class DiamondTrap: public FragTrap, public ScavTrap
 {
 	private:
 		std::string	name;
+
 	public:
 		DiamondTrap( void );
 		DiamondTrap( std::string );
 		DiamondTrap( DiamondTrap const& );
+		using FragTrap::operator=;
+		using ScavTrap::operator=;
 		void operator = ( DiamondTrap const& );
 		~DiamondTrap( void );
 

@@ -24,12 +24,13 @@
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class FragTrap: public ClapTrap
+class FragTrap: virtual public ClapTrap
 {
 	public:
 		FragTrap( void );
 		FragTrap( std::string );
 		FragTrap( FragTrap const& );
+		using ClapTrap::operator=;
 		void operator = ( FragTrap const& );
 		~FragTrap( void );
 

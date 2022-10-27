@@ -24,12 +24,13 @@
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class ScavTrap: public ClapTrap
+class ScavTrap: virtual public ClapTrap
 {
 	public:
 		ScavTrap( void );
 		ScavTrap( std::string );
 		ScavTrap( ScavTrap const& );
+		using ClapTrap::operator=;
 		void operator = ( ScavTrap const& );
 		~ScavTrap( void );
 

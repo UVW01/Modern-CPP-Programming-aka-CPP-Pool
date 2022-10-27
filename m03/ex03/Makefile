@@ -27,11 +27,11 @@ CYN			:= \e[36m
 CC			:= c++
 CC_FLAGS	:= -Wall -Wextra -Werror -std=c++98
 
-NAME		:= ScavTrap
+NAME		:= DiamondTrap
 MAIN		:= main.cpp
-SRCS		:= ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRCS		:= ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJS		:= ${SRCS:%.cpp=%.obj}
-HEAD		:= ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
+HEAD		:= ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 
 # **************************************************************************** #
 # ****************************    FUNCTIONS    ******************************* #

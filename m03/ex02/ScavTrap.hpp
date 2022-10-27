@@ -30,6 +30,7 @@ class ScavTrap: public ClapTrap
 		ScavTrap( void );
 		ScavTrap( std::string );
 		ScavTrap( ScavTrap const& );
+		using ClapTrap::operator=;
 		void operator = ( ScavTrap const& );
 		~ScavTrap( void );
 

@@ -17,9 +17,14 @@ int	main( void )
 {
 	// ScavTrap	first;
 	ScavTrap	second("Monster");
+	std::cout << std::endl;
+
 	// ScavTrap	third(second);
-	// ScavTrap	forth;
-	// forth = second;
+	ScavTrap	forth;
+	std::cout << std::endl;
+
+	forth = second;
+	std::cout << std::endl;
 
 	// std::cout << "first" << std::endl;
 	// std::cout << first.getName() << " " << first.getHitPoints() << " ";
@@ -30,7 +35,10 @@ int	main( void )
 	std::cout << second.getName() << " " << second.getHitPoints() << " ";
 	std::cout << second.getAttackDamage() << " " << second.getEnergyPoints();
 	std::cout << std::endl;
-	second.guardGate();
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+	//second.guardGate();
 
 	// std::cout << "third" << std::endl;
 	// std::cout << third.getName() << " " << third.getHitPoints() << " ";

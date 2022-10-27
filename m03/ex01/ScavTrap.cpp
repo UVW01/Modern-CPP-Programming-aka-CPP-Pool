@@ -16,7 +16,7 @@
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-ScavTrap::ScavTrap( void )
+ScavTrap::ScavTrap( void ): ClapTrap()
 {
 	std::cout << "ScavTrap Default constructor called" << std::endl;
 	name = "UNKNOWN";
@@ -28,7 +28,7 @@ ScavTrap::ScavTrap( void )
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-ScavTrap::ScavTrap( std::string input_name )
+ScavTrap::ScavTrap( std::string input_name ): ClapTrap( input_name )
 {
 	std::cout << "ScavTrap Initialization constructor called" << std::endl;
 	name = input_name;
@@ -40,7 +40,7 @@ ScavTrap::ScavTrap( std::string input_name )
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-ScavTrap::ScavTrap( ScavTrap const& obj )
+ScavTrap::ScavTrap( ScavTrap const& obj ): ClapTrap( obj )
 {
 	std::cout << "ScavTrap Copy constructor called" << std::endl;
 	*this = obj;
@@ -51,6 +51,7 @@ ScavTrap::ScavTrap( ScavTrap const& obj )
 
 void ScavTrap::operator = (ScavTrap const& obj)
 {
+	operator=(static_cast<ClapTrap const&>(obj));
 	std::cout << "ScavTrap Copy assignment operator called" << std::endl;
 	name = obj.getName();
 	hitPoints = obj.getHitPoints();

@@ -108,6 +108,7 @@ void	ClapTrap::attack(const std::string& target)
 	return ;
 }
 
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
@@ -120,6 +121,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	return ;
 }
 
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
@@ -136,4 +138,3 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	energyPoints -= 1;
 	return ;
 }
-

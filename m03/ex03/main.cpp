@@ -10,37 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 
 int	main( void )
 {
-	// ScavTrap	first;
-	ScavTrap	second("Monster");
-	// ScavTrap	third(second);
-	// ScavTrap	forth;
-	// forth = second;
 
-	// std::cout << "first" << std::endl;
-	// std::cout << first.getName() << " " << first.getHitPoints() << " ";
-	// std::cout << first.getAttackDamage() << " " << first.getEnergyPoints();
-	// std::cout << std::endl;
+	DiamondTrap	second("Monster");
+	DiamondTrap first;
 
-	std::cout << "Second:" << std::endl;
-	std::cout << second.getName() << " " << second.getHitPoints() << " ";
-	std::cout << second.getAttackDamage() << " " << second.getEnergyPoints();
+	first = second;
+
 	std::cout << std::endl;
-	second.guardGate();
-
-	// std::cout << "third" << std::endl;
-	// std::cout << third.getName() << " " << third.getHitPoints() << " ";
-	// std::cout << third.getAttackDamage() << " " << third.getEnergyPoints();
-	// std::cout << std::endl;
-
-	// std::cout << "forth" << std::endl;
-	// std::cout << forth.getName() << " " << forth.getHitPoints() << " ";
-	// std::cout << forth.getAttackDamage() << " " << forth.getEnergyPoints();
-	// std::cout << std::endl;
+	std::cout << "Name: " << second.getName() << std::endl;
+	std::cout << "HitPoints: " << second.getHitPoints() << std::endl;
+	std::cout << "EnergyPoints: " << second.getEnergyPoints() << std::endl;
+	std::cout << "AttackDamage: " << second.getAttackDamage() << std::endl;
+	std::cout << std::endl;
 
 	return (0);
 }
