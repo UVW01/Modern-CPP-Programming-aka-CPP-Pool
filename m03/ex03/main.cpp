@@ -17,15 +17,16 @@ int	main( void )
 {
 
 	DiamondTrap	second("Monster");
-	DiamondTrap first;
-
-	first = second;
 
 	std::cout << std::endl;
-	std::cout << "Name: " << second.getName() << std::endl;
+	second.whoAmI();
 	std::cout << "HitPoints: " << second.getHitPoints() << std::endl;
 	std::cout << "EnergyPoints: " << second.getEnergyPoints() << std::endl;
 	std::cout << "AttackDamage: " << second.getAttackDamage() << std::endl;
+	second.attack("Alien");
+	second.takeDamage(100);
+	second.takeDamage(10);
+	second.beRepaired(3);
 	std::cout << std::endl;
 
 	return (0);

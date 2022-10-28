@@ -25,7 +25,7 @@ CYN			:= \e[36m
 # **************************************************************************** #
 
 CC			:= c++
-CC_FLAGS	:= -Wall -Wextra -Werror -std=c++98
+CC_FLAGS	:= -Wall -Wextra -Werror -Wno-shadow -std=c++98
 
 NAME		:= DiamondTrap
 MAIN		:= main.cpp
