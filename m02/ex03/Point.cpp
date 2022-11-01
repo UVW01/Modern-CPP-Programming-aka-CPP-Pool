@@ -91,12 +91,9 @@ float	Point::getFloatYPoint( void ) const
 
 int	orient(Point const& a, Point const& b, Point const& c)
 {
-	Point	ab(b.getFloatXPoint() - a.getFloatXPoint(), \
-		b.getFloatYPoint() - a.getFloatYPoint());
-	Point	ac(c.getFloatXPoint() - a.getFloatXPoint(), \
-		c.getFloatYPoint() - a.getFloatYPoint());
-	float	cross_product(ab.getFloatXPoint() * ab.getFloatXPoint() \
-		- ab.getFloatXPoint() * ac.getFloatXPoint());
+	Point	ab(b.getFloatXPoint() - a.getFloatXPoint(), b.getFloatYPoint() - a.getFloatYPoint());
+	Point	ac(c.getFloatXPoint() - a.getFloatXPoint(), c.getFloatYPoint() - a.getFloatYPoint());
+	float	cross_product(ab.getFloatXPoint() * ab.getFloatXPoint() - ab.getFloatXPoint() * ac.getFloatXPoint());
 	if (cross_product > 0)
 		return 1;
 	return -1;

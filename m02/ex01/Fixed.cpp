@@ -36,7 +36,7 @@ Fixed::Fixed( Fixed const& ref )
 Fixed::Fixed( int const value )
 {
 	std::cout << "Int constructor called" << std::endl;
-	setRawBits( value << this->fract_bits_no_ );
+	setRawBits( value << fract_bits_no_ );
 	return ;
 }
 
@@ -45,7 +45,7 @@ Fixed::Fixed( int const value )
 Fixed::Fixed( float const value )
 {
 	std::cout << "Float constructor called" << std::endl;
-	int32_t fix = (int32_t)round(value * (1 << fract_bits_no_));
+	int32_t fix = (int32_t)roundf(value * (1 << fract_bits_no_));
 	setRawBits( fix );
 	return ;
 }
@@ -55,7 +55,7 @@ Fixed::Fixed( float const value )
 void Fixed::operator=(Fixed const& obj)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->fp_ = obj.getRawBits();
+	fp_ = obj.getRawBits();
 	return ;
 }
 
@@ -73,14 +73,14 @@ Fixed::~Fixed( void )
 
 int		Fixed::getRawBits( void ) const
 {
-	return (this->fp_);
+	return (fp_);
 }
 
 /* -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
 
 void	Fixed::setRawBits( int const raw )
 {
-	this->fp_ = raw;
+	fp_ = raw;
 	return ;
 }
 
@@ -88,18 +88,18 @@ void	Fixed::setRawBits( int const raw )
 
 float	Fixed::toFloat( void ) const
 {
-	int32_t	fix = this->getRawBits();
+	int32_t	fix = getRawBits();
 
-	return ((float)fix / (float)(1 << this->fract_bits_no_));
+	return ((float)fix / (float)(1 << fract_bits_no_));
 }
 
 /* -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
 
 int		Fixed::toInt( void ) const
 {
-	int32_t	fix = this->getRawBits();
+	int32_t	fix = getRawBits();
 
-	return ((float)fix / (float)(1 << this->fract_bits_no_));
+	return ((int)fix / (int)(1 << fract_bits_no_));
 }
 
 /* ************************************************************************** */

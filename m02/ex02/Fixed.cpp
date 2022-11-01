@@ -41,7 +41,7 @@ Fixed::Fixed( int const value )
 
 Fixed::Fixed( float const value )
 {
-	int32_t fix = (int32_t)round(value * (1 << fract_bits_no_));
+	int32_t fix = (int32_t)roundf(value * (1 << fract_bits_no_));
 	setRawBits( fix );
 	return ;
 }
@@ -207,7 +207,7 @@ int		Fixed::toInt( void ) const
 {
 	int32_t	fix = getRawBits();
 
-	return ((float)fix / (float)(1 << fract_bits_no_));
+	return ((int)fix / (int)(1 << fract_bits_no_));
 }
 
 /* -------------------------------------------------------------------------- */
