@@ -95,14 +95,14 @@ unsigned int	ClapTrap::getAttackDamage( void ) const
 
 void	ClapTrap::attack(const std::string& target)
 {
-	std::cout << "ClapTrap" << name;
+	std::cout << name;
 	if (energyPoints == 0 || hitPoints == 0)
 	{
 		std::cout << " doesn't have enough vitalities to attack "<< target;
 		std::cout << "!" << std::endl;
 		return ;
 	}
-	std::cout <<  "attacks " << target << ", causing ";
+	std::cout <<  " attacks " << target << ", causing ";
 	std::cout << attackDamage << " points of damage!" << std::endl;
 	energyPoints -= 1;
 	return ;
@@ -112,7 +112,7 @@ void	ClapTrap::attack(const std::string& target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "ClapTrap" << name << "took " << amount;
+	std::cout << name << " took " << amount;
 	std::cout << " of attack damage!" << std::endl;
 	if (amount > hitPoints)
 		hitPoints = 0;
@@ -125,14 +125,14 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	std::cout << "ClapTrap" << name;
+	std::cout << name;
 	if (energyPoints == 0 || hitPoints == 0)
 	{
 		std::cout << " doesn't have enough vitalities to repair itself!";
 		std::cout << std::endl;
 		return ;
 	}
-	std::cout <<  "repaired itself with " << amount << "of health!";
+	std::cout <<  " repaired itself with " << amount << " of health!";
 	std::cout << std::endl;
 	hitPoints += amount;
 	energyPoints -= 1;

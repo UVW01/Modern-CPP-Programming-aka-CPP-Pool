@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,43 +11,33 @@
 /* ************************************************************************** */
 
 #pragma once
-#ifndef CLAPTRAP_HPP_
-# define CLAPTRAP_HPP_
+#ifndef DOG_HPP_
+# define DOG_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-# include <string>
-# include <iostream>
+# include "Animal.hpp"
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class ClapTrap
+class Dog: public Animal
 {
-	protected:
-		std::string		name;
-		unsigned int	hitPoints;
-		unsigned int	energyPoints;
-		unsigned int	attackDamage;
-
 	public:
-		ClapTrap( void );
-		ClapTrap( std::string );
-		ClapTrap( ClapTrap const& );
-		void operator = ( ClapTrap const& );
-		virtual ~ClapTrap( void );
+		Dog( void );
+		Dog( Dog const& );
+		void operator = ( Dog const& );
+		~Dog( void );
 
-		std::string		getName( void ) const;
-		unsigned int	getHitPoints( void ) const;
-		unsigned int	getEnergyPoints( void ) const;
-		unsigned int	getAttackDamage( void ) const;
-
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		void makeSound( void ) const;
 };
+
+/* ************************************************************************** */
+/* ****************************   PROTOTYPES   ****************************** */
+/* ************************************************************************** */
+
 
 #endif

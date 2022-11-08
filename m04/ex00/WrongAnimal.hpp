@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,43 +11,41 @@
 /* ************************************************************************** */
 
 #pragma once
-#ifndef CLAPTRAP_HPP_
-# define CLAPTRAP_HPP_
+#ifndef WRONGANIMAL_HPP_
+# define WRONGANIMAL_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-# include <string>
 # include <iostream>
+# include <string>
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class ClapTrap
+class WrongAnimal
 {
 	protected:
-		std::string		name;
-		unsigned int	hitPoints;
-		unsigned int	energyPoints;
-		unsigned int	attackDamage;
+		std::string	type;
 
 	public:
-		ClapTrap( void );
-		ClapTrap( std::string );
-		ClapTrap( ClapTrap const& );
-		void operator = ( ClapTrap const& );
-		virtual ~ClapTrap( void );
+		WrongAnimal( void );
+		WrongAnimal( std::string );
+		WrongAnimal( WrongAnimal const& );
+		void operator = ( WrongAnimal const& );
+		~WrongAnimal( void );
 
-		std::string		getName( void ) const;
-		unsigned int	getHitPoints( void ) const;
-		unsigned int	getEnergyPoints( void ) const;
-		unsigned int	getAttackDamage( void ) const;
+		std::string	getType( void ) const;
+		void		setType( std::string );
 
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		void makeSound( void ) const;
 };
+
+/* ************************************************************************** */
+/* ****************************   PROTOTYPES   ****************************** */
+/* ************************************************************************** */
+
 
 #endif

@@ -1,53 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   MyClass.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:09:25 by mnaimi            #+#    #+#             */
-/*   Updated: 2022/10/07 20:08:34 by mnaimi           ###   ########.fr       */
+/*   Updated: 2022/11/01 18:31:09 by mnaimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef CLAPTRAP_HPP_
-# define CLAPTRAP_HPP_
+#ifndef MYCLASS_HPP_
+# define MYCLASS_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-# include <string>
-# include <iostream>
+# include ".hpp"
+# include <>
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class ClapTrap
+class	MyClass
 {
-	protected:
-		std::string		name;
-		unsigned int	hitPoints;
-		unsigned int	energyPoints;
-		unsigned int	attackDamage;
-
 	public:
-		ClapTrap( void );
-		ClapTrap( std::string );
-		ClapTrap( ClapTrap const& );
-		void operator = ( ClapTrap const& );
-		virtual ~ClapTrap( void );
-
-		std::string		getName( void ) const;
-		unsigned int	getHitPoints( void ) const;
-		unsigned int	getEnergyPoints( void ) const;
-		unsigned int	getAttackDamage( void ) const;
-
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		MyClass( void );
+		MyClass( MyClass const& );
+		void operator = ( MyClass const& );
+		~MyClass( void );
 };
+
+/* ************************************************************************** */
+/* ****************************   PROTOTYPES   ****************************** */
+/* ************************************************************************** */
+
 
 #endif

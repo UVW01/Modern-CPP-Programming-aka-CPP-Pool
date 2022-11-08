@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,60 +10,44 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "Brain.hpp"
 
 /* ************************************************************************** */
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-ScavTrap::ScavTrap( void ): ClapTrap()
+Brain::Brain( void )
 {
-	std::cout << "ScavTrap Default constructor called" << std::endl;
-	name = "UNKNOWN";
-	hitPoints = 100;
-	energyPoints = 50;
-	attackDamage = 20;
+	std::cout << "Brain Default constructor called" << std::endl;
 	return ;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-ScavTrap::ScavTrap( std::string input_name ): ClapTrap( input_name )
+Brain::Brain( Brain const& obj )
 {
-	std::cout << "ScavTrap Initialization constructor called" << std::endl;
-	hitPoints = 100;
-	energyPoints = 50;
-	attackDamage = 20;
-	return ;
-}
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
-
-ScavTrap::ScavTrap( ScavTrap const& obj ): ClapTrap( obj )
-{
-	std::cout << "ScavTrap Copy constructor called" << std::endl;
+	std::cout << "Brain Copy constructor called" << std::endl;
 	*this = obj;
 	return ;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void ScavTrap::operator = (ScavTrap const& obj)
+void Brain::operator = (Brain const& obj)
 {
-	operator=(static_cast<ClapTrap const&>(obj));
-	std::cout << "ScavTrap Copy assignment operator called" << std::endl;
-	name = obj.getName();
-	hitPoints = obj.getHitPoints();
-	energyPoints = obj.getEnergyPoints();
-	attackDamage = obj.getAttackDamage();
+	std::cout << "Brain Copy assignment operator called" << std::endl;
+	const std::string *ideas = obj.getIdeas();
+	// for (size_t i = 0; i < 100; i++)
+	// 	this->ideas[i] = ideas[i];
+	std::copy(ideas, ideas + 100, this->ideas);
 	return ;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-ScavTrap::~ScavTrap( void )
+Brain::~Brain( void )
 {
-	std::cout << "ScavTrap Destructor called" << std::endl;
+	std::cout << "Brain Destructor called" << std::endl;
 	return ;
 }
 
@@ -71,8 +55,16 @@ ScavTrap::~ScavTrap( void )
 /* ******************************  METHODS  ********************************* */
 /* ************************************************************************** */
 
-void	ScavTrap::guardGate( void )
+const std::string*	Brain::getIdeas( void ) const
 {
-	std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
+	return (this->ideas);
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+void	Brain::setIdeas( size_t index, std::string idea )
+{
+	if ( index < 100 )
+		ideas[index] = idea;
 	return ;
 }

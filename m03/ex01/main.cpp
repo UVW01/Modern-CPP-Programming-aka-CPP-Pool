@@ -15,40 +15,47 @@
 
 int	main( void )
 {
-	// ScavTrap	first;
+	ScavTrap	first;
 	ScavTrap	second("Monster");
-	std::cout << std::endl;
-
-	// ScavTrap	third(second);
+	ScavTrap	third(second);
 	ScavTrap	forth;
-	std::cout << std::endl;
-
 	forth = second;
+
+	std::cout << std::endl;
+	std::cout << "1st" << std::endl;
+	std::cout << "Name:" << first.getName() << std::endl;
+	std::cout << "HitPoints: " << first.getHitPoints() << std::endl;
+	std::cout << "AttackDamage: " << first.getAttackDamage() << std::endl;
+	std::cout << "EnergyPoints: " << first.getEnergyPoints() << std::endl;
 	std::cout << std::endl;
 
-	// std::cout << "first" << std::endl;
-	// std::cout << first.getName() << " " << first.getHitPoints() << " ";
-	// std::cout << first.getAttackDamage() << " " << first.getEnergyPoints();
-	// std::cout << std::endl;
+	std::cout << "2nd" << std::endl;
+	std::cout << "Name:" << second.getName() << std::endl;
+	std::cout << "HitPoints: " << second.getHitPoints() << std::endl;
+	std::cout << "AttackDamage: " << second.getAttackDamage() << std::endl;
+	std::cout << "EnergyPoints: " << second.getEnergyPoints() << std::endl;
+	std::cout << std::endl;
 
-	std::cout << "Second:" << std::endl;
-	std::cout << second.getName() << " " << second.getHitPoints() << " ";
-	std::cout << second.getAttackDamage() << " " << second.getEnergyPoints();
+	std::cout << "3rd" << std::endl;
+	std::cout << "Name:" << third.getName() << std::endl;
+	std::cout << "HitPoints: " << third.getHitPoints() << std::endl;
+	std::cout << "AttackDamage: " << third.getAttackDamage() << std::endl;
+	std::cout << "EnergyPoints: " << third.getEnergyPoints() << std::endl;
 	std::cout << std::endl;
-	std::cout << std::endl;
-	std::cout << std::endl;
-	std::cout << std::endl;
-	//second.guardGate();
 
-	// std::cout << "third" << std::endl;
-	// std::cout << third.getName() << " " << third.getHitPoints() << " ";
-	// std::cout << third.getAttackDamage() << " " << third.getEnergyPoints();
-	// std::cout << std::endl;
+	std::cout << "4th" << std::endl;
+	std::cout << "Name:" << forth.getName() << std::endl;
+	std::cout << "HitPoints: " << forth.getHitPoints() << std::endl;
+	std::cout << "AttackDamage: " << forth.getAttackDamage() << std::endl;
+	std::cout << "EnergyPoints: " << forth.getEnergyPoints() << std::endl;
+	std::cout << std::endl;
 
-	// std::cout << "forth" << std::endl;
-	// std::cout << forth.getName() << " " << forth.getHitPoints() << " ";
-	// std::cout << forth.getAttackDamage() << " " << forth.getEnergyPoints();
-	// std::cout << std::endl;
+	first.attack("Alien");
+	second.takeDamage(50);
+	third.beRepaired(50);
+	forth.takeDamage(110);
+	forth.attack("Human");
+	std::cout << std::endl;
 
 	return (0);
 }

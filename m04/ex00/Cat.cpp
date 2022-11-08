@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,60 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "Cat.hpp"
 
 /* ************************************************************************** */
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-ScavTrap::ScavTrap( void ): ClapTrap()
+Cat::Cat( void ): Animal( "Cat" )
 {
-	std::cout << "ScavTrap Default constructor called" << std::endl;
-	name = "UNKNOWN";
-	hitPoints = 100;
-	energyPoints = 50;
-	attackDamage = 20;
+	std::cout << "Cat Default constructor called" << std::endl;
 	return ;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-ScavTrap::ScavTrap( std::string input_name ): ClapTrap( input_name )
+Cat::Cat( Cat const& obj )
 {
-	std::cout << "ScavTrap Initialization constructor called" << std::endl;
-	hitPoints = 100;
-	energyPoints = 50;
-	attackDamage = 20;
-	return ;
-}
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
-
-ScavTrap::ScavTrap( ScavTrap const& obj ): ClapTrap( obj )
-{
-	std::cout << "ScavTrap Copy constructor called" << std::endl;
+	std::cout << "Cat Copy constructor called" << std::endl;
 	*this = obj;
 	return ;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void ScavTrap::operator = (ScavTrap const& obj)
+void Cat::operator = (Cat const& obj)
 {
-	operator=(static_cast<ClapTrap const&>(obj));
-	std::cout << "ScavTrap Copy assignment operator called" << std::endl;
-	name = obj.getName();
-	hitPoints = obj.getHitPoints();
-	energyPoints = obj.getEnergyPoints();
-	attackDamage = obj.getAttackDamage();
+	std::cout << "Cat Copy assignment operator called" << std::endl;
+	this->type = obj.getType();
 	return ;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-ScavTrap::~ScavTrap( void )
+Cat::~Cat( void )
 {
-	std::cout << "ScavTrap Destructor called" << std::endl;
+	std::cout << "Cat Destructor called" << std::endl;
 	return ;
 }
 
@@ -71,8 +52,10 @@ ScavTrap::~ScavTrap( void )
 /* ******************************  METHODS  ********************************* */
 /* ************************************************************************** */
 
-void	ScavTrap::guardGate( void )
+void	Cat::makeSound( void ) const
 {
-	std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
+	std::cout << "* meoow meoow *" << std::endl;
 	return ;
 }
+
+

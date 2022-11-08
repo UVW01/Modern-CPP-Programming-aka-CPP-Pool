@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,60 +10,49 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "WrongAnimal.hpp"
 
 /* ************************************************************************** */
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-ScavTrap::ScavTrap( void ): ClapTrap()
+WrongAnimal::WrongAnimal( void ): type( "N/A" )
 {
-	std::cout << "ScavTrap Default constructor called" << std::endl;
-	name = "UNKNOWN";
-	hitPoints = 100;
-	energyPoints = 50;
-	attackDamage = 20;
+	std::cout << "WrongAnimal Default constructor called" << std::endl;
 	return ;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-ScavTrap::ScavTrap( std::string input_name ): ClapTrap( input_name )
+WrongAnimal::WrongAnimal( std::string input_type ): type( input_type )
 {
-	std::cout << "ScavTrap Initialization constructor called" << std::endl;
-	hitPoints = 100;
-	energyPoints = 50;
-	attackDamage = 20;
+	std::cout << "WrongAnimal Default constructor called" << std::endl;
 	return ;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-ScavTrap::ScavTrap( ScavTrap const& obj ): ClapTrap( obj )
+WrongAnimal::WrongAnimal( WrongAnimal const& obj )
 {
-	std::cout << "ScavTrap Copy constructor called" << std::endl;
+	std::cout << "WrongAnimal Copy constructor called" << std::endl;
 	*this = obj;
 	return ;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void ScavTrap::operator = (ScavTrap const& obj)
+void WrongAnimal::operator = (WrongAnimal const& obj)
 {
-	operator=(static_cast<ClapTrap const&>(obj));
-	std::cout << "ScavTrap Copy assignment operator called" << std::endl;
-	name = obj.getName();
-	hitPoints = obj.getHitPoints();
-	energyPoints = obj.getEnergyPoints();
-	attackDamage = obj.getAttackDamage();
+	std::cout << "WrongAnimal Copy assignment operator called" << std::endl;
+	this->type = obj.getType();
 	return ;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-ScavTrap::~ScavTrap( void )
+WrongAnimal::~WrongAnimal( void )
 {
-	std::cout << "ScavTrap Destructor called" << std::endl;
+	std::cout << "WrongAnimal Destructor called" << std::endl;
 	return ;
 }
 
@@ -71,8 +60,25 @@ ScavTrap::~ScavTrap( void )
 /* ******************************  METHODS  ********************************* */
 /* ************************************************************************** */
 
-void	ScavTrap::guardGate( void )
+std::string	WrongAnimal::getType( void ) const
 {
-	std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
+	return (this->type);
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+void	WrongAnimal::setType( std::string input_type )
+{
+	this->type = input_type;
 	return ;
 }
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+void	WrongAnimal::makeSound( void ) const
+{
+	std::cout << "* #$@!%#$@!%#$@!%#$@!%#$@!%#$@!% *" << std::endl;
+	return ;
+}
+
+
