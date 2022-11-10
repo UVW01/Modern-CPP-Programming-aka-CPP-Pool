@@ -16,7 +16,7 @@
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-Animal::Animal( void ): type( "N/A" )
+Animal::Animal( void ): m_type( "N/A" )
 {
 	std::cout << "Animal Default constructor called" << std::endl;
 	return ;
@@ -24,9 +24,9 @@ Animal::Animal( void ): type( "N/A" )
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-Animal::Animal( std::string input_type ): type( input_type )
+Animal::Animal( std::string input_type ): m_type( input_type )
 {
-	std::cout << "Animal Default constructor called" << std::endl;
+	std::cout << "Animal Initialization constructor called" << std::endl;
 	return ;
 }
 
@@ -44,7 +44,7 @@ Animal::Animal( Animal const& obj )
 void Animal::operator = (Animal const& obj)
 {
 	std::cout << "Animal Copy assignment operator called" << std::endl;
-	this->type = obj.getType();
+	m_type = obj.getType();
 	return ;
 }
 
@@ -62,14 +62,14 @@ Animal::~Animal( void )
 
 std::string	Animal::getType( void ) const
 {
-	return (this->type);
+	return (m_type);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
 void	Animal::setType( std::string input_type )
 {
-	this->type = input_type;
+	m_type = input_type;
 	return ;
 }
 
@@ -77,8 +77,6 @@ void	Animal::setType( std::string input_type )
 
 void	Animal::makeSound( void ) const
 {
-	std::cout << "* UNIDENTIFIABLE NOISES *" << std::endl;
+	std::cout << "* UNINDENTIFIABLE NOISES *" << std::endl;
 	return ;
 }
-
-

@@ -16,16 +16,16 @@
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-Cat::Cat( void ): Animal( "Cat" )
+Cat::Cat( void ): Animal( "Cat" ), m_brain(NULL)
 {
 	std::cout << "Cat Default constructor called" << std::endl;
-	this->brain = new Brain();
+	m_brain = new Brain();
 	return ;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-Cat::Cat( Cat const& obj )
+Cat::Cat( Cat const& obj ): Animal( obj ), m_brain(NULL)
 {
 	std::cout << "Cat Copy constructor called" << std::endl;
 	*this = obj;
@@ -36,9 +36,11 @@ Cat::Cat( Cat const& obj )
 
 void Cat::operator = (Cat const& obj)
 {
+	operator=(static_cast<const Animal&>(obj));
 	std::cout << "Cat Copy assignment operator called" << std::endl;
-	this->type = obj.getType();
-	*brain = obj.getBrain();
+	if (m_brain == NULL)
+		m_brain = new Brain();
+	*(m_brain) = obj.getBrain();
 	return ;
 }
 
@@ -46,8 +48,8 @@ void Cat::operator = (Cat const& obj)
 
 Cat::~Cat( void )
 {
+	delete (m_brain);
 	std::cout << "Cat Destructor called" << std::endl;
-	delete (this->brain);
 	return ;
 }
 
@@ -57,7 +59,30 @@ Cat::~Cat( void )
 
 const Brain&	Cat::getBrain( void ) const
 {
-	return (*brain);
+	return (*m_brain);
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+const std::string*	Cat::getIdeas( void ) const
+{
+	return (m_brain->getIdeas());
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+void	Cat::setIdeas( size_t index, std::string idea )
+{
+	m_brain->setIdeas(index, idea);
+	return ;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+void	Cat::printIdeas( void ) const
+{
+	m_brain->printIdeas();
+	return ;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/

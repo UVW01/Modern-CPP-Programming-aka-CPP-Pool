@@ -30,21 +30,25 @@
 class Dog: public Animal
 {
 	private:
-		Brain *brain;
+		Brain *m_brain;
 
 	public:
 		Dog( void );
 		Dog( Dog const& );
+		using Animal::operator=;
 		void operator = ( Dog const& );
 		~Dog( void );
 
-		const Brain&	getBrain( void ) const;
-		void 			makeSound( void ) const;
+		const Brain			&getBrain( void ) const;
+		const std::string	*getIdeas( void ) const;
+		void				setIdeas( size_t index, std::string idea );
+		void				printIdeas( void ) const;
+
+		void 				makeSound( void ) const;
 };
 
 /* ************************************************************************** */
 /* ****************************   PROTOTYPES   ****************************** */
 /* ************************************************************************** */
-
 
 #endif

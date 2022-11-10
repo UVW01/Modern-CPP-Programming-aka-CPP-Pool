@@ -30,25 +30,25 @@
 class Cat: public Animal
 {
 	private:
-		Brain *brain;
+		Brain *m_brain;
 
 	public:
 		Cat( void );
 		Cat( Cat const& );
+		using Animal::operator=;
 		void operator = ( Cat const& );
 		~Cat( void );
 
-		const Brain&	getBrain( void ) const;
-		void 			makeSound( void ) const;
+		const Brain			&getBrain( void ) const;
+		const std::string	*getIdeas( void ) const;
+		void				setIdeas( size_t index, std::string idea );
+		void				printIdeas( void ) const;
+
+		void 				makeSound( void ) const;
 };
 
 /* ************************************************************************** */
 /* ****************************   PROTOTYPES   ****************************** */
 /* ************************************************************************** */
 
-
-
 #endif
-
-653
-

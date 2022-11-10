@@ -24,22 +24,21 @@ Brain::Brain( void )
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-Brain::Brain( Brain const& obj )
+Brain::Brain( Brain const &obj )
 {
-	std::cout << "Brain Copy constructor called" << std::endl;
 	*this = obj;
+	std::cout << "Brain Copy constructor called" << std::endl;
 	return ;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void Brain::operator = (Brain const& obj)
+void Brain::operator = (Brain const &obj)
 {
+	const std::string*	obj_ideas = obj.getIdeas();
+
+	std::copy(obj_ideas, obj_ideas + 100, m_ideas);
 	std::cout << "Brain Copy assignment operator called" << std::endl;
-	const std::string *ideas = obj.getIdeas();
-	// for (size_t i = 0; i < 100; i++)
-	// 	this->ideas[i] = ideas[i];
-	std::copy(ideas, ideas + 100, this->ideas);
 	return ;
 }
 
@@ -57,7 +56,7 @@ Brain::~Brain( void )
 
 const std::string*	Brain::getIdeas( void ) const
 {
-	return (this->ideas);
+	return (m_ideas);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
@@ -65,6 +64,15 @@ const std::string*	Brain::getIdeas( void ) const
 void	Brain::setIdeas( size_t index, std::string idea )
 {
 	if ( index < 100 )
-		ideas[index] = idea;
+		m_ideas[index] = idea;
+	return ;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+void	Brain::printIdeas( void ) const
+{
+	for (size_t i = 0; i < 100; i++)
+		std::cout << i << ":\t" << m_ideas[i] << std::endl;
 	return ;
 }

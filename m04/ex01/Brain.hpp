@@ -28,7 +28,7 @@
 class Brain
 {
 	private:
-		std::string	ideas[100];
+		std::string	m_ideas[100];
 
 	public:
 		Brain( void );
@@ -37,12 +37,12 @@ class Brain
 		~Brain( void );
 
 		const std::string	*getIdeas( void ) const;
-		void	setIdeas( size_t index, std::string idea );
+		void				setIdeas( size_t index, std::string idea );
+		void				printIdeas( void ) const;
 };
 
 /* ************************************************************************** */
 /* ****************************   PROTOTYPES   ****************************** */
 /* ************************************************************************** */
-
 
 #endif
