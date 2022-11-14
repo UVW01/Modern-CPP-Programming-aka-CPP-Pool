@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,36 +11,40 @@
 /* ************************************************************************** */
 
 #pragma once
-#ifndef DIAMONDTRAP_HPP_
-# define DIAMONDTRAP_HPP_
+#ifndef ANIMAL_HPP_
+# define ANIMAL_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-# include "FragTrap.hpp"
-# include "ScavTrap.hpp"
+# include <iostream>
+# include <string>
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class DiamondTrap: public FragTrap, public ScavTrap
+class Animal
 {
-	private:
-		std::string	name;
+	protected:
+		std::string	m_type;
 
 	public:
-		DiamondTrap( void );
-		DiamondTrap( std::string );
-		DiamondTrap( DiamondTrap const& );
-		using FragTrap::operator=;
-		using ScavTrap::operator=;
-		void operator = ( DiamondTrap const& );
-		~DiamondTrap( void );
+		Animal( void );
+		Animal( std::string );
+		Animal( Animal const& );
+		void operator = ( Animal const& );
+		virtual ~Animal( void );
 
-		void	whoAmI( void );
-		using ScavTrap::attack;
+		std::string	getType( void ) const;
+		void		setType( std::string );
+
+		virtual void makeSound( void ) const = 0;
 };
+
+/* ************************************************************************** */
+/* ****************************   PROTOTYPES   ****************************** */
+/* ************************************************************************** */
 
 #endif

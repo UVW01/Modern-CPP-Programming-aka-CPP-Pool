@@ -1,46 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:09:25 by mnaimi            #+#    #+#             */
-/*   Updated: 2022/10/07 20:08:34 by mnaimi           ###   ########.fr       */
+/*   Updated: 2022/11/01 18:31:09 by mnaimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef DIAMONDTRAP_HPP_
-# define DIAMONDTRAP_HPP_
+#ifndef AMATERIA_HPP_
+# define AMATERIA_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-# include "FragTrap.hpp"
-# include "ScavTrap.hpp"
+# include "ICharacter.hpp"
+# include <iostream>
+# include <string>
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class DiamondTrap: public FragTrap, public ScavTrap
+class AMateria
 {
-	private:
-		std::string	name;
+	protected:
+		std::string m_type;
 
 	public:
-		DiamondTrap( void );
-		DiamondTrap( std::string );
-		DiamondTrap( DiamondTrap const& );
-		using FragTrap::operator=;
-		using ScavTrap::operator=;
-		void operator = ( DiamondTrap const& );
-		~DiamondTrap( void );
+		AMateria( void );
+		AMateria( AMateria const& );
+		AMateria(std::string const& type);
+		void operator = ( AMateria const& );
+		~AMateria( void );
 
-		void	whoAmI( void );
-		using ScavTrap::attack;
+		std::string const& getType() const;
+		virtual AMateria* clone() const = 0;
+		virtual void use(ICharacter& target);
 };
+
+/* ************************************************************************** */
+/* ****************************   PROTOTYPES   ****************************** */
+/* ************************************************************************** */
 
 #endif

@@ -1,46 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:09:25 by mnaimi            #+#    #+#             */
-/*   Updated: 2022/10/07 20:08:34 by mnaimi           ###   ########.fr       */
+/*   Updated: 2022/11/01 18:31:09 by mnaimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef DIAMONDTRAP_HPP_
-# define DIAMONDTRAP_HPP_
+#ifndef ICHARACTER_HPP_
+# define ICHARACTER_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-# include "FragTrap.hpp"
-# include "ScavTrap.hpp"
+# include <iostream>
+# include <string>
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class DiamondTrap: public FragTrap, public ScavTrap
+class ICharacter
 {
-	private:
-		std::string	name;
-
 	public:
-		DiamondTrap( void );
-		DiamondTrap( std::string );
-		DiamondTrap( DiamondTrap const& );
-		using FragTrap::operator=;
-		using ScavTrap::operator=;
-		void operator = ( DiamondTrap const& );
-		~DiamondTrap( void );
+		virtual ~ICharacter() {}
+		virtual std::string const & getName() const = 0;
+		virtual void equip(AMateria* m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter& target) = 0;
+}
 
-		void	whoAmI( void );
-		using ScavTrap::attack;
-};
+/* ************************************************************************** */
+/* ****************************   PROTOTYPES   ****************************** */
+/* ************************************************************************** */
+
 
 #endif

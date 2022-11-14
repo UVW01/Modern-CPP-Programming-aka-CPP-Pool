@@ -1,46 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:09:25 by mnaimi            #+#    #+#             */
-/*   Updated: 2022/10/07 20:08:34 by mnaimi           ###   ########.fr       */
+/*   Updated: 2022/11/01 18:31:09 by mnaimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef DIAMONDTRAP_HPP_
-# define DIAMONDTRAP_HPP_
+#ifndef BRAIN_HPP_
+# define BRAIN_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-# include "FragTrap.hpp"
-# include "ScavTrap.hpp"
+# include <iostream>
+# include <string>
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class DiamondTrap: public FragTrap, public ScavTrap
+class Brain
 {
 	private:
-		std::string	name;
+		std::string	m_ideas[100];
 
 	public:
-		DiamondTrap( void );
-		DiamondTrap( std::string );
-		DiamondTrap( DiamondTrap const& );
-		using FragTrap::operator=;
-		using ScavTrap::operator=;
-		void operator = ( DiamondTrap const& );
-		~DiamondTrap( void );
+		Brain( void );
+		Brain( Brain const& );
+		void operator = ( Brain const& );
+		~Brain( void );
 
-		void	whoAmI( void );
-		using ScavTrap::attack;
+		const std::string	*getIdeas( void ) const;
+		void				setIdeas( size_t index, std::string idea );
+		void				printIdeas( void ) const;
 };
+
+/* ************************************************************************** */
+/* ****************************   PROTOTYPES   ****************************** */
+/* ************************************************************************** */
 
 #endif

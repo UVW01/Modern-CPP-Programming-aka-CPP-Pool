@@ -38,7 +38,7 @@ class ClapTrap
 		ClapTrap( std::string );
 		ClapTrap( ClapTrap const& );
 		void operator = ( ClapTrap const& );
-		~ClapTrap( void );
+		virtual ~ClapTrap( void );
 
 		std::string		getName( void ) const;
 		unsigned int	getHitPoints( void ) const;

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,36 +11,44 @@
 /* ************************************************************************** */
 
 #pragma once
-#ifndef DIAMONDTRAP_HPP_
-# define DIAMONDTRAP_HPP_
+#ifndef CAT_HPP_
+# define CAT_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-# include "FragTrap.hpp"
-# include "ScavTrap.hpp"
+# include <iostream>
+# include <string>
+# include "Animal.hpp"
+# include "Brain.hpp"
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class DiamondTrap: public FragTrap, public ScavTrap
+class Cat: public Animal
 {
 	private:
-		std::string	name;
+		Brain *m_brain;
 
 	public:
-		DiamondTrap( void );
-		DiamondTrap( std::string );
-		DiamondTrap( DiamondTrap const& );
-		using FragTrap::operator=;
-		using ScavTrap::operator=;
-		void operator = ( DiamondTrap const& );
-		~DiamondTrap( void );
+		Cat( void );
+		Cat( Cat const& );
+		using Animal::operator=;
+		void operator = ( Cat const& );
+		~Cat( void );
 
-		void	whoAmI( void );
-		using ScavTrap::attack;
+		const Brain			&getBrain( void ) const;
+		const std::string	*getIdeas( void ) const;
+		void				setIdeas( size_t index, std::string idea );
+		void				printIdeas( void ) const;
+
+		void 				makeSound( void ) const;
 };
+
+/* ************************************************************************** */
+/* ****************************   PROTOTYPES   ****************************** */
+/* ************************************************************************** */
 
 #endif

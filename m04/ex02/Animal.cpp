@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,69 +10,49 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "Animal.hpp"
 
 /* ************************************************************************** */
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-ScavTrap::ScavTrap( void ): ClapTrap()
+Animal::Animal( void ): m_type( "N/A" )
 {
-	std::cout << "ScavTrap Default constructor called" << std::endl;
-
-	m_name = "UNKNOWN";
-	m_hitPoints = 100;
-	m_energyPoints = 50;
-	m_attackDamage = 20;
+	std::cout << "Animal Default constructor called" << std::endl;
 	return ;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-ScavTrap::ScavTrap( std::string input_name ): ClapTrap( input_name )
+Animal::Animal( std::string input_type ): m_type( input_type )
 {
-	std::cout << "ScavTrap Initialization constructor called" << std::endl;
-
-	m_name = input_name;
-	m_hitPoints = 100;
-	m_energyPoints = 50;
-	m_attackDamage = 20;
+	std::cout << "Animal Initialization constructor called" << std::endl;
 	return ;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-ScavTrap::ScavTrap( ScavTrap const& obj ): ClapTrap( obj )
+Animal::Animal( Animal const& obj )
 {
-	std::cout << "ScavTrap Copy constructor called" << std::endl;
-
-	m_name = obj.getName();
-	m_hitPoints = obj.getHitPoints();
-	m_energyPoints = obj.getEnergyPoints();
-	m_attackDamage = obj.getAttackDamage();
+	std::cout << "Animal Copy constructor called" << std::endl;
+	*this = obj;
 	return ;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void ScavTrap::operator = (ScavTrap const& obj)
+void Animal::operator = (Animal const& obj)
 {
-	ClapTrap::operator=(obj);
-	std::cout << "ScavTrap Copy assignment operator called" << std::endl;
-
-	m_name = obj.getName();
-	m_hitPoints = obj.getHitPoints();
-	m_energyPoints = obj.getEnergyPoints();
-	m_attackDamage = obj.getAttackDamage();
+	std::cout << "Animal Copy assignment operator called" << std::endl;
+	m_type = obj.getType();
 	return ;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-ScavTrap::~ScavTrap( void )
+Animal::~Animal( void )
 {
-	std::cout << "ScavTrap Destructor called" << std::endl;
-
+	std::cout << "Animal Destructor called" << std::endl;
 	return ;
 }
 
@@ -80,26 +60,15 @@ ScavTrap::~ScavTrap( void )
 /* ******************************  METHODS  ********************************* */
 /* ************************************************************************** */
 
-void	ScavTrap::guardGate( void )
+std::string	Animal::getType( void ) const
 {
-	std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
-
-	return ;
+	return (m_type);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void	ScavTrap::attack( const std::string& target )
+void	Animal::setType( std::string input_type )
 {
-	std::cout << "ScavpTrap " << m_name;
-	if (m_energyPoints == 0 || m_hitPoints == 0)
-	{
-		std::cout << " doesn't have enough vitalities to attack " << target \
-			<< "!" << std::endl;
-		return ;
-	}
-	std::cout <<  " attacked " << target << ", causing "<< m_attackDamage \
-		<< " points of damage!" << std::endl;
-	m_energyPoints -= 1;
+	m_type = input_type;
 	return ;
 }

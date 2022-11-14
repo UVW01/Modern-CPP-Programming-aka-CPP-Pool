@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   MyClass.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,37 +10,47 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#ifndef DIAMONDTRAP_HPP_
-# define DIAMONDTRAP_HPP_
+#include "MyClass.hpp"
 
 /* ************************************************************************** */
-/* ****************************   INCLUDES   ******************************** */
+/* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-# include "FragTrap.hpp"
-# include "ScavTrap.hpp"
-
-/* ************************************************************************** */
-/* *****************************   CLASSES   ******************************** */
-/* ************************************************************************** */
-
-class DiamondTrap: public FragTrap, public ScavTrap
+MyClass::MyClass( void )
 {
-	private:
-		std::string	name;
+	std::cout << "MyClass Default constructor called" << std::endl;
+	return ;
+}
 
-	public:
-		DiamondTrap( void );
-		DiamondTrap( std::string );
-		DiamondTrap( DiamondTrap const& );
-		using FragTrap::operator=;
-		using ScavTrap::operator=;
-		void operator = ( DiamondTrap const& );
-		~DiamondTrap( void );
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-		void	whoAmI( void );
-		using ScavTrap::attack;
-};
+MyClass::MyClass( MyClass const& obj )
+{
+	std::cout << "MyClass Copy constructor called" << std::endl;
+	*this = obj;
+	return ;
+}
 
-#endif
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+void MyClass::operator = (MyClass const& obj)
+{
+	std::cout << "MyClass Copy assignment operator called" << std::endl;
+
+	return ;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+MyClass::~MyClass( void )
+{
+	std::cout << "MyClass Destructor called" << std::endl;
+	return ;
+}
+
+/* ************************************************************************** */
+/* ******************************  METHODS  ********************************* */
+/* ************************************************************************** */
+
+
+

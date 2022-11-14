@@ -67,6 +67,8 @@ int PhoneBook::search_contact(PhoneBook *phonebook) {
 	{
 		std::cout << "Please enter the desired contact's index: ";
 		std::getline(std::cin, index_str);
+		if (std::cin.eof())
+			exit (0);
 		if (index_str.size() == 1 && std::isdigit(index_str[0]) \
 			&& index_str[0] < '8')
 			break ;
@@ -98,6 +100,8 @@ int PhoneBook::add_contact(int contact_index)
 	{
 		std::cout << fields[i];
 		std::getline(std::cin, prompt);
+		if (std::cin.eof())
+			exit (0);
 		if (!prompt.empty())
 			this->contacts[contact_index].set_member(prompt, i);
 		else

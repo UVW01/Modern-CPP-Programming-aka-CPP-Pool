@@ -25,13 +25,13 @@ CYN			:= \e[36m
 # **************************************************************************** #
 
 CC			:= c++
-CC_FLAGS	:= -Wall -Wextra -Werror -std=c++98
+CC_FLAGS	:= -Wall -Wextra -Werror -Wno-shadow -std=c++98
 
-NAME		:= DiamondTrap
+NAME		:= Animals
 MAIN		:= main.cpp
-SRCS		:= ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+SRCS		:= Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 OBJS		:= ${SRCS:%.cpp=%.obj}
-HEAD		:= ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
+HEAD		:= Animal.hpp Cat.hpp Dog.hpp Brain.hpp
 
 # **************************************************************************** #
 # ****************************    FUNCTIONS    ******************************* #
