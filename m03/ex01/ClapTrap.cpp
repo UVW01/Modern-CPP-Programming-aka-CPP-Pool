@@ -17,7 +17,7 @@
 /* ************************************************************************** */
 
 ClapTrap::ClapTrap( void )
-	: m_name("UNKNOWN"), m_hitPoints(10), m_energyPoints(10), m_attackDamage(0)
+	: m_name("John Doe"), m_hitPoints(10), m_energyPoints(10), m_attackDamage(0)
 {
 	std::cout << "ClapTrap Default constructor called" << std::endl;
 

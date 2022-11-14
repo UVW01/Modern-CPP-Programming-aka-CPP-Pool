@@ -19,7 +19,7 @@
 DiamondTrap::DiamondTrap( void ): FragTrap(), ScavTrap()
 {
 	std::cout << "DiamondTrap Default constructor called" << std::endl;
-	name = "UNKNOWN";
+	name = "John Doe";
 	hitPoints = 100;
 	energyPoints = 50;
 	attackDamage = 30;

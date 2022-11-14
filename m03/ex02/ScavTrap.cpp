@@ -19,10 +19,11 @@
 ScavTrap::ScavTrap( void ): ClapTrap()
 {
 	std::cout << "ScavTrap Default constructor called" << std::endl;
-	name = "UNKNOWN";
-	hitPoints = 100;
-	energyPoints = 50;
-	attackDamage = 20;
+
+	m_name = "John Doe";
+	m_hitPoints = 100;
+	m_energyPoints = 50;
+	m_attackDamage = 20;
 	return ;
 }
 
@@ -31,10 +32,11 @@ ScavTrap::ScavTrap( void ): ClapTrap()
 ScavTrap::ScavTrap( std::string input_name ): ClapTrap( input_name )
 {
 	std::cout << "ScavTrap Initialization constructor called" << std::endl;
-	name = input_name;
-	hitPoints = 100;
-	energyPoints = 50;
-	attackDamage = 20;
+
+	m_name = input_name;
+	m_hitPoints = 100;
+	m_energyPoints = 50;
+	m_attackDamage = 20;
 	return ;
 }
 
@@ -43,7 +45,11 @@ ScavTrap::ScavTrap( std::string input_name ): ClapTrap( input_name )
 ScavTrap::ScavTrap( ScavTrap const& obj ): ClapTrap( obj )
 {
 	std::cout << "ScavTrap Copy constructor called" << std::endl;
-	*this = obj;
+
+	m_name = obj.getName();
+	m_hitPoints = obj.getHitPoints();
+	m_energyPoints = obj.getEnergyPoints();
+	m_attackDamage = obj.getAttackDamage();
 	return ;
 }
 
@@ -51,12 +57,16 @@ ScavTrap::ScavTrap( ScavTrap const& obj ): ClapTrap( obj )
 
 void ScavTrap::operator = (ScavTrap const& obj)
 {
-	operator=(static_cast<ClapTrap const&>(obj));
+	ClapTrap::operator=(obj);
+
+	if (this == &obj)
+		return ;
 	std::cout << "ScavTrap Copy assignment operator called" << std::endl;
-	name = obj.getName();
-	hitPoints = obj.getHitPoints();
-	energyPoints = obj.getEnergyPoints();
-	attackDamage = obj.getAttackDamage();
+
+	m_name = obj.getName();
+	m_hitPoints = obj.getHitPoints();
+	m_energyPoints = obj.getEnergyPoints();
+	m_attackDamage = obj.getAttackDamage();
 	return ;
 }
 
@@ -65,6 +75,7 @@ void ScavTrap::operator = (ScavTrap const& obj)
 ScavTrap::~ScavTrap( void )
 {
 	std::cout << "ScavTrap Destructor called" << std::endl;
+
 	return ;
 }
 
@@ -75,5 +86,23 @@ ScavTrap::~ScavTrap( void )
 void	ScavTrap::guardGate( void )
 {
 	std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
+
+	return ;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+void	ScavTrap::attack( const std::string& target )
+{
+	std::cout << "ScavpTrap " << m_name;
+	if (m_energyPoints == 0 || m_hitPoints == 0)
+	{
+		std::cout << " doesn't have enough vitalities to attack " << target \
+			<< "!" << std::endl;
+		return ;
+	}
+	std::cout <<  " attacked " << target << ", causing "<< m_attackDamage \
+		<< " points of damage!" << std::endl;
+	m_energyPoints -= 1;
 	return ;
 }

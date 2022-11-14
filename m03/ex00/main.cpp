@@ -23,31 +23,31 @@ int	main( void )
 
 	std::cout << std::endl;
 	std::cout << "1st" << std::endl;
-	std::cout << "Name:" << first.getName() << std::endl;
+	std::cout << "Name: " << first.getName() << std::endl;
 	std::cout << "HitPoints: " << first.getHitPoints() << std::endl;
-	std::cout << "AttackDamage: " << first.getAttackDamage() << std::endl;
 	std::cout << "EnergyPoints: " << first.getEnergyPoints() << std::endl;
+	std::cout << "AttackDamage: " << first.getAttackDamage() << std::endl;
 	std::cout << std::endl;
 
 	std::cout << "2nd" << std::endl;
-	std::cout << "Name:" << second.getName() << std::endl;
+	std::cout << "Name: " << second.getName() << std::endl;
 	std::cout << "HitPoints: " << second.getHitPoints() << std::endl;
-	std::cout << "AttackDamage: " << second.getAttackDamage() << std::endl;
 	std::cout << "EnergyPoints: " << second.getEnergyPoints() << std::endl;
+	std::cout << "AttackDamage: " << second.getAttackDamage() << std::endl;
 	std::cout << std::endl;
 
 	std::cout << "3rd" << std::endl;
-	std::cout << "Name:" << third.getName() << std::endl;
+	std::cout << "Name: " << third.getName() << std::endl;
 	std::cout << "HitPoints: " << third.getHitPoints() << std::endl;
-	std::cout << "AttackDamage: " << third.getAttackDamage() << std::endl;
 	std::cout << "EnergyPoints: " << third.getEnergyPoints() << std::endl;
+	std::cout << "AttackDamage: " << third.getAttackDamage() << std::endl;
 	std::cout << std::endl;
 
 	std::cout << "4th" << std::endl;
-	std::cout << "Name:" << forth.getName() << std::endl;
+	std::cout << "Name: " << forth.getName() << std::endl;
 	std::cout << "HitPoints: " << forth.getHitPoints() << std::endl;
-	std::cout << "AttackDamage: " << forth.getAttackDamage() << std::endl;
 	std::cout << "EnergyPoints: " << forth.getEnergyPoints() << std::endl;
+	std::cout << "AttackDamage: " << forth.getAttackDamage() << std::endl;
 	std::cout << std::endl;
 
 	first.attack("Alien");

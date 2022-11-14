@@ -19,6 +19,8 @@
 /* ************************************************************************** */
 
 # include "ClapTrap.hpp"
+# include <iostream>
+# include <string>
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
@@ -30,11 +32,10 @@ class FragTrap: public ClapTrap
 		FragTrap( void );
 		FragTrap( std::string );
 		FragTrap( FragTrap const& );
-		using ClapTrap::operator=;
 		void operator = ( FragTrap const& );
 		~FragTrap( void );
 
-		void highFivesGuys( void );
+		void	highFivesGuys( void );
 };
 
 #endif

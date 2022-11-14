@@ -19,6 +19,8 @@
 /* ************************************************************************** */
 
 # include "ClapTrap.hpp"
+# include <iostream>
+# include <string>
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
@@ -30,11 +32,11 @@ class ScavTrap: public ClapTrap
 		ScavTrap( void );
 		ScavTrap( std::string );
 		ScavTrap( ScavTrap const& );
-		using ClapTrap::operator=;
 		void operator = ( ScavTrap const& );
 		~ScavTrap( void );
 
-		void guardGate( void );
+		void	attack(const std::string& target);
+		void	guardGate( void );
 };
 
 #endif

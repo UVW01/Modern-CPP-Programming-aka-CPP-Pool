@@ -16,10 +16,11 @@
 int	main( void )
 {
 	ScavTrap	first;
-	ScavTrap	second("Monster");
+	ScavTrap	second("Patrick Bateman");
 	ScavTrap	third(second);
 	ScavTrap	forth;
 	forth = second;
+	ClapTrap *ptr = &first;
 
 	std::cout << std::endl;
 	std::cout << "1st" << std::endl;
@@ -51,9 +52,11 @@ int	main( void )
 	std::cout << std::endl;
 
 	first.attack("Alien");
+	ptr->attack("Alien");
+	first.guardGate();
 	second.takeDamage(50);
 	third.beRepaired(50);
-	forth.takeDamage(110);
+	forth.takeDamage(101);
 	forth.attack("Human");
 	std::cout << std::endl;
 

@@ -20,7 +20,7 @@ ScavTrap::ScavTrap( void ): ClapTrap()
 {
 	std::cout << "ScavTrap Default constructor called" << std::endl;
 
-	m_name = "UNKNOWN";
+	m_name = "John Doe";
 	m_hitPoints = 100;
 	m_energyPoints = 50;
 	m_attackDamage = 20;
@@ -58,6 +58,9 @@ ScavTrap::ScavTrap( ScavTrap const& obj ): ClapTrap( obj )
 void ScavTrap::operator = (ScavTrap const& obj)
 {
 	ClapTrap::operator=(obj);
+
+	if (this == &obj)
+		return ;
 	std::cout << "ScavTrap Copy assignment operator called" << std::endl;
 
 	m_name = obj.getName();
@@ -82,7 +85,7 @@ ScavTrap::~ScavTrap( void )
 
 void	ScavTrap::guardGate( void )
 {
-	std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
+	std::cout << "ScavTrap is now in Gate keeper mode!" << std::endl;
 
 	return ;
 }

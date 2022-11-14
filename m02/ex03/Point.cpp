@@ -98,5 +98,3 @@ int	orient(Point const& a, Point const& b, Point const& c)
 		return 1;
 	return -1;
 }
-
-
