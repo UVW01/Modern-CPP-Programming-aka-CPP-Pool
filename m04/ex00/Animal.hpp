@@ -35,16 +35,12 @@ public:
 	Animal(std::string);
 	Animal(Animal const &);
 	Animal &operator=(Animal const &);
-	~Animal(void);
+	virtual ~Animal(void);
 
 	std::string getType(void) const;
 	void setType(std::string);
 
 	virtual void makeSound(void) const;
 };
-
-/* ************************************************************************** */
-/* ****************************   PROTOTYPES   ****************************** */
-/* ************************************************************************** */
 
 #endif

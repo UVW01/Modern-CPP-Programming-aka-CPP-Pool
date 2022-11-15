@@ -16,79 +16,83 @@
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-Dog::Dog( void ): Animal( "Dog" ), m_brain(NULL)
+Dog::Dog(void)
+	: Animal("Dog"), m_brain(NULL)
 {
 	std::cout << "Dog Default constructor called" << std::endl;
 	m_brain = new Brain();
-	return ;
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-Dog::Dog( Dog const& obj ): Animal( obj ), m_brain(NULL)
+Dog::Dog(Dog const &obj)
+	: Animal(obj), m_brain(NULL)
 {
 	std::cout << "Dog Copy constructor called" << std::endl;
-	*this = obj;
-	return ;
+	m_brain = new Brain();
+	for (size_t i = 0; i < 100; i++)
+		setIdea(i, obj.getIdea(i));
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void Dog::operator = (Dog const& obj)
+Dog &Dog::operator=(Dog const &obj)
 {
-	operator=(static_cast<const Animal&>(obj));
+	if (this == &obj)
+		return (*this);
 	std::cout << "Dog Copy assignment operator called" << std::endl;
-	if (m_brain == NULL)
-		m_brain = new Brain();
-	*(m_brain) = obj.getBrain();
-	return ;
+	for (size_t i = 0; i < 100; i++)
+		setIdea(i, obj.getIdea(i));
+	return (*this);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-Dog::~Dog( void )
+Dog::~Dog(void)
 {
 	delete (m_brain);
 	std::cout << "Dog Destructor called" << std::endl;
-	return ;
+	return;
 }
 
 /* ************************************************************************** */
 /* ******************************  METHODS  ********************************* */
 /* ************************************************************************** */
 
-const Brain&	Dog::getBrain( void ) const
+const Brain &Dog::getBrain(void) const
 {
 	return (*m_brain);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-const std::string*	Dog::getIdeas( void ) const
+std::string Dog::getIdea(size_t index) const
 {
-	return (m_brain->getIdeas());
+	return (m_brain->getIdea(index));
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void	Dog::setIdeas( size_t index, std::string idea )
+void Dog::setIdea(size_t index, std::string idea)
 {
-	m_brain->setIdeas(index, idea);
-	return ;
+	m_brain->setIdea(index, idea);
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void	Dog::printIdeas( void ) const
+void Dog::printIdeas(void) const
 {
 	m_brain->printIdeas();
-	return ;
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void	Dog::makeSound( void ) const
+void Dog::makeSound(void) const
 {
-	std::cout << "* woof woof *" << std::endl;
-	return ;
+	std::cout << "* meoow meoow *" << std::endl;
+	return;
 }

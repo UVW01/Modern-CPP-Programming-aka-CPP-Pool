@@ -18,10 +18,10 @@ int main( void )
 {
 	Cat *cat1 = new Cat();
 	for (size_t i = 0; i < 100; i++)
-		cat1->setIdeas(i, "meeh!");
+		cat1->setIdea(i, "meeh!");
 	Cat *cat2 = new Cat(*cat1);
 	for (size_t i = 0; i < 100; i++)
-		cat1->setIdeas(i, "bleh!");
+		cat1->setIdea(i, "bleh!");
 	cat1->printIdeas();
 	cat2->printIdeas();
 

@@ -1,27 +1,33 @@
 #include "Animal.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 
 int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	const WrongAnimal* k = new WrongCat();
-	const WrongCat* l = new WrongCat();
+	const Animal*		myAnimal = new Animal();
+	const Animal*		myDog = new Dog();
+	const Animal*		myCat = new Cat();
+	const WrongAnimal*	myWrongAnimal = new WrongAnimal();
+	const WrongCat*		myWrongCat = new WrongCat();
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	std::cout << meta->getType() << " " << std::endl;
-	std::cout << k->getType() << " " << std::endl;
-	std::cout << l->getType() << " " << std::endl;
-	i->makeSound();	// will output the cat sound!
-	j->makeSound();
-    meta->makeSound();
-	k->makeSound();
-	l->makeSound();
+	std::cout << std::endl;
+
+	std::cout << myAnimal->getType()		<< " " << std::endl;
+	std::cout << myDog->getType()			<< " " << std::endl;
+	std::cout << myCat->getType()			<< " " << std::endl;
+	std::cout << myWrongAnimal->getType()	<< " " << std::endl;
+	std::cout << myWrongCat->getType()		<< " " << std::endl;
+
+	std::cout << std::endl;
+
+    myAnimal->makeSound();
+	myCat->makeSound();
+	myDog->makeSound();
+	myWrongAnimal->makeSound();
+	myWrongCat->makeSound();
+
 	return 0;
 }

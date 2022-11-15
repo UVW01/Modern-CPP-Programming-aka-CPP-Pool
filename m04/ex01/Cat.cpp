@@ -16,79 +16,83 @@
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-Cat::Cat( void ): Animal( "Cat" ), m_brain(NULL)
+Cat::Cat(void)
+	: Animal("Cat"), m_brain(NULL)
 {
 	std::cout << "Cat Default constructor called" << std::endl;
 	m_brain = new Brain();
-	return ;
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-Cat::Cat( Cat const& obj ): Animal( obj ), m_brain(NULL)
+Cat::Cat(Cat const &obj)
+	: Animal(obj), m_brain(NULL)
 {
 	std::cout << "Cat Copy constructor called" << std::endl;
-	*this = obj;
-	return ;
+	m_brain = new Brain();
+	for (size_t i = 0; i < 100; i++)
+		setIdea(i, obj.getIdea(i));
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void Cat::operator = (Cat const& obj)
+Cat &Cat::operator=(Cat const &obj)
 {
-	operator=(static_cast<const Animal&>(obj));
+	if (this == &obj)
+		return (*this);
 	std::cout << "Cat Copy assignment operator called" << std::endl;
-	if (m_brain == NULL)
-		m_brain = new Brain();
-	*(m_brain) = obj.getBrain();
-	return ;
+	for (size_t i = 0; i < 100; i++)
+		setIdea(i, obj.getIdea(i));
+	return (*this);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-Cat::~Cat( void )
+Cat::~Cat(void)
 {
 	delete (m_brain);
 	std::cout << "Cat Destructor called" << std::endl;
-	return ;
+	return;
 }
 
 /* ************************************************************************** */
 /* ******************************  METHODS  ********************************* */
 /* ************************************************************************** */
 
-const Brain&	Cat::getBrain( void ) const
+const Brain &Cat::getBrain(void) const
 {
 	return (*m_brain);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-const std::string*	Cat::getIdeas( void ) const
+std::string Cat::getIdea(size_t index) const
 {
-	return (m_brain->getIdeas());
+	return (m_brain->getIdea(index));
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void	Cat::setIdeas( size_t index, std::string idea )
+void Cat::setIdea(size_t index, std::string idea)
 {
-	m_brain->setIdeas(index, idea);
-	return ;
+	m_brain->setIdea(index, idea);
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void	Cat::printIdeas( void ) const
+void Cat::printIdeas(void) const
 {
 	m_brain->printIdeas();
-	return ;
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void	Cat::makeSound( void ) const
+void Cat::makeSound(void) const
 {
 	std::cout << "* meoow meoow *" << std::endl;
-	return ;
+	return;
 }

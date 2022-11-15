@@ -12,14 +12,14 @@
 
 #pragma once
 #ifndef BRAIN_HPP_
-# define BRAIN_HPP_
+#define BRAIN_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-# include <iostream>
-# include <string>
+#include <iostream>
+#include <string>
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
@@ -27,22 +27,18 @@
 
 class Brain
 {
-	private:
-		std::string	m_ideas[100];
+private:
+	std::string m_ideas[100];
 
-	public:
-		Brain( void );
-		Brain( Brain const& );
-		void operator = ( Brain const& );
-		~Brain( void );
+public:
+	Brain(void);
+	Brain(Brain const &);
+	Brain &operator=(Brain const &obj);
+	~Brain(void);
 
-		const std::string	*getIdeas( void ) const;
-		void				setIdeas( size_t index, std::string idea );
-		void				printIdeas( void ) const;
+	std::string getIdea(size_t index) const;
+	void setIdea(size_t index, std::string idea);
+	void printIdeas(void) const;
 };
-
-/* ************************************************************************** */
-/* ****************************   PROTOTYPES   ****************************** */
-/* ************************************************************************** */
 
 #endif

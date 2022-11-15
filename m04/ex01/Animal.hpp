@@ -34,7 +34,7 @@ public:
 	Animal(void);
 	Animal(std::string);
 	Animal(Animal const &);
-	void operator=(Animal const &);
+	Animal &operator=(Animal const &);
 	virtual ~Animal(void);
 
 	std::string getType(void) const;
@@ -42,9 +42,5 @@ public:
 
 	virtual void makeSound(void) const;
 };
-
-/* ************************************************************************** */
-/* ****************************   PROTOTYPES   ****************************** */
-/* ************************************************************************** */
 
 #endif

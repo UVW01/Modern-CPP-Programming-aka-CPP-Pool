@@ -16,63 +16,67 @@
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-Brain::Brain( void )
+Brain::Brain(void)
 {
 	std::cout << "Brain Default constructor called" << std::endl;
-	return ;
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-Brain::Brain( Brain const &obj )
+Brain::Brain(Brain const &obj)
 {
-	*this = obj;
 	std::cout << "Brain Copy constructor called" << std::endl;
-	return ;
+	for (size_t i = 0; i < 100; i++)
+		setIdea(i, obj.getIdea(i));
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void Brain::operator = (Brain const &obj)
+Brain &Brain::operator=(Brain const &obj)
 {
-	const std::string*	obj_ideas = obj.getIdeas();
-
-	std::copy(obj_ideas, obj_ideas + 100, m_ideas);
+	if (this == &obj)
+		return (*this);
 	std::cout << "Brain Copy assignment operator called" << std::endl;
-	return ;
+	for (size_t i = 0; i < 100; i++)
+		setIdea(i, obj.getIdea(i));
+	return (*this);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-Brain::~Brain( void )
+Brain::~Brain(void)
 {
 	std::cout << "Brain Destructor called" << std::endl;
-	return ;
+	return;
 }
 
 /* ************************************************************************** */
 /* ******************************  METHODS  ********************************* */
 /* ************************************************************************** */
 
-const std::string*	Brain::getIdeas( void ) const
+std::string Brain::getIdea(size_t index) const
 {
-	return (m_ideas);
+	if (index < 100)
+		return (m_ideas[index]);
+	return ("");
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void	Brain::setIdeas( size_t index, std::string idea )
+void Brain::setIdea(size_t index, std::string idea)
 {
-	if ( index < 100 )
+	if (index < 100)
 		m_ideas[index] = idea;
-	return ;
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void	Brain::printIdeas( void ) const
+void Brain::printIdeas(void) const
 {
 	for (size_t i = 0; i < 100; i++)
 		std::cout << i << ":\t" << m_ideas[i] << std::endl;
-	return ;
+	return;
 }

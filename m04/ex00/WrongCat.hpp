@@ -12,32 +12,31 @@
 
 #pragma once
 #ifndef WRONGCAT_HPP_
-# define WRONGCAT_HPP_
+#define WRONGCAT_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-# include "WrongAnimal.hpp"
+#include "WrongAnimal.hpp"
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class WrongCat: public WrongAnimal
+class WrongCat : public WrongAnimal
 {
-	public:
-		WrongCat( void );
-		WrongCat( WrongCat const& );
-		void operator = ( WrongCat const& );
-		~WrongCat( void );
+public:
+	WrongCat(void);
+	WrongCat(WrongCat const &);
+	WrongCat &operator=(WrongCat const &obj);
+	~WrongCat(void);
 
-		void makeSound( void ) const;
+	void makeSound(void) const;
 };
 
 /* ************************************************************************** */
 /* ****************************   PROTOTYPES   ****************************** */
 /* ************************************************************************** */
-
 
 #endif

@@ -45,9 +45,11 @@ Animal::Animal(Animal const &obj)
 
 Animal &Animal::operator=(Animal const &obj)
 {
+	if (this == &obj)
+		return (*this);
 	std::cout << "Animal Copy assignment operator called" << std::endl;
 	m_type = obj.getType();
-	return;
+	return (*this);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/

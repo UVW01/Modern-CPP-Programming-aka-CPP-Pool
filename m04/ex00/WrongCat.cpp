@@ -16,46 +16,48 @@
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-WrongCat::WrongCat( void ): WrongAnimal( "WrongCat" )
+WrongCat::WrongCat(void)
+	: WrongAnimal("WrongCat")
 {
 	std::cout << "WrongCat Default constructor called" << std::endl;
-	return ;
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-WrongCat::WrongCat( WrongCat const& obj )
+WrongCat::WrongCat(WrongCat const &obj)
+	: WrongAnimal(obj)
 {
 	std::cout << "WrongCat Copy constructor called" << std::endl;
-	*this = obj;
-	return ;
+	m_type = obj.getType();
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void WrongCat::operator = (WrongCat const& obj)
+WrongCat &WrongCat::operator=(WrongCat const &obj)
 {
+	if (this == &obj)
+		return (*this);
 	std::cout << "WrongCat Copy assignment operator called" << std::endl;
-	this->type = obj.getType();
-	return ;
+	m_type = obj.getType();
+	return (*this);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-WrongCat::~WrongCat( void )
+WrongCat::~WrongCat(void)
 {
 	std::cout << "WrongCat Destructor called" << std::endl;
-	return ;
+	return;
 }
 
 /* ************************************************************************** */
 /* ******************************  METHODS  ********************************* */
 /* ************************************************************************** */
 
-void	WrongCat::makeSound( void ) const
+void WrongCat::makeSound(void) const
 {
-	std::cout << "* maawouuuu maawouuu *" << std::endl;
-	return ;
+	std::cout << "* friw kriw ... friw kriw *" << std::endl;
+	return;
 }
-
-

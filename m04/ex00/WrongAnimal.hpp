@@ -12,14 +12,14 @@
 
 #pragma once
 #ifndef WRONGANIMAL_HPP_
-# define WRONGANIMAL_HPP_
+#define WRONGANIMAL_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-# include <iostream>
-# include <string>
+#include <iostream>
+#include <string>
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
@@ -27,25 +27,24 @@
 
 class WrongAnimal
 {
-	protected:
-		std::string	type;
+protected:
+	std::string m_type;
 
-	public:
-		WrongAnimal( void );
-		WrongAnimal( std::string );
-		WrongAnimal( WrongAnimal const& );
-		void operator = ( WrongAnimal const& );
-		~WrongAnimal( void );
+public:
+	WrongAnimal(void);
+	WrongAnimal(std::string);
+	WrongAnimal(WrongAnimal const &);
+	WrongAnimal &operator=(WrongAnimal const &obj);
+	~WrongAnimal(void);
 
-		std::string	getType( void ) const;
-		void		setType( std::string );
+	std::string getType(void) const;
+	void setType(std::string);
 
-		void makeSound( void ) const;
+	void makeSound(void) const;
 };
 
 /* ************************************************************************** */
 /* ****************************   PROTOTYPES   ****************************** */
 /* ************************************************************************** */
-
 
 #endif

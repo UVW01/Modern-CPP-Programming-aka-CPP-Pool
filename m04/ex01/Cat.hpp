@@ -12,43 +12,38 @@
 
 #pragma once
 #ifndef CAT_HPP_
-# define CAT_HPP_
+#define CAT_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-# include <iostream>
-# include <string>
-# include "Animal.hpp"
-# include "Brain.hpp"
+#include <iostream>
+#include <string>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class Cat: public Animal
+class Cat : public Animal
 {
-	private:
-		Brain *m_brain;
+private:
+	Brain *m_brain;
 
-	public:
-		Cat( void );
-		Cat( Cat const& );
-		using Animal::operator=;
-		void operator = ( Cat const& );
-		~Cat( void );
+public:
+	Cat(void);
+	Cat(Cat const &);
+	Cat &operator=(Cat const &);
+	~Cat(void);
 
-		const Brain			&getBrain( void ) const;
-		const std::string	*getIdeas( void ) const;
-		void				setIdeas( size_t index, std::string idea );
-		void				printIdeas( void ) const;
+	const Brain &getBrain(void) const;
+	std::string getIdea(size_t) const;
+	void setIdea(size_t, std::string);
+	void printIdeas(void) const;
 
-		void 				makeSound( void ) const;
+	void makeSound(void) const;
 };
-
-/* ************************************************************************** */
-/* ****************************   PROTOTYPES   ****************************** */
-/* ************************************************************************** */
 
 #endif

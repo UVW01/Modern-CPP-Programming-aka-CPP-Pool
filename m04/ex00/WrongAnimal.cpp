@@ -16,69 +16,71 @@
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-WrongAnimal::WrongAnimal( void ): type( "N/A" )
+WrongAnimal::WrongAnimal(void)
+	: m_type("N/A")
 {
 	std::cout << "WrongAnimal Default constructor called" << std::endl;
-	return ;
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-WrongAnimal::WrongAnimal( std::string input_type ): type( input_type )
+WrongAnimal::WrongAnimal(std::string input_type)
+	: m_type(input_type)
 {
 	std::cout << "WrongAnimal Default constructor called" << std::endl;
-	return ;
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-WrongAnimal::WrongAnimal( WrongAnimal const& obj )
+WrongAnimal::WrongAnimal(WrongAnimal const &obj)
 {
 	std::cout << "WrongAnimal Copy constructor called" << std::endl;
-	type = obj.getType();
-	return ;
+	m_type = obj.getType();
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void WrongAnimal::operator = (WrongAnimal const& obj)
+WrongAnimal &WrongAnimal::operator=(WrongAnimal const &obj)
 {
+	if (this == &obj)
+		return (*this);
 	std::cout << "WrongAnimal Copy assignment operator called" << std::endl;
-	type = obj.getType();
-	return ;
+	m_type = obj.getType();
+	return (*this);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-WrongAnimal::~WrongAnimal( void )
+WrongAnimal::~WrongAnimal(void)
 {
 	std::cout << "WrongAnimal Destructor called" << std::endl;
-	return ;
+	return;
 }
 
 /* ************************************************************************** */
 /* ******************************  METHODS  ********************************* */
 /* ************************************************************************** */
 
-std::string	WrongAnimal::getType( void ) const
+std::string WrongAnimal::getType(void) const
 {
-	return (type);
+	return (m_type);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void	WrongAnimal::setType( std::string input_type )
+void WrongAnimal::setType(std::string input_type)
 {
-	type = input_type;
-	return ;
+	m_type = input_type;
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void	WrongAnimal::makeSound( void ) const
+void WrongAnimal::makeSound(void) const
 {
 	std::cout << "* #$@_!#_$%$@!_%$@_%#_$@_!#$@_!% *" << std::endl;
-	return ;
+	return;
 }
-
-
