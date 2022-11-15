@@ -57,5 +57,12 @@ int	main( void )
 	forth.attack("Human");
 	std::cout << std::endl;
 
+	std::cout << "2nd" << std::endl;
+	std::cout << "Name: " << second.getName() << std::endl;
+	std::cout << "HitPoints: " << second.getHitPoints() << std::endl;
+	std::cout << "EnergyPoints: " << second.getEnergyPoints() << std::endl;
+	std::cout << "AttackDamage: " << second.getAttackDamage() << std::endl;
+	std::cout << std::endl;
+	
 	return (0);
 }

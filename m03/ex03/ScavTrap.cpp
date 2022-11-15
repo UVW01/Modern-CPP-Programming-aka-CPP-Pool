@@ -16,63 +16,91 @@
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-ScavTrap::ScavTrap( void ): ClapTrap()
+ScavTrap::ScavTrap(void) : ClapTrap()
 {
 	std::cout << "ScavTrap Default constructor called" << std::endl;
-	name = "John Doe";
-	hitPoints = 100;
-	energyPoints = 50;
-	attackDamage = 20;
-	return ;
+
+	m_name = "John Doe";
+	m_hitPoints = 100;
+	m_energyPoints = 50;
+	m_attackDamage = 20;
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-ScavTrap::ScavTrap( std::string input_name ): ClapTrap( input_name )
+ScavTrap::ScavTrap(std::string input_name) : ClapTrap(input_name)
 {
 	std::cout << "ScavTrap Initialization constructor called" << std::endl;
-	name = input_name;
-	hitPoints = 100;
-	energyPoints = 50;
-	attackDamage = 20;
-	return ;
+
+	m_name = input_name;
+	m_hitPoints = 100;
+	m_energyPoints = 50;
+	m_attackDamage = 20;
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-ScavTrap::ScavTrap( ScavTrap const& obj ): ClapTrap( obj )
+ScavTrap::ScavTrap(ScavTrap const &obj) : ClapTrap(obj)
 {
 	std::cout << "ScavTrap Copy constructor called" << std::endl;
-	*this = obj;
-	return ;
+
+	m_name = obj.getName();
+	m_hitPoints = obj.getHitPoints();
+	m_energyPoints = obj.getEnergyPoints();
+	m_attackDamage = obj.getAttackDamage();
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void ScavTrap::operator = (ScavTrap const& obj)
+ScavTrap &ScavTrap::operator=(ScavTrap const &obj)
 {
+	if (this == &obj)
+		return (*this);
 	std::cout << "ScavTrap Copy assignment operator called" << std::endl;
-	name = obj.getName();
-	hitPoints = obj.getHitPoints();
-	energyPoints = obj.getEnergyPoints();
-	attackDamage = obj.getAttackDamage();
-	return ;
+
+	m_name = obj.getName();
+	m_hitPoints = obj.getHitPoints();
+	m_energyPoints = obj.getEnergyPoints();
+	m_attackDamage = obj.getAttackDamage();
+	return (*this);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-ScavTrap::~ScavTrap( void )
+ScavTrap::~ScavTrap(void)
 {
 	std::cout << "ScavTrap Destructor called" << std::endl;
-	return ;
+
+	return;
 }
 
 /* ************************************************************************** */
 /* ******************************  METHODS  ********************************* */
 /* ************************************************************************** */
 
-void	ScavTrap::guardGate( void )
+void ScavTrap::guardGate(void)
 {
 	std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
-	return ;
+
+	return;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+void ScavTrap::attack(const std::string &target)
+{
+	std::cout << "ScavpTrap " << m_name;
+	if (m_energyPoints == 0 || m_hitPoints == 0)
+	{
+		std::cout << " doesn't have enough vitalities to attack " << target
+				  << "!" << std::endl;
+		return;
+	}
+	std::cout << " attacked " << target << ", causing " << m_attackDamage
+			  << " points of damage!" << std::endl;
+	m_energyPoints -= 1;
+	return;
 }

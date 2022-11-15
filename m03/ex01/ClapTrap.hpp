@@ -12,14 +12,14 @@
 
 #pragma once
 #ifndef CLAPTRAP_HPP_
-# define CLAPTRAP_HPP_
+#define CLAPTRAP_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-# include <string>
-# include <iostream>
+#include <string>
+#include <iostream>
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
@@ -27,27 +27,27 @@
 
 class ClapTrap
 {
-	protected:
-		std::string		m_name;
-		unsigned int	m_hitPoints;
-		unsigned int	m_energyPoints;
-		unsigned int	m_attackDamage;
+protected:
+	std::string m_name;
+	unsigned int m_hitPoints;
+	unsigned int m_energyPoints;
+	unsigned int m_attackDamage;
 
-	public:
-		ClapTrap( void );
-		ClapTrap( std::string );
-		ClapTrap( ClapTrap const& );
-		void operator = ( ClapTrap const& );
-		virtual ~ClapTrap( void );
+public:
+	ClapTrap(void);
+	ClapTrap(std::string);
+	ClapTrap(ClapTrap const &);
+	ClapTrap &operator=(ClapTrap const &);
+	virtual ~ClapTrap(void);
 
-		virtual void	attack(const std::string& target);
-		void			takeDamage(unsigned int amount);
-		void			beRepaired(unsigned int amount);
+	virtual void attack(const std::string &target);
+	void takeDamage(unsigned int amount);
+	void beRepaired(unsigned int amount);
 
-		std::string		getName( void ) const;
-		unsigned int	getHitPoints( void ) const;
-		unsigned int	getEnergyPoints( void ) const;
-		unsigned int	getAttackDamage( void ) const;
+	std::string getName(void) const;
+	unsigned int getHitPoints(void) const;
+	unsigned int getEnergyPoints(void) const;
+	unsigned int getAttackDamage(void) const;
 };
 
 #endif

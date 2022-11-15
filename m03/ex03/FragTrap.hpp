@@ -12,29 +12,30 @@
 
 #pragma once
 #ifndef FRAGTRAP_HPP_
-# define FRAGTRAP_HPP_
+#define FRAGTRAP_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-# include "ClapTrap.hpp"
+#include "ClapTrap.hpp"
+#include <iostream>
+#include <string>
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class FragTrap: virtual public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
-	public:
-		FragTrap( void );
-		FragTrap( std::string );
-		FragTrap( FragTrap const& );
-		using ClapTrap::operator=;
-		void operator = ( FragTrap const& );
-		~FragTrap( void );
+public:
+	FragTrap(void);
+	FragTrap(std::string);
+	FragTrap(FragTrap const &);
+	FragTrap &operator=(FragTrap const &);
+	~FragTrap(void);
 
-		void highFivesGuys( void );
+	void highFivesGuys(void);
 };
 
 #endif

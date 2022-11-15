@@ -16,46 +16,48 @@
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-Dog::Dog( void ): Animal( "Dog" )
+Dog::Dog(void)
+	: Animal("Dog")
 {
 	std::cout << "Dog Default constructor called" << std::endl;
-	return ;
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-Dog::Dog( Dog const& obj )
+Dog::Dog(Dog const &obj)
+	: Animal(obj)
 {
 	std::cout << "Dog Copy constructor called" << std::endl;
-	*this = obj;
-	return ;
+	m_type = obj.getType();
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void Dog::operator = (Dog const& obj)
+Dog &Dog::operator=(Dog const &obj)
 {
+	if (this == &obj)
+		return (*this);
 	std::cout << "Dog Copy assignment operator called" << std::endl;
-	this->type = obj.getType();
-	return ;
+	m_type = obj.getType();
+	return (*this);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-Dog::~Dog( void )
+Dog::~Dog(void)
 {
 	std::cout << "Dog Destructor called" << std::endl;
-	return ;
+	return;
 }
 
 /* ************************************************************************** */
 /* ******************************  METHODS  ********************************* */
 /* ************************************************************************** */
 
-void	Dog::makeSound( void ) const
+void Dog::makeSound(void) const
 {
 	std::cout << "* woof woof *" << std::endl;
-	return ;
+	return;
 }
-
-

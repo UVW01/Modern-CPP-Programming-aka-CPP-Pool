@@ -12,12 +12,12 @@
 
 #include "FragTrap.hpp"
 
-int	main( void )
+int main(void)
 {
-	FragTrap	first;
-	FragTrap	second("Patrick Bateman");
-	FragTrap	third(second);
-	FragTrap	forth;
+	FragTrap first;
+	FragTrap second("Patrick Bateman");
+	FragTrap third(second);
+	FragTrap forth;
 	forth = second;
 	ClapTrap *ptr = &first;
 

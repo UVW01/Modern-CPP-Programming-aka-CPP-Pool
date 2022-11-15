@@ -16,46 +16,48 @@
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-Cat::Cat( void ): Animal( "Cat" )
+Cat::Cat(void)
+	: Animal("Cat")
 {
 	std::cout << "Cat Default constructor called" << std::endl;
-	return ;
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-Cat::Cat( Cat const& obj )
+Cat::Cat(Cat const &obj)
+	: Animal(obj)
 {
 	std::cout << "Cat Copy constructor called" << std::endl;
-	*this = obj;
-	return ;
+	m_type = obj.getType();
+	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void Cat::operator = (Cat const& obj)
+Cat &Cat::operator=(Cat const &obj)
 {
+	if (this == &obj)
+		return (*this);
 	std::cout << "Cat Copy assignment operator called" << std::endl;
-	this->type = obj.getType();
-	return ;
+	m_type = obj.getType();
+	return (*this);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-Cat::~Cat( void )
+Cat::~Cat(void)
 {
 	std::cout << "Cat Destructor called" << std::endl;
-	return ;
+	return;
 }
 
 /* ************************************************************************** */
 /* ******************************  METHODS  ********************************* */
 /* ************************************************************************** */
 
-void	Cat::makeSound( void ) const
+void Cat::makeSound(void) const
 {
 	std::cout << "* meoow meoow *" << std::endl;
-	return ;
+	return;
 }
-
-

@@ -35,7 +35,7 @@ WrongAnimal::WrongAnimal( std::string input_type ): type( input_type )
 WrongAnimal::WrongAnimal( WrongAnimal const& obj )
 {
 	std::cout << "WrongAnimal Copy constructor called" << std::endl;
-	*this = obj;
+	type = obj.getType();
 	return ;
 }
 
@@ -44,7 +44,7 @@ WrongAnimal::WrongAnimal( WrongAnimal const& obj )
 void WrongAnimal::operator = (WrongAnimal const& obj)
 {
 	std::cout << "WrongAnimal Copy assignment operator called" << std::endl;
-	this->type = obj.getType();
+	type = obj.getType();
 	return ;
 }
 
@@ -62,14 +62,14 @@ WrongAnimal::~WrongAnimal( void )
 
 std::string	WrongAnimal::getType( void ) const
 {
-	return (this->type);
+	return (type);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
 void	WrongAnimal::setType( std::string input_type )
 {
-	this->type = input_type;
+	type = input_type;
 	return ;
 }
 
@@ -77,7 +77,7 @@ void	WrongAnimal::setType( std::string input_type )
 
 void	WrongAnimal::makeSound( void ) const
 {
-	std::cout << "* #$@!%#$@!%#$@!%#$@!%#$@!%#$@!% *" << std::endl;
+	std::cout << "* #$@_!#_$%$@!_%$@_%#_$@_!#$@_!% *" << std::endl;
 	return ;
 }
 

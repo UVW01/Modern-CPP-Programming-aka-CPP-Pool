@@ -12,14 +12,14 @@
 
 #pragma once
 #ifndef ANIMAL_HPP_
-# define ANIMAL_HPP_
+#define ANIMAL_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-# include <iostream>
-# include <string>
+#include <iostream>
+#include <string>
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
@@ -27,20 +27,20 @@
 
 class Animal
 {
-	protected:
-		std::string	m_type;
+protected:
+	std::string m_type;
 
-	public:
-		Animal( void );
-		Animal( std::string );
-		Animal( Animal const& );
-		void operator = ( Animal const& );
-		virtual ~Animal( void );
+public:
+	Animal(void);
+	Animal(std::string);
+	Animal(Animal const &);
+	void operator=(Animal const &);
+	virtual ~Animal(void);
 
-		std::string	getType( void ) const;
-		void		setType( std::string );
+	std::string getType(void) const;
+	void setType(std::string);
 
-		virtual void makeSound( void ) const;
+	virtual void makeSound(void) const;
 };
 
 /* ************************************************************************** */

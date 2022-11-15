@@ -12,15 +12,13 @@
 
 #include "ScavTrap.hpp"
 
-
-int	main( void )
+int main(void)
 {
-	ScavTrap	first;
-	ScavTrap	second("Patrick Bateman");
-	ScavTrap	third(second);
-	ScavTrap	forth;
+	ScavTrap first;
+	ScavTrap second("Patrick Bateman");
+	ScavTrap third(second);
+	ScavTrap forth;
 	forth = second;
-	ClapTrap *ptr = &first;
 
 	std::cout << std::endl;
 	std::cout << "1st" << std::endl;
@@ -52,7 +50,6 @@ int	main( void )
 	std::cout << std::endl;
 
 	first.attack("Alien");
-	ptr->attack("Alien");
 	first.guardGate();
 	second.takeDamage(50);
 	third.beRepaired(50);

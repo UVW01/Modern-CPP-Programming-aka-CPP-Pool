@@ -12,35 +12,35 @@
 
 #pragma once
 #ifndef DIAMONDTRAP_HPP_
-# define DIAMONDTRAP_HPP_
+#define DIAMONDTRAP_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-# include "FragTrap.hpp"
-# include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class DiamondTrap: public FragTrap, public ScavTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
-	private:
-		std::string	name;
+private:
+	std::string m_name;
 
-	public:
-		DiamondTrap( void );
-		DiamondTrap( std::string );
-		DiamondTrap( DiamondTrap const& );
-		using FragTrap::operator=;
-		using ScavTrap::operator=;
-		void operator = ( DiamondTrap const& );
-		~DiamondTrap( void );
+public:
+	DiamondTrap(void);
+	DiamondTrap(std::string);
+	DiamondTrap(DiamondTrap const &);
+	DiamondTrap &operator=(DiamondTrap const &);
+	~DiamondTrap(void);
 
-		void	whoAmI( void );
-		using ScavTrap::attack;
+	void whoAmI(void);
+	using ScavTrap::attack;
+
+	std::string getDiamondName(void) const;
 };
 
 #endif
