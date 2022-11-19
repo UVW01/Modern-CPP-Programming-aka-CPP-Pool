@@ -23,7 +23,6 @@ Bureaucrat::Bureaucrat(void)
 	return;
 }
 
-
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
@@ -110,6 +109,27 @@ void	Bureaucrat::decrementGrade(void)
 	else
 		grade_ += 1;
 	return;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+void	Bureaucrat::signForm(Form &obj)
+{
+	int	sign_grade = obj.getSignGrade();
+
+	std::cout << name_;
+	if (grade_ <= sign_grade)
+	{
+		std::cout << " signed " << obj.getName();
+		obj.beSigned(*this);
+	}
+	else
+	{
+		std::cout << " couldn’t sign " <<  obj.getName() << " because ";
+		std::cout << " bureaucrat grade is lower than form grade";
+	}
+	std::cout << std::endl;
+	return ;
 }
 
 /* -------------------------------------------------------------------------- */

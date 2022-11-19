@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MyClass.hpp                                        :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <mnaimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #pragma once
-#ifndef MYCLASS_HPP_
-#define MYCLASS_HPP_
+#ifndef SHRUBBERY_CREATION_FORM_HPP_
+#define SHRUBBERY_CREATION_FORM_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
@@ -25,16 +25,16 @@
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class MyClass
+class ShrubberyCreationForm
 {
 	private:
 
 
 	public:
-		MyClass(void);
-		MyClass(MyClass const &);
-		MyClass &operator=(MyClass const &);
-		~MyClass(void);
+		ShrubberyCreationForm(void);
+		ShrubberyCreationForm(ShrubberyCreationForm const &);
+		ShrubberyCreationForm &operator=(ShrubberyCreationForm const &);
+		~ShrubberyCreationForm(void);
 };
 
 /* ************************************************************************** */

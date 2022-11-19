@@ -28,11 +28,11 @@ CYN			:= \e[36m
 CC			:= c++
 CC_FLAGS	:= -Wall -Wextra -Werror -std=c++98
 
-NAME		:= Bureaucrat
+NAME		:= Form
 MAIN		:= main.cpp
-SRCS		:= Bureaucrat.cpp
+SRCS		:= Bureaucrat.cpp Form.cpp
 OBJS		:= ${SRCS:%.cpp=%.obj}
-HEAD		:= Bureaucrat.hpp
+HEAD		:= Bureaucrat.hpp Form.hpp
 
 # **************************************************************************** #
 # ****************************    FUNCTIONS    ******************************* #

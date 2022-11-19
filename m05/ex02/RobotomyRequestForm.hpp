@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MyClass.hpp                                        :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <mnaimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #pragma once
-#ifndef MYCLASS_HPP_
-#define MYCLASS_HPP_
+#ifndef ROBOTOMY_REQUEST_FORM_HPP_
+#define ROBOTOMY_REQUEST_FORM_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
@@ -25,16 +25,16 @@
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class MyClass
+class RobotomyRequestForm
 {
 	private:
 
 
 	public:
-		MyClass(void);
-		MyClass(MyClass const &);
-		MyClass &operator=(MyClass const &);
-		~MyClass(void);
+		RobotomyRequestForm(void);
+		RobotomyRequestForm(RobotomyRequestForm const &);
+		RobotomyRequestForm &operator=(RobotomyRequestForm const &);
+		~RobotomyRequestForm(void);
 };
 
 /* ************************************************************************** */

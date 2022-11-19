@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MyClass.hpp                                        :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <mnaimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #pragma once
-#ifndef MYCLASS_HPP_
-#define MYCLASS_HPP_
+#ifndef PRESIDENTIAL_PARDON_FORM_HPP_
+#define PRESIDENTIAL_PARDON_FORM_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
@@ -25,16 +25,16 @@
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class MyClass
+class PresidentialPardonForm
 {
 	private:
 
 
 	public:
-		MyClass(void);
-		MyClass(MyClass const &);
-		MyClass &operator=(MyClass const &);
-		~MyClass(void);
+		PresidentialPardonForm(void);
+		PresidentialPardonForm(PresidentialPardonForm const &);
+		PresidentialPardonForm &operator=(PresidentialPardonForm const &);
+		~PresidentialPardonForm(void);
 };
 
 /* ************************************************************************** */

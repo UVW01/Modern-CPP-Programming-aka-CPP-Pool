@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MyClass.hpp                                        :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <mnaimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 18:09:25 by mnaimi            #+#    #+#             */
-/*   Updated: 2022/11/17 00:13:37 by mnaimi           ###   ########.fr       */
+/*   Created: 2022/11/16 22:16:32 by mnaimi            #+#    #+#             */
+/*   Updated: 2022/11/18 21:22:46 by mnaimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef MYCLASS_HPP_
-#define MYCLASS_HPP_
+#ifndef BUREAUCRAT_HPP_
+#define BUREAUCRAT_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
@@ -20,25 +20,50 @@
 
 #include <iostream>
 #include <string>
+#include <exception>
+#include "Form.hpp"
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class MyClass
+class Form;
+
+class Bureaucrat
 {
 	private:
-
+		const std::string	name_;
+		int					grade_;
 
 	public:
-		MyClass(void);
-		MyClass(MyClass const &);
-		MyClass &operator=(MyClass const &);
-		~MyClass(void);
+		Bureaucrat(void);
+		Bureaucrat(Bureaucrat const &);
+		Bureaucrat(std::string, int);
+		Bureaucrat &operator=(Bureaucrat const &);
+		~Bureaucrat(void);
+
+		class GradeTooHighException : public std::exception {
+			public:
+				virtual const char *what() const throw();
+		};
+		class GradeTooLowException : public std::exception {
+			public:
+				virtual const char *what() const throw();
+		};
+
+		std::string		getName(void) const;
+		uint			getGrade(void) const;
+
+		void	incrementGrade(void);
+		void	decrementGrade(void);
+
+		void	signForm(Form &);
 };
 
 /* ************************************************************************** */
 /* ****************************   PROTOTYPES   ****************************** */
 /* ************************************************************************** */
+
+std::ostream &operator<<(std::ostream &out, Bureaucrat const &c);
 
 #endif
