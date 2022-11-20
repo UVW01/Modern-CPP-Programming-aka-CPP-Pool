@@ -18,23 +18,28 @@
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include <ctime>
+#include <cstdlib>
+#include "Form.hpp"
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class RobotomyRequestForm
+class RobotomyRequestForm: public Form
 {
 	private:
-
+		std::string		target_;
 
 	public:
 		RobotomyRequestForm(void);
+		RobotomyRequestForm(std::string, std::string);
 		RobotomyRequestForm(RobotomyRequestForm const &);
 		RobotomyRequestForm &operator=(RobotomyRequestForm const &);
 		~RobotomyRequestForm(void);
+
+		std::string	getTarget(void) const;
+		void		execute(Bureaucrat const & executor) const;
 };
 
 /* ************************************************************************** */

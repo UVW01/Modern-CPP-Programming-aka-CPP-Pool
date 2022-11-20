@@ -132,6 +132,22 @@ void	Bureaucrat::signForm(Form &obj)
 	return ;
 }
 
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+void	Bureaucrat::executeForm(Form &obj)
+{
+	try
+	{
+		obj.execute(*this);
+		std::cout << name_ << " executed " << obj.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	return ;
+}
+
 /* -------------------------------------------------------------------------- */
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()

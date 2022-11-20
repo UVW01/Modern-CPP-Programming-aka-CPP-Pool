@@ -10,9 +10,6 @@
 #  |__/     |__|__/  |__|__/  \__|________|__/     |______|________|________/  #
 #                                                                              #
 # **************************************************************************** #
-
-
-# **************************************************************************** #
 # ***************************    COLOR CODES    ****************************** #
 # **************************************************************************** #
 
@@ -30,9 +27,11 @@ CC_FLAGS	:= -Wall -Wextra -Werror -std=c++98
 
 NAME		:= Form
 MAIN		:= main.cpp
-SRCS		:= Bureaucrat.cpp Form.cpp
+SRCS		:= Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp \
+	RobotomyRequestForm.cpp ShrubberyCreationForm.cpp 
 OBJS		:= ${SRCS:%.cpp=%.obj}
-HEAD		:= Bureaucrat.hpp Form.hpp
+HEAD		:= Bureaucrat.hpp Form.hpp PresidentialPardonForm.hpp \
+	RobotomyRequestForm.hpp ShrubberyCreationForm.hpp 
 
 # **************************************************************************** #
 # ****************************    FUNCTIONS    ******************************* #

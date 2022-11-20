@@ -17,6 +17,16 @@
 /* ************************************************************************** */
 
 PresidentialPardonForm::PresidentialPardonForm(void)
+	: Form("PresidentialPardon", 25, 5), target_("Company")
+{
+	std::cout << "PresidentialPardonForm Default constructor called" << std::endl;
+	return;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+PresidentialPardonForm::PresidentialPardonForm(std::string target)
+	: Form("PresidentialPardon", 25, 5), target_(target)
 {
 	std::cout << "PresidentialPardonForm Default constructor called" << std::endl;
 	return;
@@ -25,9 +35,9 @@ PresidentialPardonForm::PresidentialPardonForm(void)
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &obj)
+	: Form(obj), target_(obj.getTarget())
 {
-	std::cout << "PresidentialPardonForm Copy constructor called" << std::endl;
-
+	std::cout << "PresidentialPardonForm Default constructor called" << std::endl;
 	return;
 }
 
@@ -37,9 +47,11 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm
 {
 	if (this != &obj)
 	{
-		std::cout << "PresidentialPardonForm Copy assignment operator called" << std::endl;	
+		Form::operator=(obj);
+		std::cout << "PresidentialPardonForm Copy assignment operator called" \
+			<< std::endl;
+		target_ = obj.getTarget();
 	}
-
 	return;
 }
 
@@ -54,3 +66,18 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 /* ************************************************************************** */
 /* ******************************  METHODS  ********************************* */
 /* ************************************************************************** */
+
+std::string	PresidentialPardonForm::getTarget(void) const
+{
+	return (target_);
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
+{
+	checkFormForExec(executor);
+	std::cout << "Informs that " << target_ ;
+	std::cout << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+	return ;
+}

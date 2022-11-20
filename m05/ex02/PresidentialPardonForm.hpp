@@ -18,23 +18,26 @@
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "Form.hpp"
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class PresidentialPardonForm
+class PresidentialPardonForm: public Form
 {
 	private:
-
+		std::string		target_;
 
 	public:
 		PresidentialPardonForm(void);
+		PresidentialPardonForm(std::string);
 		PresidentialPardonForm(PresidentialPardonForm const &);
 		PresidentialPardonForm &operator=(PresidentialPardonForm const &);
 		~PresidentialPardonForm(void);
+
+		std::string	getTarget(void) const;
+		void		execute(Bureaucrat const & executor) const;
 };
 
 /* ************************************************************************** */

@@ -20,7 +20,6 @@
 
 #include <iostream>
 #include <string>
-#include <string>
 #include "Bureaucrat.hpp"
 
 /* ************************************************************************** */
@@ -42,13 +41,17 @@ class Form
 		Form(Form const &);
 		Form(std::string, int, int);
 		Form &operator=(Form const &);
-		~Form(void);
+		virtual ~Form(void);
 
 		class GradeTooHighException : public std::exception {
 			public:
 				virtual const char *what() const throw();
 		};
 		class GradeTooLowException : public std::exception {
+			public:
+				virtual const char *what() const throw();
+		};
+		class FormNotYetSigned : public std::exception {
 			public:
 				virtual const char *what() const throw();
 		};
@@ -59,6 +62,9 @@ class Form
 		int				getExecGrade(void) const;
 
 		void	beSigned(Bureaucrat const& obj);
+		void	checkFormForExec(Bureaucrat const & executor) const;
+
+		virtual void	execute(Bureaucrat const & executor) const = 0;
 };
 
 /* ************************************************************************** */

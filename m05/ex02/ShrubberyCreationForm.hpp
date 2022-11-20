@@ -18,23 +18,27 @@
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "Form.hpp"
+#include <fstream>
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class ShrubberyCreationForm
+class ShrubberyCreationForm: public Form
 {
 	private:
-
+		std::string		target_;
 
 	public:
 		ShrubberyCreationForm(void);
+		ShrubberyCreationForm(std::string);
 		ShrubberyCreationForm(ShrubberyCreationForm const &);
 		ShrubberyCreationForm &operator=(ShrubberyCreationForm const &);
 		~ShrubberyCreationForm(void);
+
+		std::string	getTarget(void) const;
+		void		execute(Bureaucrat const & executor) const;
 };
 
 /* ************************************************************************** */

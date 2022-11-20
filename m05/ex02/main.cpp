@@ -13,51 +13,61 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #define GREEN "\e[32m"
+#define RED "\e[31m"
 #define RESET "\e[m"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-
-void test_low()
+void Sh_unvalid_signe(void)
 {
-    std::cout << GREEN << "TESTING WITH LOW GRADE" << RESET <<std::endl;
+    std::cout << RED <<  " \t Test for unvalid sign" << RESET <<  std::endl;
 
-    try{
-        Form form("Man", 51, 10);
-    }
-    catch(std::exception& excp){
-        std::cout << excp.what() << std::endl;
-    }
+    Bureaucrat desk("Lincoln", 146);
+    ShrubberyCreationForm form;
+    desk.signForm(form);
 }
 
-void test_high()
-{
-    std::cout << GREEN << "TESTING WITH HIGH GRADE" << RESET <<std::endl;
 
-    try{
-        Form form ("Woman", 1, 20);
-    }
-    catch(std::exception& excp){
-        std::cout << excp.what() << std::endl;
-    }
+void Sh_unvalid_execute(void)
+{
+    std::cout << RED <<  " \t Test for unvalid execute" << RESET <<  std::endl;
+    Bureaucrat desk("Roosevelt", 142);
+    ShrubberyCreationForm form;
+    desk.signForm(form);
+    desk.executeForm(form);
 }
 
-void test_confirm_sign()
+
+void Robot_test(void)
 {
-    std::cout << GREEN << "TESTING INCREMENTATION GRADE" << RESET <<std::endl;
-    try {
-        Bureaucrat me("me", 1);
-        Form boy("bot", 4, 2);
-        boy.beSigned(me);
-    }
-    catch (std::exception& excp){
-        std::cout << excp.what() << std::endl;
-    }
+    std::cout << RED <<  " \t Test for Robot" << RESET <<  std::endl;
+    RobotomyRequestForm form;
+    Bureaucrat desk("Clinton", 44);
+    desk.signForm(form);
+    form.execute(desk);
+}
+
+void Pardon_test()
+{
+    std::cout << RED <<  " \t Test for Pardon" << RESET <<  std::endl;
+    PresidentialPardonForm form("Phil");
+    Bureaucrat desk1("Obama", 23);
+    Bureaucrat desk2("Trump", 1);
+
+    std::cout << form << std::endl;
+
+    desk1.signForm(form);
+    desk2.executeForm(form);
+
+    std::cout << std::endl;
 }
 
 int main()
 {
-    test_low();
-    test_high();
-    test_confirm_sign();
-
+    Sh_unvalid_signe();
+    Sh_unvalid_execute();
+    Robot_test();
+    Pardon_test();
     return (0);
 }
