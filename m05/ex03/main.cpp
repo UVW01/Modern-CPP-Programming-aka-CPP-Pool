@@ -11,26 +11,16 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
-int main(void)
+int main()
 {
-    Bureaucrat b;
-    try
-    {
-        std::cout << b;
-		std::cout << b.getName() << std::endl;
-		std::cout << b.getGrade() << std::endl;
-
-        b.incrementGrade();
-        b.decrementGrade();
-        b.decrementGrade();
-        std::cout << b;
-		std::cout << b.getName() << std::endl;
-		std::cout << b.getGrade() << std::endl;
-
-    }
-    catch (const std::exception& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
+	Intern someRandomIntern;
+	Form *rrf;
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	return (0);
 }

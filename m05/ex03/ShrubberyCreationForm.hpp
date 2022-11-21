@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <mnaimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,32 +11,31 @@
 /* ************************************************************************** */
 
 #pragma once
-#ifndef ROBOTOMY_REQUEST_FORM_HPP_
-#define ROBOTOMY_REQUEST_FORM_HPP_
+#ifndef SHRUBBERY_CREATION_FORM_HPP_
+#define SHRUBBERY_CREATION_FORM_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-#include <ctime>
-#include <cstdlib>
 #include "Form.hpp"
+#include <fstream>
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class RobotomyRequestForm: public Form
+class ShrubberyCreationForm: public Form
 {
 	private:
 		std::string		target_;
 
 	public:
-		RobotomyRequestForm(void);
-		RobotomyRequestForm(std::string);
-		RobotomyRequestForm(RobotomyRequestForm const &);
-		RobotomyRequestForm &operator=(RobotomyRequestForm const &);
-		~RobotomyRequestForm(void);
+		ShrubberyCreationForm(void);
+		ShrubberyCreationForm(std::string);
+		ShrubberyCreationForm(ShrubberyCreationForm const &);
+		ShrubberyCreationForm &operator=(ShrubberyCreationForm const &);
+		~ShrubberyCreationForm(void);
 
 		std::string	getTarget(void) const;
 		void		execute(Bureaucrat const & executor) const;

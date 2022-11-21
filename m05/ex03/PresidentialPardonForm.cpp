@@ -76,17 +76,8 @@ std::string	PresidentialPardonForm::getTarget(void) const
 
 void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-	try
-	{
-		checkFormForExec(executor);
-		std::cout << target_ << " has been pardoned by Zaphod Beeblebrox." \
-			<< std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << executor.getName();
-		std::cerr << " couldn't execute " << this->getName() << " because ";
-		std::cerr << e.what() << std::endl;
-	}
+	checkFormForExec(executor);
+	std::cout << "Informs that " << target_ ;
+	std::cout << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 	return ;
 }

@@ -1,49 +1,70 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <mnaimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 18:09:25 by mnaimi            #+#    #+#             */
-/*   Updated: 2022/11/17 00:13:37 by mnaimi           ###   ########.fr       */
+/*   Created: 2022/11/16 22:16:32 by mnaimi            #+#    #+#             */
+/*   Updated: 2022/11/18 21:22:46 by mnaimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef ROBOTOMY_REQUEST_FORM_HPP_
-#define ROBOTOMY_REQUEST_FORM_HPP_
+#ifndef BUREAUCRAT_HPP_
+#define BUREAUCRAT_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-#include <ctime>
-#include <cstdlib>
+#include <iostream>
+#include <string>
+#include <exception>
 #include "Form.hpp"
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class RobotomyRequestForm: public Form
+class Form;
+
+class Bureaucrat
 {
 	private:
-		std::string		target_;
+		const std::string	name_;
+		int					grade_;
 
 	public:
-		RobotomyRequestForm(void);
-		RobotomyRequestForm(std::string);
-		RobotomyRequestForm(RobotomyRequestForm const &);
-		RobotomyRequestForm &operator=(RobotomyRequestForm const &);
-		~RobotomyRequestForm(void);
+		Bureaucrat(void);
+		Bureaucrat(Bureaucrat const &);
+		Bureaucrat(std::string, int);
+		Bureaucrat &operator=(Bureaucrat const &);
+		~Bureaucrat(void);
 
-		std::string	getTarget(void) const;
-		void		execute(Bureaucrat const & executor) const;
+		class GradeTooHighException : public std::exception {
+			public:
+				virtual const char *what() const throw();
+		};
+		class GradeTooLowException : public std::exception {
+			public:
+				virtual const char *what() const throw();
+		};
+
+		std::string		getName(void) const;
+		int			getGrade(void) const;
+
+		void	incrementGrade(void);
+		void	decrementGrade(void);
+
+		void	signForm(Form &);
+		void	executeForm(Form &obj);
 };
 
 /* ************************************************************************** */
 /* ****************************   PROTOTYPES   ****************************** */
 /* ************************************************************************** */
+
+std::ostream &operator<<(std::ostream &out, Bureaucrat const &c);
 
 #endif

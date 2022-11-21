@@ -12,62 +12,88 @@
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
-#define GREEN "\e[32m"
-#define RED "\e[31m"
-#define RESET "\e[m"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-void Sh_unvalid_signe(void)
-{
-    std::cout << RED <<  " \t Test for unvalid sign" << RESET <<  std::endl;
+/* ************************************************************************** */
 
-    Bureaucrat desk("Lincoln", 146);
-    ShrubberyCreationForm form;
-    desk.signForm(form);
+static void bureaucratTest(void)
+{
+	Bureaucrat	mohamed("Mohamed", 1);
+	Bureaucrat	amine("Amine", 150);
+
+	std::cout << mohamed << amine << std::endl;
+	try
+	{
+		mohamed.incrementGrade();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	try
+	{
+		amine.decrementGrade();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	mohamed.decrementGrade();
+	amine.incrementGrade();
+	std::cout << mohamed << amine << std::endl;
 }
 
+/* ************************************************************************** */
 
-void Sh_unvalid_execute(void)
+static void shrubberyCreationTest(void)
 {
-    std::cout << RED <<  " \t Test for unvalid execute" << RESET <<  std::endl;
-    Bureaucrat desk("Roosevelt", 142);
-    ShrubberyCreationForm form;
-    desk.signForm(form);
-    desk.executeForm(form);
+	Bureaucrat				mohamed("Mohamed", 1);
+	ShrubberyCreationForm	s_form("Garden");
+
+	std::cout << mohamed << s_form << std::endl;
+	mohamed.executeForm(s_form);
+	mohamed.signForm(s_form);
+	mohamed.executeForm(s_form);
 }
 
+/* ************************************************************************** */
 
-void Robot_test(void)
+static void robotomyRequestTest(void)
 {
-    std::cout << RED <<  " \t Test for Robot" << RESET <<  std::endl;
-    RobotomyRequestForm form;
-    Bureaucrat desk("Clinton", 44);
-    desk.signForm(form);
-    form.execute(desk);
+	Bureaucrat				mohamed("Amine", 1);
+	RobotomyRequestForm		r_form("Terminator");
+
+	std::cout << mohamed << r_form << std::endl;
+	mohamed.executeForm(r_form);
+	mohamed.signForm(r_form);
+	mohamed.executeForm(r_form);
 }
 
-void Pardon_test()
+/* ************************************************************************** */
+
+static void presidentialPardonTest(void)
 {
-    std::cout << RED <<  " \t Test for Pardon" << RESET <<  std::endl;
-    PresidentialPardonForm form("Phil");
-    Bureaucrat desk1("Obama", 23);
-    Bureaucrat desk2("Trump", 1);
+	Bureaucrat				mohamed("Naimi", 1);
+	PresidentialPardonForm	p_form("Cunt");
 
-    std::cout << form << std::endl;
-
-    desk1.signForm(form);
-    desk2.executeForm(form);
-
-    std::cout << std::endl;
+	std::cout << mohamed << p_form << std::endl;
+	mohamed.executeForm(p_form);
+	mohamed.signForm(p_form);
+	mohamed.executeForm(p_form);
 }
 
-int main()
+/* ************************************************************************** */
+
+int	main(void)
 {
-    Sh_unvalid_signe();
-    Sh_unvalid_execute();
-    Robot_test();
-    Pardon_test();
-    return (0);
+	bureaucratTest();
+	std::cout << "\n-------------------------------------------\n" << std::endl;
+	shrubberyCreationTest();
+	std::cout << "\n-------------------------------------------\n" << std::endl;
+	robotomyRequestTest();
+	std::cout << "\n-------------------------------------------\n" << std::endl;
+	presidentialPardonTest();
+	return (0);
 }

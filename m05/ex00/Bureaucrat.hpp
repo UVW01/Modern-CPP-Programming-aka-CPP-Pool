@@ -49,7 +49,7 @@ class Bureaucrat
 		};
 
 		std::string		getName(void) const;
-		uint			getGrade(void) const;
+		int				getGrade(void) const;
 
 		void	incrementGrade(void);
 		void	decrementGrade(void);

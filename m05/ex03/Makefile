@@ -25,13 +25,13 @@ CYN			:= \e[36m
 CC			:= c++
 CC_FLAGS	:= -Wall -Wextra -Werror -std=c++98
 
-NAME		:= Forms
+NAME		:= Intern
 MAIN		:= main.cpp
 SRCS		:= Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp \
-	RobotomyRequestForm.cpp ShrubberyCreationForm.cpp 
+	RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
 OBJS		:= ${SRCS:%.cpp=%.obj}
 HEAD		:= Bureaucrat.hpp Form.hpp PresidentialPardonForm.hpp \
-	RobotomyRequestForm.hpp ShrubberyCreationForm.hpp 
+	RobotomyRequestForm.hpp ShrubberyCreationForm.hpp Intern.hpp
 
 # **************************************************************************** #
 # ****************************    FUNCTIONS    ******************************* #

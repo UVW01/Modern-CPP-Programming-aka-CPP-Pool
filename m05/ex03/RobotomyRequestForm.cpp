@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <mnaimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,45 +10,45 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 /* ************************************************************************** */
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-PresidentialPardonForm::PresidentialPardonForm(void)
-	: Form("PresidentialPardon", 25, 5), target_("Company")
+RobotomyRequestForm::RobotomyRequestForm(void)
+	: Form("Shrubbery", 72, 45), target_("Shrubbery")
 {
-	std::cout << "PresidentialPardonForm Default constructor called" << std::endl;
+	std::cout << "RobotomyRequestForm Default constructor called" << std::endl;
 	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target)
-	: Form("PresidentialPardon", 25, 5), target_(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target, std::string name)
+	: Form(name, 72, 45), target_(target)
 {
-	std::cout << "PresidentialPardonForm Default constructor called" << std::endl;
+	std::cout << "RobotomyRequestForm Default constructor called" << std::endl;
 	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &obj)
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &obj)
 	: Form(obj), target_(obj.getTarget())
 {
-	std::cout << "PresidentialPardonForm Default constructor called" << std::endl;
+	std::cout << "RobotomyRequestForm Copy constructor called" << std::endl;
 	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &obj)
+RobotomyRequestForm	&RobotomyRequestForm::operator=(RobotomyRequestForm const &obj)
 {
 	if (this != &obj)
 	{
 		Form::operator=(obj);
-		std::cout << "PresidentialPardonForm Copy assignment operator called" \
+		std::cout << "RobotomyRequestForm Copy assignment operator called" \
 			<< std::endl;
 		target_ = obj.getTarget();
 	}
@@ -57,9 +57,9 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-PresidentialPardonForm::~PresidentialPardonForm(void)
+RobotomyRequestForm::~RobotomyRequestForm(void)
 {
-	std::cout << "PresidentialPardonForm Destructor called" << std::endl;
+	std::cout << "RobotomyRequestForm Destructor called" << std::endl;
 	return;
 }
 
@@ -67,26 +67,22 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 /* ******************************  METHODS  ********************************* */
 /* ************************************************************************** */
 
-std::string	PresidentialPardonForm::getTarget(void) const
+std::string	RobotomyRequestForm::getTarget(void) const
 {
 	return (target_);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
+void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	try
-	{
-		checkFormForExec(executor);
-		std::cout << target_ << " has been pardoned by Zaphod Beeblebrox." \
-			<< std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << executor.getName();
-		std::cerr << " couldn't execute " << this->getName() << " because ";
-		std::cerr << e.what() << std::endl;
-	}
+	checkFormForExec(executor);
+    srand( (unsigned)time(NULL) );
+	std::cout << target_;
+	if (rand() % 2)
+		std::cout << " has been robotomized successfully!";
+	else
+		std::cout << "'s robotomy has failed!";
+	std::cout << std::endl;
 	return ;
 }

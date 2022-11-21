@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <mnaimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,56 +10,44 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 /* ************************************************************************** */
 /* ********************   CONSTRUCTOR / DESTRUCTOR    *********************** */
 /* ************************************************************************** */
 
-RobotomyRequestForm::RobotomyRequestForm(void)
-	: Form("Shrubbery", 72, 45), target_("Shrubbery")
+Intern::Intern(void)
 {
-	std::cout << "RobotomyRequestForm Default constructor called" << std::endl;
+	std::cout << "Intern Default constructor called" << std::endl;
 	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target)
-	: Form("Robotomy", 72, 45), target_(target)
+Intern::Intern(Intern const &obj)
 {
-	std::cout << "RobotomyRequestForm Default constructor called" << std::endl;
+	std::cout << "Intern Copy constructor called" << std::endl;
+
 	return;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &obj)
-	: Form(obj), target_(obj.getTarget())
-{
-	std::cout << "RobotomyRequestForm Copy constructor called" << std::endl;
-	return;
-}
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
-
-RobotomyRequestForm	&RobotomyRequestForm::operator=(RobotomyRequestForm const &obj)
+Intern &Intern::operator=(Intern const &obj)
 {
 	if (this != &obj)
 	{
-		Form::operator=(obj);
-		std::cout << "RobotomyRequestForm Copy assignment operator called" \
-			<< std::endl;
-		target_ = obj.getTarget();
+		std::cout << "Intern Copy assignment operator called" << std::endl;	
 	}
+
 	return (*this);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-RobotomyRequestForm::~RobotomyRequestForm(void)
+Intern::~Intern(void)
 {
-	std::cout << "RobotomyRequestForm Destructor called" << std::endl;
+	std::cout << "Intern Destructor called" << std::endl;
 	return;
 }
 
@@ -67,20 +55,12 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 /* ******************************  METHODS  ********************************* */
 /* ************************************************************************** */
 
-std::string	RobotomyRequestForm::getTarget(void) const
+Form *Intern::makeForm(std::string form_type, std::string form_name)
 {
-	return (target_);
-}
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
-
-void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
-{
-	checkFormForExec(executor);
-	srand( (unsigned)time(NULL) );
-	std::cout << target_;
-	std::cout << (rand() % 2 ? " has been robotomized successfully!" : \
-		"'s robotomy has failed!");
-	std::cout << std::endl;
-	return ;
+	std::string	form_types[3] = {
+		"robotomy request",
+		"shrubbery request",
+		"presidential request"
+	} 
+	
 }

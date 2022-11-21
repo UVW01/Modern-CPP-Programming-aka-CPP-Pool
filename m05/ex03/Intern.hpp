@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   Intern.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <mnaimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,35 +11,30 @@
 /* ************************************************************************** */
 
 #pragma once
-#ifndef ROBOTOMY_REQUEST_FORM_HPP_
-#define ROBOTOMY_REQUEST_FORM_HPP_
+#ifndef INTERN_HPP_
+#define INTERN_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-#include <ctime>
-#include <cstdlib>
+#include <iostream>
+#include <string>
 #include "Form.hpp"
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class RobotomyRequestForm: public Form
+class Intern
 {
-	private:
-		std::string		target_;
-
 	public:
-		RobotomyRequestForm(void);
-		RobotomyRequestForm(std::string);
-		RobotomyRequestForm(RobotomyRequestForm const &);
-		RobotomyRequestForm &operator=(RobotomyRequestForm const &);
-		~RobotomyRequestForm(void);
+		Intern(void);
+		Intern(Intern const &);
+		Intern &operator=(Intern const &);
+		~Intern(void);
 
-		std::string	getTarget(void) const;
-		void		execute(Bureaucrat const & executor) const;
+		Form *makeForm(std::string, std::string);
 };
 
 /* ************************************************************************** */

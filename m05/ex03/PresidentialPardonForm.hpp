@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <mnaimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,32 +11,30 @@
 /* ************************************************************************** */
 
 #pragma once
-#ifndef ROBOTOMY_REQUEST_FORM_HPP_
-#define ROBOTOMY_REQUEST_FORM_HPP_
+#ifndef PRESIDENTIAL_PARDON_FORM_HPP_
+#define PRESIDENTIAL_PARDON_FORM_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-#include <ctime>
-#include <cstdlib>
 #include "Form.hpp"
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-class RobotomyRequestForm: public Form
+class PresidentialPardonForm: public Form
 {
 	private:
 		std::string		target_;
 
 	public:
-		RobotomyRequestForm(void);
-		RobotomyRequestForm(std::string);
-		RobotomyRequestForm(RobotomyRequestForm const &);
-		RobotomyRequestForm &operator=(RobotomyRequestForm const &);
-		~RobotomyRequestForm(void);
+		PresidentialPardonForm(void);
+		PresidentialPardonForm(std::string);
+		PresidentialPardonForm(PresidentialPardonForm const &);
+		PresidentialPardonForm &operator=(PresidentialPardonForm const &);
+		~PresidentialPardonForm(void);
 
 		std::string	getTarget(void) const;
 		void		execute(Bureaucrat const & executor) const;

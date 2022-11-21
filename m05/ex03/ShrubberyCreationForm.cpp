@@ -17,7 +17,7 @@
 /* ************************************************************************** */
 
 ShrubberyCreationForm::ShrubberyCreationForm(void)
-	: Form("Shrubbery", 145, 137), target_("Company")
+	: Form("ShrubberyCreation", 145, 137), target_("Company")
 {
 	std::cout << "ShrubberyCreationForm Default constructor called" << std::endl;
 	return;
@@ -26,7 +26,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(void)
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
-	: Form("Shrubbery", 145, 137), target_(target)
+	: Form("ShrubberyCreation", 145, 137), target_(target)
 {
 	std::cout << "ShrubberyCreationForm Default constructor called" << std::endl;
 	return;
@@ -84,34 +84,34 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		std::cerr << target_ << ": failed to open output file" << std::endl;
 		return ;
 	}
-	std::string tree =  "                                              .\n" \
-		"                                   .         ;\n" \
-		"      .              .              ;%     ;;\n" \
-		"        ,           ,                :;%  %;\n" \
-		"         :         ;                   :;%;'     .,\n" \
-		",.        %;     %;            ;        %;'    ,;\n" \
-		"  ;       ;%;  %%;        ,     %;    ;%;    ,%'\n" \
-		"   %;       %;%;      ,  ;       %;  ;%;   ,%;'\n" \
-		"    ;%;      %;        ;%;        % ;%;  ,%;'\n" \
-		"     `%;.     ;%;     %;'         `;%%;.%;'\n" \
-		"      `:;%.    ;%%. %@;        %; ;@%;%'\n" \
-		"         `:%;.  :;bd%;          %;@%;'\n" \
-		"           `@%:.  :;%.         ;@@%;'\n" \
-		"             `@%.  `;@%.      ;@@%;\n" \
-		"               `@%%. `@%%    ;@@%;\n" \
-		"                 ;@%. :@%%  %@@%;\n" \
-		"                   %@bd%%%bd%%:;\n" \
-		"                     #@%%%%%:;;\n" \
-		"                     %@@%%%::;\n" \
-		"                     %@@@%(o);  .'\n" \
-		"                     %@@@o%;:(.,'\n" \
-		"                 `.. %@@@o%::;\n" \
-		"                    `)@@@o%::;\n" \
-		"                     %@@(o)::;\n" \
-		"                    .%@@@@%::;\n" \
-		"                    ;%@@@@%::;.\n" \
-		"                   ;%@@@@%%:;;;.\n" \
-		"               ...;%@@@@@%%:;;;;,.\n";
-	out_file << tree << tree << tree << tree;
+	out_file << "                                              ." << std::endl \
+		<< "                                   .         ;" << std::endl \
+		<< "      .              .              ;%     ;;" << std::endl \
+		<< "        ,           ,                :;%  %;" << std::endl \
+		<< "         :         ;                   :;%;'     .," << std::endl \
+		<< ",.        %;     %;            ;        %;'    ,;" << std::endl \
+		<< "  ;       ;%;  %%;        ,     %;    ;%;    ,%'" << std::endl \
+		<< "   %;       %;%;      ,  ;       %;  ;%;   ,%;'" << std::endl \
+		<< "    ;%;      %;        ;%;        % ;%;  ,%;'" << std::endl \
+		<< "     `%;.     ;%;     %;'         `;%%;.%;'" << std::endl \
+		<< "      `:;%.    ;%%. %@;        %; ;@%;%'" << std::endl \
+		<< "         `:%;.  :;bd%;          %;@%;'" << std::endl \
+		<< "           `@%:.  :;%.         ;@@%;'" << std::endl \
+		<< "             `@%.  `;@%.      ;@@%;" << std::endl \
+		<< "               `@%%. `@%%    ;@@%;" << std::endl \
+		<< "                 ;@%. :@%%  %@@%;" << std::endl \
+		<< "                   %@bd%%%bd%%:;" << std::endl \
+		<< "                     #@%%%%%:;;" << std::endl \
+		<< "                     %@@%%%::;" << std::endl \
+		<< "                     %@@@%(o);  . '" << std::endl \
+		<< "                     %@@@o%;:(.,'" << std::endl \
+		<< "                 `.. %@@@o%::;" << std::endl \
+		<< "                    `)@@@o%::;" << std::endl \
+		<< "                     %@@(o)::;" << std::endl \
+		<< "                    .%@@@@%::;" << std::endl \
+		<< "                    ;%@@@@%::;." << std::endl \
+		<< "                   ;%@@@@%%:;;;." << std::endl \
+		<< "               ...;%@@@@@%%:;;;;,.." << std::endl;
 	out_file.close();
+	return ;
 }

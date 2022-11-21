@@ -117,6 +117,17 @@ void	Form::beSigned(Bureaucrat const& obj)
 	return;
 }
 
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+void	Form::checkFormForExec(Bureaucrat const &executor) const
+{
+	if (is_signed_ == false)
+		throw Form::FormNotYetSigned();
+	else if (executor.getGrade() > exec_grade_)
+		throw Form::GradeTooLowException();
+	return;
+}
+
 /* -------------------------------------------------------------------------- */
 
 const char *Form::GradeTooHighException::what() const throw()
@@ -130,9 +141,16 @@ const char *Form::GradeTooLowException::what() const throw()
 {
 	return ("The grade is too Low!");
 }
-	
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+const char *Form::FormNotYetSigned::what() const throw()
+{
+	return ("Form not yet Signed!");
+}
+
 /* ************************************************************************** */
-/* ****************************  PROTOTYPES  ******************************** */
+/* *****************************  FUNCTIONS  ******************************** */
 /* ************************************************************************** */
 
 std::ostream &operator<<(std::ostream &output_stream, Form const &obj)
@@ -140,7 +158,7 @@ std::ostream &operator<<(std::ostream &output_stream, Form const &obj)
 	bool	form_is_signed = obj.getSignStatus();
 
 	output_stream << obj.getName();
-	output_stream << (form_is_signed ? " is signed" : " is not signed");
+	output_stream << (form_is_signed ? "is signed" : "is not signed");
 	output_stream << ", form Sign grade " << obj.getSignGrade() << ", ";
 	output_stream << ", form Exec grade " << obj.getExecGrade() << std::endl;
 	return (output_stream);

@@ -33,7 +33,7 @@ class RobotomyRequestForm: public Form
 
 	public:
 		RobotomyRequestForm(void);
-		RobotomyRequestForm(std::string);
+		RobotomyRequestForm(std::string, std::string);
 		RobotomyRequestForm(RobotomyRequestForm const &);
 		RobotomyRequestForm &operator=(RobotomyRequestForm const &);
 		~RobotomyRequestForm(void);

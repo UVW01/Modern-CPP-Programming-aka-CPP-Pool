@@ -84,7 +84,7 @@ std::string	Bureaucrat::getName(void) const
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-uint	Bureaucrat::getGrade(void) const
+int	Bureaucrat::getGrade(void) const
 {
 	return (grade_);
 }
@@ -93,7 +93,7 @@ uint	Bureaucrat::getGrade(void) const
 
 void	Bureaucrat::incrementGrade(void)
 {
-	if (grade_ < 1)
+	if (grade_ == 1)
 		throw Bureaucrat::GradeTooHighException();
 	else
 		grade_ -= 1;
@@ -104,7 +104,7 @@ void	Bureaucrat::incrementGrade(void)
 
 void	Bureaucrat::decrementGrade(void)
 {
-	if (grade_ > 150)
+	if (grade_ == 150)
 		throw Bureaucrat::GradeTooLowException();
 	else
 		grade_ += 1;
@@ -115,20 +115,17 @@ void	Bureaucrat::decrementGrade(void)
 
 void	Bureaucrat::signForm(Form &obj)
 {
-	int	sign_grade = obj.getSignGrade();
-
 	std::cout << name_;
-	if (grade_ <= sign_grade)
+	try
 	{
-		std::cout << " signed " << obj.getName();
 		obj.beSigned(*this);
+		std::cout << " signed " << obj.getName() << std::endl;
 	}
-	else
+	catch(const std::exception& e)
 	{
-		std::cout << " couldn’t sign " <<  obj.getName() << " because ";
-		std::cout << " bureaucrat grade is lower than form grade";
+		std::cerr << " couldn't sign " << obj.getName() << " because ";
+		std::cerr << e.what() << std::endl;
 	}
-	std::cout << std::endl;
 	return ;
 }
 
@@ -139,11 +136,14 @@ void	Bureaucrat::executeForm(Form &obj)
 	try
 	{
 		obj.execute(*this);
-		std::cout << name_ << " executed " << obj.getName() << std::endl;
+		std::cout << name_;
+		std::cout << " executed " << obj.getName() << "successfully!" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << name_;
+		std::cerr << " couldn't execute " << obj.getName() << " because ";
+		std::cerr << e.what() << std::endl;
 	}
 	return ;
 }
@@ -168,7 +168,7 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 
 std::ostream &operator<<(std::ostream &output_stream, Bureaucrat const &obj)
 {
-	output_stream << obj.getName() << ", bureaucrat grade " << obj.getGrade()
+	output_stream << obj.getName() << ", bureaucrat grade " << obj.getGrade() \
 		<< "." << std::endl;
 	return (output_stream);
 }

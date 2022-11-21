@@ -110,7 +110,7 @@ int	Form::getExecGrade(void) const
 
 void	Form::beSigned(Bureaucrat const& obj)
 {
-	int		bureaucrat_grade = obj.getGrade();
+	int bureaucrat_grade = obj.getGrade();
 	if (bureaucrat_grade > sign_grade_)
 		throw Form::GradeTooLowException();
 	is_signed_ = true;
@@ -146,7 +146,7 @@ const char *Form::GradeTooLowException::what() const throw()
 
 const char *Form::FormNotYetSigned::what() const throw()
 {
-	return ("Form not yet Signed!");
+	return ("The Form is not yet Signed!");
 }
 
 /* ************************************************************************** */
@@ -158,8 +158,8 @@ std::ostream &operator<<(std::ostream &output_stream, Form const &obj)
 	bool	form_is_signed = obj.getSignStatus();
 
 	output_stream << obj.getName();
-	output_stream << (form_is_signed ? "is signed" : "is not signed");
-	output_stream << ", form Sign grade " << obj.getSignGrade() << ", ";
-	output_stream << ", form Exec grade " << obj.getExecGrade() << std::endl;
+	output_stream << (form_is_signed ? " is signed" : " is not signed");
+	output_stream << ", sign_grade " << obj.getSignGrade();
+	output_stream << ", exec_grade " << obj.getExecGrade() << std::endl;
 	return (output_stream);
 }

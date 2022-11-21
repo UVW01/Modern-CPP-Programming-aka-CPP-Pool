@@ -84,7 +84,7 @@ std::string	Bureaucrat::getName(void) const
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-uint	Bureaucrat::getGrade(void) const
+int	Bureaucrat::getGrade(void) const
 {
 	return (grade_);
 }
@@ -93,7 +93,7 @@ uint	Bureaucrat::getGrade(void) const
 
 void	Bureaucrat::incrementGrade(void)
 {
-	if (grade_ < 1)
+	if (grade_ == 1)
 		throw Bureaucrat::GradeTooHighException();
 	else
 		grade_ -= 1;
@@ -104,7 +104,7 @@ void	Bureaucrat::incrementGrade(void)
 
 void	Bureaucrat::decrementGrade(void)
 {
-	if (grade_ > 150)
+	if (grade_ == 150)
 		throw Bureaucrat::GradeTooLowException();
 	else
 		grade_ += 1;
@@ -115,20 +115,17 @@ void	Bureaucrat::decrementGrade(void)
 
 void	Bureaucrat::signForm(Form &obj)
 {
-	int	sign_grade = obj.getSignGrade();
-
 	std::cout << name_;
-	if (grade_ <= sign_grade)
+	try
 	{
-		std::cout << " signed " << obj.getName();
 		obj.beSigned(*this);
+		std::cout << " signed " << obj.getName() << std::endl;
 	}
-	else
+	catch(const std::exception& e)
 	{
-		std::cout << " couldn’t sign " <<  obj.getName() << " because ";
-		std::cout << " bureaucrat grade is lower than form grade";
+		std::cerr << " couldn't sign " << obj.getName() << " because ";
+		std::cerr << e.what() << std::endl;
 	}
-	std::cout << std::endl;
 	return ;
 }
 
