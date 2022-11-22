@@ -77,7 +77,10 @@ std::string	RobotomyRequestForm::getTarget(void) const
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	checkFormForExec(executor);
-	srand( (unsigned)time(NULL) );
+	struct timeval	time;
+
+	gettimeofday(&time, NULL);
+	srand((time.tv_sec * 1000000) + time.tv_usec);
 	std::cout << target_;
 	if (rand() % 2)
 		std::cout << " has been robotomized successfully!";

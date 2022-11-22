@@ -20,7 +20,6 @@
 
 #include <iostream>
 #include <string>
-#include <string>
 #include "Bureaucrat.hpp"
 
 /* ************************************************************************** */
@@ -42,7 +41,7 @@ class Form
 		Form(Form const &);
 		Form(std::string, int, int);
 		Form &operator=(Form const &);
-		~Form(void);
+		virtual ~Form(void);
 
 		class GradeTooHighException : public std::exception {
 			public:

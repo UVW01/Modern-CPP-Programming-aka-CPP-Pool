@@ -17,7 +17,7 @@
 /* ************************************************************************** */
 
 RobotomyRequestForm::RobotomyRequestForm(void)
-	: Form("Shrubbery", 72, 45), target_("Shrubbery")
+	: Form("Robotomy Request", 72, 45), target_("Company")
 {
 	std::cout << "RobotomyRequestForm Default constructor called" << std::endl;
 	return;
@@ -26,7 +26,7 @@ RobotomyRequestForm::RobotomyRequestForm(void)
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
-	: Form("Robotomy", 72, 45), target_(target)
+	: Form("Robotomy Request", 72, 45), target_(target)
 {
 	std::cout << "RobotomyRequestForm Default constructor called" << std::endl;
 	return;
@@ -77,10 +77,15 @@ std::string	RobotomyRequestForm::getTarget(void) const
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	checkFormForExec(executor);
-	srand( (unsigned)time(NULL) );
+	struct timeval	time;
+
+	gettimeofday(&time, NULL);
+	srand((time.tv_sec * 1000000) + time.tv_usec);
 	std::cout << target_;
-	std::cout << (rand() % 2 ? " has been robotomized successfully!" : \
-		"'s robotomy has failed!");
+	if (rand() % 2)
+		std::cout << " has been robotomized successfully!";
+	else
+		std::cout << "'s robotomy has failed!";
 	std::cout << std::endl;
 	return ;
 }

@@ -1,49 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   Serial.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <mnaimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 18:09:25 by mnaimi            #+#    #+#             */
-/*   Updated: 2022/11/17 00:13:37 by mnaimi           ###   ########.fr       */
+/*   Created: 2022/11/22 22:42:34 by mnaimi            #+#    #+#             */
+/*   Updated: 2022/11/22 22:42:35 by mnaimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef ROBOTOMY_REQUEST_FORM_HPP_
-#define ROBOTOMY_REQUEST_FORM_HPP_
+#ifndef SERIAL_HPP_
+#define SERIAL_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-#include "Form.hpp"
-#include <sys/time.h>
-#include <cstdlib>
+#include <iostream>
+#include <string>
 
 /* ************************************************************************** */
-/* *****************************   CLASSES   ******************************** */
+/* *****************************   STRUCTS   ******************************** */
 /* ************************************************************************** */
 
-class RobotomyRequestForm: public Form
+struct Data
 {
-	private:
-		std::string		target_;
-
-	public:
-		RobotomyRequestForm(void);
-		RobotomyRequestForm(std::string);
-		RobotomyRequestForm(RobotomyRequestForm const &);
-		RobotomyRequestForm &operator=(RobotomyRequestForm const &);
-		~RobotomyRequestForm(void);
-
-		std::string	getTarget(void) const;
-		void		execute(Bureaucrat const & executor) const;
+	int	number;
 };
 
 /* ************************************************************************** */
 /* ****************************   PROTOTYPES   ****************************** */
 /* ************************************************************************** */
+
+uintptr_t	serialize(Data* ptr);
+Data*		deserialize(uintptr_t raw);
 
 #endif

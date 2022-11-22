@@ -12,25 +12,57 @@
 
 #include "Bureaucrat.hpp"
 
-int main(void)
+/* ************************************************************************** */
+
+static void bureaucratTest(void)
 {
-    Bureaucrat b;
-    try
-    {
-        std::cout << b;
-		std::cout << b.getName() << std::endl;
-		std::cout << b.getGrade() << std::endl;
+	try
+	{
+		Bureaucrat naimi("Naimi", 156);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	try
+	{
+		Bureaucrat naimi("Naimi", 0);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	Bureaucrat	mohamed("Mohamed", 1);
+	Bureaucrat	amine("Amine", 150);
 
-        b.incrementGrade();
-        b.decrementGrade();
-        b.decrementGrade();
-        std::cout << b;
-		std::cout << b.getName() << std::endl;
-		std::cout << b.getGrade() << std::endl;
+	std::cout << mohamed << amine << std::endl;
+	try
+	{
+		mohamed.incrementGrade();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	try
+	{
+		amine.decrementGrade();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	mohamed.decrementGrade();
+	amine.incrementGrade();
+	std::cout << mohamed << amine << std::endl;
+}
 
-    }
-    catch (const std::exception& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
+/* ************************************************************************** */
+
+int	main(void)
+{
+	std::cout << "\n-------------------------------------------\n" << std::endl;
+	bureaucratTest();
+	std::cout << "\n-------------------------------------------\n" << std::endl;
+	return (0);
 }

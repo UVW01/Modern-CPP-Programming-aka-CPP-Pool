@@ -23,7 +23,6 @@ Bureaucrat::Bureaucrat(void)
 	return;
 }
 
-
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
 Bureaucrat::Bureaucrat(std::string name, int grade)

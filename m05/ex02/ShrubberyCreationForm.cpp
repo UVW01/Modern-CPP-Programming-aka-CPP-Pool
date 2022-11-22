@@ -17,7 +17,7 @@
 /* ************************************************************************** */
 
 ShrubberyCreationForm::ShrubberyCreationForm(void)
-	: Form("Shrubbery", 145, 137), target_("Company")
+	: Form("ShrubberyCreation", 145, 137), target_("Garden")
 {
 	std::cout << "ShrubberyCreationForm Default constructor called" << std::endl;
 	return;
@@ -26,7 +26,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(void)
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
-	: Form("Shrubbery", 145, 137), target_(target)
+	: Form("ShrubberyCreation", 145, 137), target_(target)
 {
 	std::cout << "ShrubberyCreationForm Default constructor called" << std::endl;
 	return;
@@ -77,8 +77,7 @@ std::string	ShrubberyCreationForm::getTarget(void) const
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	checkFormForExec(executor);
-	std::ofstream	out_file;
-	out_file.open(target_ + "_shrubbery", std::ios_base::out);
+	std::ofstream	out_file(target_ + "_shrubbery", std::ios_base::out);
 	if (out_file.is_open() == false)
 	{
 		std::cerr << target_ << ": failed to open output file" << std::endl;

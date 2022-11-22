@@ -91,7 +91,7 @@ static void internTest(void)
 {
 	Form		*form;
 	Intern		intern;
-	std::cout << std::endl << std::endl << std::endl;
+	std::cout << std::endl << std::endl;
 	form = intern.makeForm("shrubbery creation", "Bonsai");
 	if (form)
 		std::cout << *form << std::endl;
@@ -115,6 +115,7 @@ static void internTest(void)
 
 int	main(void)
 {
+	std::cout << "\n-------------------------------------------\n" << std::endl;
 	bureaucratTest();
 	std::cout << "\n-------------------------------------------\n" << std::endl;
 	shrubberyCreationTest();
@@ -124,5 +125,7 @@ int	main(void)
 	presidentialPardonTest();
 	std::cout << "\n-------------------------------------------\n" << std::endl;
 	internTest();
+	std::cout << "\n-------------------------------------------\n" << std::endl;
+	system("leaks Intern");
 	return (0);
 }

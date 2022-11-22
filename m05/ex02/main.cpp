@@ -15,6 +15,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include <unistd.h>
 
 /* ************************************************************************** */
 
@@ -68,7 +69,8 @@ static void robotomyRequestTest(void)
 	std::cout << mohamed << r_form << std::endl;
 	mohamed.executeForm(r_form);
 	mohamed.signForm(r_form);
-	mohamed.executeForm(r_form);
+	for (size_t i = 0; i < 10; i++)
+		mohamed.executeForm(r_form);
 }
 
 /* ************************************************************************** */
@@ -88,6 +90,7 @@ static void presidentialPardonTest(void)
 
 int	main(void)
 {
+	std::cout << "\n-------------------------------------------\n" << std::endl;
 	bureaucratTest();
 	std::cout << "\n-------------------------------------------\n" << std::endl;
 	shrubberyCreationTest();
@@ -95,5 +98,6 @@ int	main(void)
 	robotomyRequestTest();
 	std::cout << "\n-------------------------------------------\n" << std::endl;
 	presidentialPardonTest();
+	std::cout << "\n-------------------------------------------\n" << std::endl;
 	return (0);
 }
