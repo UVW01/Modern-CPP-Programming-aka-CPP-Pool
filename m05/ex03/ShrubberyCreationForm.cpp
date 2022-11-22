@@ -17,7 +17,7 @@
 /* ************************************************************************** */
 
 ShrubberyCreationForm::ShrubberyCreationForm(void)
-	: Form("ShrubberyCreation", 145, 137), target_("Company")
+	: Form("ShrubberyCreation", 145, 137), target_("Garden")
 {
 	std::cout << "ShrubberyCreationForm Default constructor called" << std::endl;
 	return;
@@ -77,41 +77,40 @@ std::string	ShrubberyCreationForm::getTarget(void) const
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	checkFormForExec(executor);
-	std::ofstream	out_file;
-	out_file.open(target_ + "_shrubbery", std::ios_base::out);
+	std::ofstream	out_file(target_ + "_shrubbery", std::ios_base::out);
 	if (out_file.is_open() == false)
 	{
 		std::cerr << target_ << ": failed to open output file" << std::endl;
 		return ;
 	}
-	out_file << "                                              ." << std::endl \
-		<< "                                   .         ;" << std::endl \
-		<< "      .              .              ;%     ;;" << std::endl \
-		<< "        ,           ,                :;%  %;" << std::endl \
-		<< "         :         ;                   :;%;'     .," << std::endl \
-		<< ",.        %;     %;            ;        %;'    ,;" << std::endl \
-		<< "  ;       ;%;  %%;        ,     %;    ;%;    ,%'" << std::endl \
-		<< "   %;       %;%;      ,  ;       %;  ;%;   ,%;'" << std::endl \
-		<< "    ;%;      %;        ;%;        % ;%;  ,%;'" << std::endl \
-		<< "     `%;.     ;%;     %;'         `;%%;.%;'" << std::endl \
-		<< "      `:;%.    ;%%. %@;        %; ;@%;%'" << std::endl \
-		<< "         `:%;.  :;bd%;          %;@%;'" << std::endl \
-		<< "           `@%:.  :;%.         ;@@%;'" << std::endl \
-		<< "             `@%.  `;@%.      ;@@%;" << std::endl \
-		<< "               `@%%. `@%%    ;@@%;" << std::endl \
-		<< "                 ;@%. :@%%  %@@%;" << std::endl \
-		<< "                   %@bd%%%bd%%:;" << std::endl \
-		<< "                     #@%%%%%:;;" << std::endl \
-		<< "                     %@@%%%::;" << std::endl \
-		<< "                     %@@@%(o);  . '" << std::endl \
-		<< "                     %@@@o%;:(.,'" << std::endl \
-		<< "                 `.. %@@@o%::;" << std::endl \
-		<< "                    `)@@@o%::;" << std::endl \
-		<< "                     %@@(o)::;" << std::endl \
-		<< "                    .%@@@@%::;" << std::endl \
-		<< "                    ;%@@@@%::;." << std::endl \
-		<< "                   ;%@@@@%%:;;;." << std::endl \
-		<< "               ...;%@@@@@%%:;;;;,.." << std::endl;
+	std::string tree =  "                                              .\n" \
+		"                                   .         ;\n" \
+		"      .              .              ;%     ;;\n" \
+		"        ,           ,                :;%  %;\n" \
+		"         :         ;                   :;%;'     .,\n" \
+		",.        %;     %;            ;        %;'    ,;\n" \
+		"  ;       ;%;  %%;        ,     %;    ;%;    ,%'\n" \
+		"   %;       %;%;      ,  ;       %;  ;%;   ,%;'\n" \
+		"    ;%;      %;        ;%;        % ;%;  ,%;'\n" \
+		"     `%;.     ;%;     %;'         `;%%;.%;'\n" \
+		"      `:;%.    ;%%. %@;        %; ;@%;%'\n" \
+		"         `:%;.  :;bd%;          %;@%;'\n" \
+		"           `@%:.  :;%.         ;@@%;'\n" \
+		"             `@%.  `;@%.      ;@@%;\n" \
+		"               `@%%. `@%%    ;@@%;\n" \
+		"                 ;@%. :@%%  %@@%;\n" \
+		"                   %@bd%%%bd%%:;\n" \
+		"                     #@%%%%%:;;\n" \
+		"                     %@@%%%::;\n" \
+		"                     %@@@%(o);  .'\n" \
+		"                     %@@@o%;:(.,'\n" \
+		"                 `.. %@@@o%::;\n" \
+		"                    `)@@@o%::;\n" \
+		"                     %@@(o)::;\n" \
+		"                    .%@@@@%::;\n" \
+		"                    ;%@@@@%::;.\n" \
+		"                   ;%@@@@%%:;;;.\n" \
+		"               ...;%@@@@@%%:;;;;,.\n";
+	out_file << tree << tree << tree << tree;
 	out_file.close();
-	return ;
 }

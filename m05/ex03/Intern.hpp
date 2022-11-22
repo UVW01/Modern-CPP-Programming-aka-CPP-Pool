@@ -18,9 +18,9 @@
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include "Form.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */

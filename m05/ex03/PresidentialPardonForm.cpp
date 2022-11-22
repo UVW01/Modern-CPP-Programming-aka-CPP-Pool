@@ -17,7 +17,7 @@
 /* ************************************************************************** */
 
 PresidentialPardonForm::PresidentialPardonForm(void)
-	: Form("PresidentialPardon", 25, 5), target_("Company")
+	: Form("Presidential Pardon", 25, 5), target_("Parliament")
 {
 	std::cout << "PresidentialPardonForm Default constructor called" << std::endl;
 	return;
@@ -26,7 +26,7 @@ PresidentialPardonForm::PresidentialPardonForm(void)
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target)
-	: Form("PresidentialPardon", 25, 5), target_(target)
+	: Form("Presidential Pardon", 25, 5), target_(target)
 {
 	std::cout << "PresidentialPardonForm Default constructor called" << std::endl;
 	return;
@@ -77,7 +77,7 @@ std::string	PresidentialPardonForm::getTarget(void) const
 void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	checkFormForExec(executor);
-	std::cout << "Informs that " << target_ ;
-	std::cout << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+	std::cout << target_ << " has been pardoned by Zaphod Beeblebrox." \
+		<< std::endl;
 	return ;
 }

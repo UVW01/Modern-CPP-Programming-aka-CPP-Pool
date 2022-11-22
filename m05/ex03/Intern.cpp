@@ -27,7 +27,7 @@ Intern::Intern(void)
 Intern::Intern(Intern const &obj)
 {
 	std::cout << "Intern Copy constructor called" << std::endl;
-
+	(void)obj;
 	return;
 }
 
@@ -39,7 +39,6 @@ Intern &Intern::operator=(Intern const &obj)
 	{
 		std::cout << "Intern Copy assignment operator called" << std::endl;	
 	}
-
 	return (*this);
 }
 
@@ -55,12 +54,34 @@ Intern::~Intern(void)
 /* ******************************  METHODS  ********************************* */
 /* ************************************************************************** */
 
-Form *Intern::makeForm(std::string form_type, std::string form_name)
+Form	*Intern::makeForm(std::string form_name, std::string form_target)
 {
-	std::string	form_types[3] = {
-		"robotomy request",
-		"shrubbery request",
-		"presidential request"
-	} 
-	
+	Form			*output_form = NULL;
+	int				index = 0;
+	std::string		form_names[4] = {
+		"robotomy request", "shrubbery creation",
+		"presidential pardon", "dummy"
+	};
+
+	while (index < 4 && form_name.compare(form_names[index]))
+		index++;
+	switch (index)
+	{
+		case 0:
+			std::cout << "Intern creates RobotomyRequestForm" << std::endl;
+			output_form = new RobotomyRequestForm(form_target);
+			break;
+		case 1:
+			std::cout << "Intern creates ShrubberyCreationForm" << std::endl;
+			output_form = new ShrubberyCreationForm(form_target);
+			break;
+		case 2:
+			std::cout << "Intern creates PresidentialPardonForm" << std::endl;
+			output_form = new PresidentialPardonForm(form_target);
+			break;
+		default:
+			std::cerr << "No matching form found!" << std::endl;
+			break;
+	}
+	return (output_form);
 }

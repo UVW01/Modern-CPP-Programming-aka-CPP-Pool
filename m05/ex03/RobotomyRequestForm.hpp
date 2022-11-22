@@ -18,9 +18,9 @@
 /* ****************************   INCLUDES   ******************************** */
 /* ************************************************************************** */
 
+#include "Form.hpp"
 #include <ctime>
 #include <cstdlib>
-#include "Form.hpp"
 
 /* ************************************************************************** */
 /* *****************************   CLASSES   ******************************** */
@@ -33,7 +33,7 @@ class RobotomyRequestForm: public Form
 
 	public:
 		RobotomyRequestForm(void);
-		RobotomyRequestForm(std::string, std::string);
+		RobotomyRequestForm(std::string);
 		RobotomyRequestForm(RobotomyRequestForm const &);
 		RobotomyRequestForm &operator=(RobotomyRequestForm const &);
 		~RobotomyRequestForm(void);

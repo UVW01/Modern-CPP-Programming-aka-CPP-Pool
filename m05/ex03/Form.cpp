@@ -26,8 +26,10 @@ Form::Form(void)
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
 Form::Form(std::string name, int sign_grade, int exec_grade)
-	: name_(name), is_signed_(false)
-	, sign_grade_(sign_grade), exec_grade_(exec_grade)
+	: name_(name)
+	, is_signed_(false)
+	, sign_grade_(sign_grade)
+	, exec_grade_(exec_grade)
 {
 	std::cout << "Form Initialization constructor called" << std::endl;
 	if (sign_grade_ > 150 || exec_grade_ > 150)
@@ -40,8 +42,10 @@ Form::Form(std::string name, int sign_grade, int exec_grade)
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
 Form::Form(Form const &obj)
-	: name_(obj.name_), is_signed_(obj.is_signed_)
-	, sign_grade_(obj.sign_grade_), exec_grade_(obj.exec_grade_)
+	: name_(obj.name_)
+	, is_signed_(obj.is_signed_)
+	, sign_grade_(obj.sign_grade_)
+	, exec_grade_(obj.exec_grade_)
 {
 	std::cout << "Form Copy constructor called" << std::endl;
 	if (sign_grade_ > 150 || exec_grade_ > 150)
@@ -110,7 +114,8 @@ int	Form::getExecGrade(void) const
 
 void	Form::beSigned(Bureaucrat const& obj)
 {
-	int		bureaucrat_grade = obj.getGrade();
+	int	bureaucrat_grade = obj.getGrade();
+
 	if (bureaucrat_grade > sign_grade_)
 		throw Form::GradeTooLowException();
 	is_signed_ = true;
@@ -121,10 +126,10 @@ void	Form::beSigned(Bureaucrat const& obj)
 
 void	Form::checkFormForExec(Bureaucrat const &executor) const
 {
-	if (is_signed_ == false)
-		throw Form::FormNotYetSigned();
-	else if (executor.getGrade() > exec_grade_)
+	if (executor.getGrade() > exec_grade_)
 		throw Form::GradeTooLowException();
+	else if (is_signed_ == false)
+		throw Form::FormNotYetSigned();
 	return;
 }
 
@@ -146,7 +151,7 @@ const char *Form::GradeTooLowException::what() const throw()
 
 const char *Form::FormNotYetSigned::what() const throw()
 {
-	return ("Form not yet Signed!");
+	return ("Form not is yet Signed!");
 }
 
 /* ************************************************************************** */
@@ -157,9 +162,9 @@ std::ostream &operator<<(std::ostream &output_stream, Form const &obj)
 {
 	bool	form_is_signed = obj.getSignStatus();
 
-	output_stream << obj.getName();
-	output_stream << (form_is_signed ? "is signed" : "is not signed");
-	output_stream << ", form Sign grade " << obj.getSignGrade() << ", ";
-	output_stream << ", form Exec grade " << obj.getExecGrade() << std::endl;
+	output_stream << obj.getName() \
+		<< (form_is_signed ? " is signed" : " is not signed") \
+		<< ", sign_grade " << obj.getSignGrade() << ", exec_grade " \
+		<< obj.getExecGrade() << std::endl;
 	return (output_stream);
 }
