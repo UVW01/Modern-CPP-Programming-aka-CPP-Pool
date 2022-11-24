@@ -10,28 +10,63 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iter.hpp"
+#include <iostream>
+#include "Array.hpp"
+#define MAX_VAL 750
 
 /* ************************************************************************** */
 /* ********************************  MAIN  ********************************** */
 /* ************************************************************************** */
 
-int main( void )
+int main(int, char **)
 {
-	int		iArr[5] = {0, 1, 2, 3, 4};
-	iter<int>(iArr, 5, &print_value);
-	std::cout << std::endl;
+	Array<int> numbers(MAX_VAL);
+	int *mirror = new int[MAX_VAL];
+	srand(time(NULL));
+	for (int i = 0; i < MAX_VAL; i++)
+	{
+		const int value = rand();
+		numbers[i] = value;
+		mirror[i] = value;
+	}
+	// SCOPE
+	{
+		Array<int> tmp = numbers;
+		Array<int> test(tmp);
+	}
 
-	float	fArr[5] = {10.0f, 11.0f, 12.0f, 13.0f, 14.0f};
-	iter<float>(fArr, 5, &print_value);
-	std::cout << std::endl;
+	for (int i = 0; i < MAX_VAL; i++)
+	{
+		if (mirror[i] != numbers[i])
+		{
+			std::cerr << "didn't save the same value!!" << std::endl;
+			delete [] mirror;
+			return 1;
+		}
+	}
+	try
+	{
+		numbers[-2] = 0;
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		numbers[MAX_VAL] = 0;
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 
-	double	dArr[5] = {20.0, 21.0, 22.0, 23.0, 24.0};
-	iter<double>(dArr, 5, &print_value);
-	std::cout << std::endl;
-
-	char	cArr[5] = "abcd";
-	iter<char>(cArr, 5, &print_value);
-
-	return (0);
+	for (int i = 0; i < MAX_VAL; i++)
+	{
+		numbers[i] = rand();
+	}
+	delete[] mirror; //
+	return 0;
+	system ("leaks Array");
+	return 0;
 }

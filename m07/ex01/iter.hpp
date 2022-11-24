@@ -26,7 +26,7 @@
 /* ************************************************************************** */
 
 template <typename T>
-void	print_value(T elem)
+void	print_value(T const &elem)
 {
 	std::cout << elem << std::endl;
 	
@@ -34,7 +34,7 @@ void	print_value(T elem)
 }
 
 template <typename T>
-void	iter(T *arr, size_t len, void (*f)(T))
+void	iter(T *arr, size_t len, void (*f)(T const &))
 {
 	if (arr == NULL || f == NULL)
 		return ;
