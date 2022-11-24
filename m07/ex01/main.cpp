@@ -10,21 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "TypeConversion.hpp"
+#include "iter.hpp"
 
 /* ************************************************************************** */
 /* ********************************  MAIN  ********************************** */
 /* ************************************************************************** */
 
-int main(int argc, char const **argv)
+int main( void )
 {
-	if (argc != 2)
-	{
-		std::cerr << "Error: invalid input" << std::endl;
-		return (1);
-	}
-	std::string input(argv[1]);
-	TypeConversion	t(input);
-	t.convert();
+	int		iArr[5] = {0, 1, 2, 3, 4};
+	iter<int>(iArr, 5, &print_value);
+	std::cout << std::endl;
+
+	float	fArr[5] = {10.0f, 11.0f, 12.0f, 13.0f, 14.0f};
+	iter<float>(fArr, 5, &print_value);
+	std::cout << std::endl;
+
+	double	dArr[5] = {20.0, 21.0, 22.0, 23.0, 24.0};
+	iter<double>(dArr, 5, &print_value);
+	std::cout << std::endl;
+
+	char	cArr[5] = "abcd";
+	iter<char>(cArr, 5, &print_value);
+
 	return (0);
 }
