@@ -36,8 +36,6 @@ int main(void)
 	{
 		std::cout << "Please enter the requested command: ";
 		std::getline(std::cin, cmd);
-		if (std::cin.eof())
-			return (0);
 		if (cmd.compare("ADD") == 0)
 		{
 			phonebook.add_contact(contact_index++);

@@ -21,7 +21,7 @@ NAME		:= megaphone
 MAIN		:= megaphone.cpp
 
 define print_status
-    @printf "%21s $2$3 successfully\e[0m\n" "$1 :"
+    @printf "%22s $2$3 successfully\e[0m\n" "$1 :"
 endef
 
 # ---------------------------------------------------------------------------- #

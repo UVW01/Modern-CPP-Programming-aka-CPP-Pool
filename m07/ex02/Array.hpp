@@ -32,6 +32,7 @@ class Array
 	private:
 		uint	m_size;
 		T*		m_ptrToArr;
+
 	public:
 		Array(void);
 		Array(uint);
@@ -39,10 +40,7 @@ class Array
 		Array &operator=(Array const &);
 		~Array(void);
 
-		T		&operator[](size_t);
-		uint	getSize(void) const;
-		T const &getArrayElement(size_t) const;
-		void	setArrayElement(size_t, T);
+		T	&operator[](size_t);
 };
 
 /* ************************************************************************** */
@@ -50,7 +48,8 @@ class Array
 /* ************************************************************************** */
 
 template <typename T>
-Array<T>::Array(void): m_size(0)
+Array<T>::Array(void)
+	: m_size(0)
 {
 	std::cout << "Array Default constructor called" << std::endl;
 	m_ptrToArr = new T [m_size];
@@ -60,9 +59,10 @@ Array<T>::Array(void): m_size(0)
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
 template <typename T>
-Array<T>::Array(uint size): m_size(size)
+Array<T>::Array(uint size)
+	: m_size(size)
 {
-	std::cout << "Array Default constructor called" << std::endl;
+	std::cout << "Array Initialization constructor called" << std::endl;
 	m_ptrToArr = new T [m_size];
 	return;
 }
@@ -70,7 +70,8 @@ Array<T>::Array(uint size): m_size(size)
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
 template <typename T>
-Array<T>::Array(Array const &obj): m_size(obj.m_size)
+Array<T>::Array(Array const &obj)
+	: m_size(obj.m_size)
 {
 	std::cout << "Array Copy constructor called" << std::endl;
 	m_ptrToArr = new T [m_size];
@@ -84,14 +85,15 @@ Array<T>::Array(Array const &obj): m_size(obj.m_size)
 template <typename T>
 Array<T> &Array<T>::operator=(Array const &obj)
 {
-	if (this == &obj)
-		return (*this);
-	std::cout << "Array Copy assignment operator called" << std::endl;
-	delete [] m_ptrToArr;
-	m_size = obj.m_size;
-	m_ptrToArr = new T [m_size];
-	for (size_t i = 0; i < m_size; i++)
-		m_ptrToArr[i] = obj.m_ptrToArr[i];
+	if (this != &obj)
+	{
+		std::cout << "Array Copy assignment operator called" << std::endl;
+		delete [] m_ptrToArr;
+		m_size = obj.m_size;
+		m_ptrToArr = new T [m_size];
+		for (size_t i = 0; i < m_size; i++)
+			m_ptrToArr[i] = obj.m_ptrToArr[i];
+	}
 	return (*this);
 }
 
@@ -114,7 +116,7 @@ T	&Array<T>::operator[](size_t index)
 {
 	if (index >= m_size)
 		throw std::out_of_range("Index out of range");
-	return (m_ptrToArr[m_size]);
+	return (m_ptrToArr[index]);
 }
 
 #endif

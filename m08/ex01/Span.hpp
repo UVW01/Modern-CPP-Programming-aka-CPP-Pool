@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   Span.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaimi <mnaimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 22:16:32 by mnaimi            #+#    #+#             */
-/*   Updated: 2022/11/18 21:22:46 by mnaimi           ###   ########.fr       */
+/*   Created: 2022/10/07 18:09:25 by mnaimi            #+#    #+#             */
+/*   Updated: 2022/11/17 00:13:37 by mnaimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef WHATEVER_HPP_
-#define WHATEVER_HPP_
+#ifndef SPAN_HPP_
+#define SPAN_HPP_
 
 /* ************************************************************************** */
 /* ****************************   INCLUDES   ******************************** */
@@ -20,29 +20,32 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm>
 
 /* ************************************************************************** */
-/* ****************************   TEMPLATES   ******************************* */
+/* *****************************   CLASSES   ******************************** */
 /* ************************************************************************** */
 
-template<typename T>
-void swap(T& a, T& b)
+class Span
 {
-	T tmp = a;
-	a = b;
-	b = tmp;
-}
+	private:
+		unsigned int		m_N;
+		std::vector<int>	m_vec;
 
-template<typename T>
-T& min(T& a, T& b)
-{
-	return (a < b ? a : b);
-}
+	public:
+		Span(void);
+		Span(unsigned int N);
+		Span(Span const &);
+		Span &operator=(Span const &);
+		~Span(void);
 
-template<typename T>
-T& max(T& a, T& b)
-{
-	return (a > b ? a : b);
-}
+		void	addNumber(int);
+		long	shortestSpan(void) const;
+		long	longestSpan(void) const;
+		void	addRange(std::vector<int>::iterator begin, \
+			std::vector<int>::iterator end);
+
+};
 
 #endif
